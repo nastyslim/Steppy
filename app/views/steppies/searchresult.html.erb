@@ -1,0 +1,12 @@
+<h1>Search Results for How to be a...</h1>
+
+
+
+
+<div class="maincont formpgs">
+	<% search().each do |result| %>
+	  <div style="height: 30px; background-color:lightgrey;"> <%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>
+	<% end %>
+</div>
+
+

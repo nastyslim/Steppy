@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  goal: MyString
+  region: MyString
+  description: MyText
+  step1: MyString
+  step2: MyString
+  step3: MyString
+  step4: MyString
+  step5: MyString
+  step6: MyString
+  step7: MyString
+  step8: MyString
+  step9: MyString
+  step10: MyString
+  ask: MyString
+
+two:
+  goal: MyString
+  region: MyString
+  description: MyText
+  step1: MyString
+  step2: MyString
+  step3: MyString
+  step4: MyString
+  step5: MyString
+  step6: MyString
+  step7: MyString
+  step8: MyString
+  step9: MyString
+  step10: MyString
+  ask: MyString

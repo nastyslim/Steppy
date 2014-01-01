@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  steppy: 
+  name: MyString
+  body: MyText
+
+two:
+  steppy: 
+  name: MyString
+  body: MyText

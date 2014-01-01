@@ -1,0 +1,87 @@
+<%= form_for(@steppy) do |f| %>
+  <% if @steppy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@steppy.errors.count, "error") %> prohibited this steppy from being saved:</h2>
+
+      <ul>
+      <% @steppy.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div class="maincont formpgs">
+  <p>
+      <h1 style="font-size:24px; font-weight:bold; padding-bottom:30px;">Create a new Staircase!</h1>
+    </p>
+  
+  <% if @steppy.ask.present? %>
+    <% @steppy.goal = @steppy.ask %>
+    <% @steppy.ask = "" %>
+  <%end %>
+
+
+  <form role="form" class="form-horizontal">
+  <div class="">
+  <div class="field">
+    <p class="myh3">Who do want to create a stair case for?</p>
+    <%= f.text_field :goal, :class => "form-control"%>
+  </div>
+  <div class="field">
+    <p class="myh3">Is it specific to any region?</p>
+    <%= f.text_field :region, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Anything you want to mention before you start?</p>
+    <%= f.text_area :description, :class => "form-control", :style => "height: 80px;" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 1</p>
+    <%= f.text_field :step1, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 2</p>
+    <%= f.text_field :step2, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 3</p>
+    <%= f.text_field :step3, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 4</p>
+    <%= f.text_field :step4, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 5</p>
+    <%= f.text_field :step5, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 6</p>
+    <%= f.text_field :step6, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 7</p>
+    <%= f.text_field :step7, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 8</p>
+    <%= f.text_field :step8, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 9</p>
+    <%= f.text_field :step9, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Step 10</p>
+    <%= f.text_field :step10, :class => "form-control" %>
+  </div>
+  <%= f.text_field :ask, :class => "form-control hide" %>
+</br>
+  <div class="actions"><%= f.submit "Post!", :class => "btn btn-danger bw", :style => "width: 100%;" %></div>
+  
+</div>  
+</div>
+</form>
+<% end %>

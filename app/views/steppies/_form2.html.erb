@@ -1,0 +1,34 @@
+<%= form_for(@steppy) do |f| %>
+  <% if @steppy.errors.any? %>
+    <div id="error_explanation notice">
+      <h2><%= pluralize(@steppy.errors.count, "error") %> prohibited this steppy from being saved:</h2>
+
+      <ul>
+      <% @steppy.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="maincont formpgs">
+  <p>
+    <h1 style="font-size:24px; font-weight:bold; padding-bottom:30px;">What do you want to be?</h1>
+  </p>
+  <form role="form" class="form-horizontal">
+  <div class="field">
+    <p class="myh3">Who do want to create a stair case for?</p>
+    <%= f.text_field :ask, :class => "form-control" %>
+  </div>
+  <div class="field">
+    <p class="myh3">Is it region specific?</p>
+    <%= f.text_field :region, :class => "form-control" %>
+  </div>
+</br>
+  <div class="actions">
+    <%= f.submit "Ask!", :class => "btn btn-danger bw", :style => "width: 100%;"  %>
+  </div>
+  </div>
+</div>
+
+<% end %>

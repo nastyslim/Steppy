@@ -1,0 +1,10 @@
+<% if @steppy.ask.present? %>
+<h1 id="notice">Answering A Steppy</h1>
+<% else %>
+<h1 id="notice">Editing A Steppy</h1>             
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @steppy %> |
+<%= link_to 'Back', steppies_path %>

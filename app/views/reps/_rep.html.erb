@@ -1,0 +1,11 @@
+<%= div_for rep do %>
+        <p>
+        	<div style="font-weight:bold; color:grey;"><%= rep.title %></div>
+            <div><%= rep.body %></div>
+                <strong style="font-size:12px;">
+                        Posted <%= time_ago_in_words(rep.created_at) %> ago | 
+                </strong>
+
+                <%= link_to 'Destroy', steppy_rep_path(@steppy, rep), method: :delete, data: { confirm: 'Are you sure?' }, :style => "font-size:12px;" %>
+        </p>
+<% end %>
