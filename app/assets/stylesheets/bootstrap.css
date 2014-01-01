@@ -308,7 +308,8 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-   background-color: #eaeaea; /*
+   background-color: #eaeaea; 
+   /* background-color:#3592dd;
   background-color: #3a92c8;
 background: -webkit-radial-gradient(circle,#94d2f8,#3a92c8);
 background: -moz-radial-gradient(circle,#94d2f8,#3a92c8);
