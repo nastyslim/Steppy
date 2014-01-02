@@ -4,239 +4,224 @@
 
 
 
-
-
-
-
-
-
 <div class="maincont formpgs" >
-<div class="row">
-<div class="col-md-9">
-
-<% if @steppy.goal.present? %>
-
-  <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
-
-  <% if @steppy.region.present? %>
-    <p style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region %></b></p>
-  <% else %>
-                      
-  <% end %>
-
-  <% if @steppy.description.present? %>
-  <p style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b>Description: </b><%= @steppy.description %></p>
-  <% else %>
-                      
-  <% end %>
-  
   <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">1</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step1 %>
-      </p>
-    </div>
-  </div>             
+    <div class="col-md-9">
+
+      <% if @steppy.goal.present? %>
+              <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
+
+                <% if @steppy.region.present? %>
+                  <p style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region %></b></p>
+                <% else %>              
+                <% end %>
+
+              <% if @steppy.description.present? %>
+                <p style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b>Description: </b><%= @steppy.description %></p>
+              <% else %>                
+              <% end %>
+        
+              <div class="row">
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">1</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step1 %>
+                  </p>
+                </div>
+              </div>             
 
 
 
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">2</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step2 %>
-      </p>
-    </div>
-  </div>              
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">2</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step2 %>
+                  </p>
+                </div>
+              </div>              
 
 
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">3</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step3 %>
-      </p>
-    </div>
-  </div>             
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">3</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step3 %>
+                  </p>
+                </div>
+              </div>             
 
 
-  <% if @steppy.region.present? %>
-              <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">4</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step4 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
+              <% if @steppy.step4.present? %>
+                <div class="row">
+                  <div class="col-md-1">
+                    <p style="font-size:24px;" class="numbs">4</p>
+                  </div>
+                  <div class="col-md-11">
+                    <p style="font-size:14px;" class="goal_panel2">
+                      <%= @steppy.step4 %>
+                    </p>
+                  </div>
+                </div>             
+              <% else %>          
+              <% end %>
     
-  <% if @steppy.region.present? %>
+            <% if @steppy.step5.present? %>
+                        <div class="row">
+              <div class="col-md-1">
+                <p style="font-size:24px;" class="numbs">5</p>
+              </div>
+              <div class="col-md-11">
+                <p style="font-size:14px;" class="goal_panel2">
+                  <%= @steppy.step5 %>
+                </p>
+              </div>
+            </div>             
+            <% else %>            
+            <% end %>
+
+            <% if @steppy.step6.present? %>
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">5</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step5 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">6</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step6 %>
+                  </p>
+                </div>
+              </div>             
+            <% else %>                     
+            <% end %>
 
-  <% if @steppy.step6.present? %>
+            <% if @steppy.step7.present? %>
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">6</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step6 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">7</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step7 %>
+                  </p>
+                </div>
+              </div>             
+            <% else %>                                
+            <% end %>
 
-  <% if @steppy.step7.present? %>
+            <% if @steppy.step8.present? %>
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">7</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step7 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">8</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step8 %>
+                  </p>
+                </div>
+              </div>             
+            <% else %>                  
+            <% end %>
 
-  <% if @steppy.step8.present? %>
+            <% if @steppy.step9.present? %>
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">8</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step8 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">9</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step9 %>
+                  </p>
+                </div>
+              </div>             
+            <% else %>                       
+            <% end %>
 
-  <% if @steppy.step9.present? %>
-    <div class="row">
-      <div class="col-md-1">
-        <p style="font-size:24px;" class="numbs">9</p>
-      </div>
-      <div class="col-md-11">
-        <p style="font-size:14px;" class="goal_panel2">
-          <%= @steppy.step9 %>
-        </p>
-      </div>
-    </div>             
-  <% else %>
-                      
-  <% end %>
-
-  <% if @steppy.step10.present? %>
+            <% if @steppy.step10.present? %>
               <div class="row">
-    <div class="col-md-1">
-      <p style="font-size:24px;" class="numbs">10</p>
-    </div>
-    <div class="col-md-11">
-      <p style="font-size:14px;" class="goal_panel2">
-        <%= @steppy.step10 %>
-      </p>
-    </div>
-  </div>             
-  <% else %>
-                      
-  <% end %>
-  <%= @steppy.ask %>
+                <div class="col-md-1">
+                  <p style="font-size:24px;" class="numbs">10</p>
+                </div>
+                <div class="col-md-11">
+                  <p style="font-size:14px;" class="goal_panel2">
+                    <%= @steppy.step10 %>
+                  </p>
+                </div>
+              </div>             
+            <% else %>                  
+            <% end %>
 
-<% else %>
-  <div>
-    <h1>How do I become a <%= @steppy.ask %>?</h1>
-      <% if @steppy.region.present? %>
-        <p>in <%= @steppy.region %></p>
+
+
+          <% else %>
+            <div>
+              <h1 style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.ask %>?</h1>
+                <% if @steppy.region.present? %>
+                  <p>in <b style="color:#E77738;"><%= @steppy.region %></b></p>
+                <% else %>                 
+                <% end %>
+              <%= link_to 'Answer this question!', edit_steppy_path(@steppy), :class => 'btn btn-danger bw', :style => "width:100%;" %>
+              </br>
+            </div>
+          <% end %>
+
+
+
+          <h1 style="font-size:14px; color:crimson; font-weight:bold;">Flag</h1>
+
+          <% if @steppy.goal.present? %>
+          <h1 style=" font-size:24px; margin-top:45px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:10px;">Comments</h1>
+
+          <div id="comments">
+                   <%= render :partial => @steppy.reps %>
+          </div>
+
+
+          <h1 style="margin-top:20px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:20px; font-size:24px;">Post a comment:</h1>
+          <%= form_for [@steppy, Rep.new] do |f| %>
+                  <p>
+                    <%= f.label :title, "Name" %><br/>
+                    <%= f.text_field :title, :class => "form-control" %>
+                    
+                  </p>
+                  <p>
+                    <%= f.label :body, "Comment" %><br/>
+                    <%= f.text_area :body, :class => "form-control", :style => "height:70px;" %>
+                  </p>
+                  <p>
+                    <%= f.submit "Add comment", :class => "btn btn-danger bw" %>
+                  </p>
+          <% end %>
+
+
       <% else %>
-                      
       <% end %>
 
-    <%= link_to 'Answer this question!', edit_steppy_path(@steppy), :class => 'btn btn-danger bw', :style => "width:100%;" %>
-  </br>
-  </div>
-<% end %>
 
-
-
-<h1 style="font-size:14px; color:crimson; font-weight:bold;">Flag</h1>
-
-<% if @steppy.goal.present? %>
-<h1 style=" font-size:24px; margin-top:45px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:10px;">Comments</h1>
-
-<div id="comments">
-         <%= render :partial => @steppy.reps %>
-
- </div>
-
-
-<h1 style="margin-top:20px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:20px; font-size:24px;">Post a comment:</h1>
- <%= form_for [@steppy, Rep.new] do |f| %>
-        <p>
-          <%= f.label :title, "Name" %><br/>
-          <%= f.text_field :title, :class => "form-control" %>
-          
-        </p>
-        <p>
-                <%= f.label :body, "Comment" %><br/>
-                <%= f.text_area :body, :class => "form-control", :style => "height:70px;" %>
-        </p>
-        <p><%= f.submit "Add comment", :class => "btn btn-danger bw" %></p>
-<% end %>
-
-
-<% else %>
-<% end %>
-
-
-  <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
-  <%= link_to 'Back', steppies_path %> |
-  <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-</div>
-
-<div class="col-md-3">
-  <div class="otherregions">
-    <h4>Other Regions</h4>
-    <p style="font-size:12px;">Check out how to become a <b><%= @steppy.goal %></b> in other regions:</p>
-    <div class="orinner">
-      <% regionlist().each do |region| %>
-        <div><%= link_to region.region, steppy_path(region) %></div>
-      <% end %>
+    <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
+    <%= link_to 'Back', steppies_path %> |
+    <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
-  </div>
-</div>
 
-</div>
+    <div class="col-md-3">
+      <% if @steppy.goal.present? %>
+        <div class="otherregions">
+          <h4>Other Regions</h4>
+          <p style="font-size:12px;">Check out how to become a <b><%= @steppy.goal %></b> in other regions:</p>
+          <div class="orinner">
+            <% regionlist().each do |region| %>
+              <div><%= link_to region.region, steppy_path(region) %></div>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+  </div>
 </div>
 

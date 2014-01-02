@@ -95,8 +95,9 @@ a:visited {
 	-moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
 	box-shadow: 0 0 125px rgba(255,255,255,.35); */
 	background: #fdfdfd;
-	margin: 40px auto;
-	min-height: 600px;
+	margin: auto;
+
+
 }
 
 .formpgs {
@@ -105,6 +106,23 @@ a:visited {
 	padding-right: 60px;
 	padding-top: 40px;
 	padding-bottom: 40px;
+}
+
+.formpgs2 {
+	margin-top: 15px;
+	padding-left: 200px;
+	padding-right: 200px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.moresteps {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.addstep {
+	display: none;
 }
 
 .myh3 {
@@ -186,11 +204,10 @@ footer{
 }
 
 .banner {
-	background-image: url('');
-	height: 200px;
+	height: 314px;
 	background-size: 100%;
-	background-color: ;
-	margin-top: 60px;
+	padding-top: 60px;
+	padding-bottom: 100px;
 }
 
 .bannertxt {
@@ -207,6 +224,7 @@ footer{
 	/* background-image: url('bannerbg2.png'); 
 	background-size: 100%;
 	background-repeat:no-repeat; */
+	background-color: #eaeaea; 
 
 }
 
@@ -275,3 +293,20 @@ footer{
 .acolor {
 	color: white;
 }
+
+.banngerbg {
+  	position: absolute;
+  	left: 0;
+  	right: 0;
+	background-color: rgb(96, 185, 15);
+	height: 314px;
+}
+
+.searchresults {
+	font-size: medium;
+	
+	padding: 15px;
+
+	margin: 5px;
+}
+

@@ -1,77 +1,63 @@
+
 <div class="banner">
     <h1 class="bannertxt" style="font-size:28px;">Its hard to know what your first step should be.</h1>
-
     <h1 class="bannertxt hb2" style="font-size:28px;">How do I become a..?</h1>
     <p class="subhead">Find out what steps you need to take to achieve your goals!</p>
-    
     <div class="search">
         <div class="insearch">
-            
                 <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
-                <div class="form-group">
-
-                    <%= text_field_tag :search, params[:search], :class => "form-control", :style => "width:550px;" %>
-                </div>
-                <div class="form-group">
-                    <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
-                </div>
+                    <div class="form-group">
+                        <%= text_field_tag :search, params[:search], :class => "form-control", :style => "width:550px;" %>
+                    </div>
+                    <div class="form-group">
+                        <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
+                    </div>
                 <% end %>
-           
        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row maincont">
+    <div class="col-md-6 bg">
+        <h1 style="text-align:center;">Newest Staircases</h1>
+        <% @steppy = Steppy.order('updated_at DESC')%>
+
+        <% @steppy.each do |steppy| %>
+            <% if steppy.goal.present? %>
+                <div class="goal_panel_new">
+                    <%= link_to steppy do%>
+                    <div>
+                        <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal %></b></div>
+                    </div>
+                    <% end %>
+                </div>
+            <% else %>        
+            <% end %>
+        <% end %>
+        <br/>
     </div>
 
 
 
 
+    <div  style="" class="col-md-6">
+        <h1 style="text-align:center;">Recently Requested Staircases</h1>
+        <% @steppy = Steppy.order('created_at DESC')%>
 
-</div>
-
-
-
-<div class="row maincont">
-  <div class="col-md-6 bg">
-    <h1 style="text-align:center;">Newest Staircases</h1>
- <% @steppy = Steppy.order('updated_at DESC')%>
-
-    <% @steppy.each do |steppy| %>
-    <% if steppy.goal.present? %>
-        <div class="goal_panel_new"  style="">
-        <%= link_to steppy do%>
-            <div>
-                <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal %></b></div>
-            </div>
-        <% end %>
-        </div>
-        <% else %>
-                    
-        <% end %>
-    <% end %>
-
-
-
-<br />
-</div>
-
-
-
-
-<div  style="" class="col-md-6">
-    <h1 style="text-align:center;">Recently Requested Staircases</h1>
-<% @steppy = Steppy.order('created_at DESC')%>
-
-    <% @steppy.each do |steppy| %>
-    <% if steppy.ask.present? %>        
-            <div class="goal_panel3">
-            <%= link_to steppy do%>
-                <div>
-                    <div class="goal"><%= steppy.ask %></div>
+        <% @steppy.each do |steppy| %>
+            <% if steppy.ask.present? %>        
+                <div class="goal_panel3">
+                    <%= link_to steppy do%>
+                        <div>
+                            <div class="goal"><%= steppy.ask %></div>
+                        </div>
+                    <% end %>
                 </div>
+            <% else %>
             <% end %>
-            </div>
-    <% else %>
-
-    <% end %>
-<% end %>
-
-</div>
+        <% end %>
+    </div>
 </div>

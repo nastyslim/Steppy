@@ -2,9 +2,6 @@ class SteppiesController < ApplicationController
   # GET /steppies
   # GET /steppies.json
   def index
-
-
-
     @steppies = Steppy.all
 
     respond_to do |format|

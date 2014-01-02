@@ -4,8 +4,7 @@ class Steppy < ActiveRecord::Base
 
   validates_presence_of :goal, :step1, :step2, :step3, :unless => :is_there_ask
 
-  def search
-    search = "Lawyer"
-    
+  def is_there_ask
+  	ask.present?
   end
 end

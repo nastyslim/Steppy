@@ -1,7 +1,8 @@
 <%= div_for rep do %>
         <p>
-        	<div style="font-weight:bold; color:grey;"><%= rep.title %></div>
+        	<div style="font-weight:bold; color:#E77738;"><%= rep.title %></div>
             <div><%= rep.body %></div>
+            
                 <strong style="font-size:12px;">
                         Posted <%= time_ago_in_words(rep.created_at) %> ago | 
                 </strong>
