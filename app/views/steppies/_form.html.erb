@@ -51,11 +51,6 @@
   </div>
 
 
-  <div class="moresteps btn btn-success">
-    + Add a Step
-  </div>
-
-
   <div class="field addstep">
     <p class="myh3">Step 4</p>
     <%= f.text_field :step4, :class => "form-control" %>
@@ -84,6 +79,11 @@
     <p class="myh3">Step 10</p>
     <%= f.text_field :step10, :class => "form-control" %>
   </div>
+  
+  <div class="moresteps btn btn-success" id="more">
+    + Add a Step
+  </div>
+
   <%= f.text_field :ask, :class => "form-control hide" %>
 </br>
   <div class="actions"><%= f.submit "Post!", :class => "btn btn-danger bw", :style => "width: 100%;" %></div>
@@ -91,4 +91,15 @@
 </div>  
 </div>
 </form>
+
+<script>
+      $(document).ready(function() {
+
+      $("#more").click(function(){
+         $(".addstep").slideDown( 'slow', function(){ 
+             $(".log").text('Slide Down Transition Complete');
+          });
+      });
+   });
+</script>
 <% end %>

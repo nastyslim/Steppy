@@ -4,6 +4,6 @@ module ApplicationHelper
   	end
 
   	def search
-  		return Steppy.where(:goal => params[:search])
+  		Steppy.where("lower(goal) = ?", params[:search].downcase)
   	end
 end

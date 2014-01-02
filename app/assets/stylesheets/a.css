@@ -1,3 +1,9 @@
+html, body {
+	height: 100%;
+}
+
+
+
 .container {
 	background-color: ;
 	width: 930px;
@@ -220,12 +226,16 @@ footer{
 	color: white;
 }
 
-.appcont {
-	/* background-image: url('bannerbg2.png'); 
-	background-size: 100%;
-	background-repeat:no-repeat; */
-	background-color: #eaeaea; 
+.page {
+	min-height: 100%;
+    position:relative;
+}
 
+.appcont {
+	background-image: url('bg.png'); 
+	background-repeat:repeat-x; 
+	background-color: #eaeaea; 
+	padding-bottom: 75px;
 }
 
 .navbtns:visited {
@@ -274,6 +284,9 @@ footer{
 .footer2 {
 	background: #212a34;
 	height: 70px;
+	position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .otherregions {
