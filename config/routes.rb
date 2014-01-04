@@ -1,4 +1,4 @@
-Steppy::Application.routes.draw do
+SteppyApp::Application.routes.draw do
   root to:"steppies#index"
   get "steppies/ask", to: "steppies#ask"
   get "steppies/ask2"

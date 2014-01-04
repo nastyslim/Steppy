@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Steppy::Application.load_tasks
+SteppyApp::Application.load_tasks
