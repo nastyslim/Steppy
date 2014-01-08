@@ -17,30 +17,30 @@
 							<a href="/steppies" style="padding-left:0; color:red;  font-size:15px;">Steppy - fork</a>	
 						</div>
 					</div>
+					<!-- right nav-->
 					<div class="col-md-6">
 						<div class="alignleft" style="text-align:right;">
 							<%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %>
 							<%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %>
-
+							<!-- current user toggle -->
 							<% if current_user %>
-								<%= link_to current_user.username, current_user %>
-								<%= link_to "log out", logout_path %>
-								
+								<b><%= link_to current_user.username, current_user %></b>
+								<b><%= link_to "Log Out", logout_path %></b>
 							<% else %>
-								
-									<div>
-										<%= form_tag sessions_path do %>
-											<%= text_field_tag :username, nil, placeholder:"username" %>
-											<%= password_field_tag :password, nil, placeholder:"password" %>
-											<%= submit_tag "Log in" %>
-										<% end %>
-									</div>
-
+								<b><a href="#" id="login">Log In</a></b>
 								<b><%= link_to "Sign Up", new_user_path %></b>
-
+								<div class=" login">
+									<%= form_tag sessions_path do %>
+										<%= text_field_tag :username, nil, placeholder:"username", :class => "form-control fw"  %>
+										<%= password_field_tag :password, nil, placeholder:"password",  :class => "form-control fw"  %>
+										<%= submit_tag "Log in", :class => "btn btn-warning" %>
+									<% end %>
+								</div>
+								
 							<% end %>
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -58,6 +58,15 @@
 	</div>
 </body>
 
+<script>
+      $(document).ready(function() {
 
+      $("#login").click(function(){
+         $(".login").slideDown( 'slow', function(){ 
+             $(".log").text('Slide Down Transition Complete');
+          });
+      });
+   });
+</script>
 
 </html>

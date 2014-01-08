@@ -10,8 +10,29 @@ html, body {
 	display: inline;
 }
 
+.inline ul {
+	padding: 0;
+}
+
+.fm {
+	margin-bottom: 10px;
+}
+
+.fw {
+	margin-bottom: 10px;
+}
+
 .bg {
 	border-right: solid 1px lightgrey;
+}
+
+.login {
+	margin-top: 20px;
+	background-color: white;
+	padding: 20px;
+	width: 300px;
+	float: right;
+	display: none;
 }
 
 .hide {

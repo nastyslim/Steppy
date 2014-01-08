@@ -15,34 +15,34 @@
             <% if @steppy.followid.present? %>
               <%= form_for(@steppy) do |f| %> 
                 <%= f.hidden_field :followid, value: "" %>
-                <%= f.submit "UnFollow!", :class => "btn btn-primary bw", :style => "width: 100%;"  %>
+                <%= f.submit "UnFollow!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
               <% end %>        
           <% else %>
             <%= form_for(@steppy) do |f| %> 
               <div class="actions">
                 <%= f.hidden_field :followid, value: current_user.username %>
-                <%= f.submit "Follow!", :class => "btn btn-primary bw", :style => "width: 100%;"  %>
+                <%= f.submit "Follow!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
               </div>
             <% end %>
           <% end %>
 
         <% else %>
-          <span class="btn btn-primary">start this climb - requires sign up</span>
+          <span class="btn btn-primary fm">start this climb - requires sign up</span>
         <% end %>
-
+        <!-- artcl. info -->
         <div class="inline">
           <ul>
             <li>
               <% if @steppy.region.present? %>
-                <p style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region %></b></p>
+                <span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region %></b></span>
               <% else %>              
               <% end %>
             </li>
             <li>
-              <p>By <%= @steppy.userid %></p>
+              <span>- By <span style="color:#4386C9;"><%= @steppy.userid %></span></span>
             </li>
             <li>
-              <p><%= time_ago_in_words(@steppy.created_at) %> ago.</p>
+              <span style="font-size:11px;"><%= time_ago_in_words(@steppy.created_at) %> ago.</span>
             </li>
           </ul>
         </div>
