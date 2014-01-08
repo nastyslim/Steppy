@@ -1,11 +1,22 @@
 SteppyApp::Application.routes.draw do
+
+  resources :relationships
+
+
+  resources :sessions
+  resources :users
+
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+  
+
+
   root to:"steppies#index"
   get "steppies/ask", to: "steppies#ask"
   get "steppies/ask2"
-
   get "steppies/searchresult"
-
   get "steppies/create"
+  get "users/:id" => "users#show"
 
 
 

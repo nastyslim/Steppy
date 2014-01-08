@@ -14,15 +14,31 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="alignleft">
-							<a href="/steppies" style="padding-left:0; color:white;  font-size:15px;">Steppy</a>	
+							<a href="/steppies" style="padding-left:0; color:red;  font-size:15px;">Steppy - fork</a>	
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="alignleft" style="text-align:right;">
 							<%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %>
 							<%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %>
-							<a href=""><b>Sign In</b></a>
-							<a href="" style="padding-right:0;"><b>Sign Up</b></a>
+
+							<% if current_user %>
+								<%= link_to current_user.username, current_user %>
+								<%= link_to "log out", logout_path %>
+								
+							<% else %>
+								
+									<div>
+										<%= form_tag sessions_path do %>
+											<%= text_field_tag :username, nil, placeholder:"username" %>
+											<%= password_field_tag :password, nil, placeholder:"password" %>
+											<%= submit_tag "Log in" %>
+										<% end %>
+									</div>
+
+								<b><%= link_to "Sign Up", new_user_path %></b>
+
+							<% end %>
 						</div>
 					</div>
 				</div>

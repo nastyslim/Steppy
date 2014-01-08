@@ -16,11 +16,14 @@ class SteppiesController < ApplicationController
   # GET /steppies/1.json
   def show
     @steppy = Steppy.find(params[:id])
+    @relationship = Relationship.new
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @steppy }
     end
+
+    
   end
 
   # GET /steppies/new
@@ -52,6 +55,11 @@ class SteppiesController < ApplicationController
   # POST /steppies.json
   def create
     @steppy = Steppy.new(params[:steppy])
+    if current_user 
+      @steppy.userid = current_user.username
+    else
+      @steppy.userid = "Ananomous"
+    end
 
     respond_to do |format|
       if @steppy.save

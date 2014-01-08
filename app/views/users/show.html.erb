@@ -1,0 +1,35 @@
+<div class="maincont formpgs">
+	<h1>steppy profile</h1>
+	<%= @user.username %>
+	<div>
+		<h1>Climbs Started:</h1>
+		<span></span>
+		<% @following.each do |result| %>
+		  <div style="" class="searchresults">
+		  	<div><%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>
+		  	<% if result.description.present? %>
+		  		<div style="font-size:14px;"><%= result.description %></div>
+		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+		  	<% else %>
+		  		<p style="font-size:14px; color:grey; margin:0;">No description.</p>
+		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+		  	<% end %>
+		  </div>
+		<% end %>	
+	</div>
+	<div>
+		<h1>Staircases Created:</h1>
+		<% @steppy.each do |result| %>
+		  <div style="" class="searchresults">
+		  	<div><%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>
+		  	<% if result.description.present? %>
+		  		<div style="font-size:14px;"><%= result.description %></div>
+		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+		  	<% else %>
+		  		<p style="font-size:14px; color:grey; margin:0;">No description.</p>
+		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+		  	<% end %>
+		  </div>
+		<% end %>
+	</div>
+</div>

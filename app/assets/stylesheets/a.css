@@ -6,6 +6,10 @@ html, body {
 	width: 930px;
 }
 
+.inline ul li {
+	display: inline;
+}
+
 .bg {
 	border-right: solid 1px lightgrey;
 }
