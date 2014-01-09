@@ -1,8 +1,7 @@
 <div class="maincont formpgs">
-	<h1>steppy profile</h1>
-	<%= @user.username %>
+	<h1 style="margin-bottom:50px;"><b><%= @user.username %>'s</b> Steppy Profile</h1>
 	<div>
-		<h1>Climbs Started:</h1>
+		<h4>Climbs Started:</h4>
 		<span></span>
 		<% @following.each do |result| %>
 		  <div style="" class="searchresults">
@@ -18,7 +17,7 @@
 		<% end %>	
 	</div>
 	<div>
-		<h1>Staircases Created:</h1>
+		<h4>Staircases Created:</h4>
 		<% @steppy.each do |result| %>
 		  <div style="" class="searchresults">
 		  	<div><%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>

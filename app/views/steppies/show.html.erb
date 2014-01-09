@@ -11,24 +11,7 @@
       <% if @steppy.goal.present? %>
         <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
         <!-- follow button -->
-          <% if current_user %>
-            <% if @steppy.followid.present? %>
-              <%= form_for(@steppy) do |f| %> 
-                <%= f.hidden_field :followid, value: "" %>
-                <%= f.submit "UnFollow!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
-              <% end %>        
-          <% else %>
-            <%= form_for(@steppy) do |f| %> 
-              <div class="actions">
-                <%= f.hidden_field :followid, value: current_user.username %>
-                <%= f.submit "Follow!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
-              </div>
-            <% end %>
-          <% end %>
-
-        <% else %>
-          <span class="btn btn-primary fm">start this climb - requires sign up</span>
-        <% end %>
+          
         <!-- artcl. info -->
         <div class="inline">
           <ul>
@@ -39,7 +22,7 @@
               <% end %>
             </li>
             <li>
-              <span>- By <span style="color:#4386C9;"><%= @steppy.userid %></span></span>
+              <span>- By <span style="color:#4386C9;"><b><%= @steppy.userid %></b></span></span>
             </li>
             <li>
               <span style="font-size:11px;"><%= time_ago_in_words(@steppy.created_at) %> ago.</span>
@@ -220,7 +203,7 @@
           <%= form_for [@steppy, Rep.new] do |f| %>
                   <p>
                     <% if current_user %>
-                      <%= current_user.username %>
+                      <b style="color:#4386C9;"><%= current_user.username %></b> 
                       <%= f.hidden_field :title, value: current_user.username %>
                     <% else %>
                       <%= f.label :title, "Name" %><br/>
@@ -247,8 +230,30 @@
     <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3" style="z-index:0;">
       <% if @steppy.goal.present? %>
+        <div style="margin-top:30px;">
+          <% if current_user %>
+              <% if @steppy.followid.present? %>
+                <%= form_for(@steppy) do |f| %> 
+                  <%= f.hidden_field :followid, value: "" %>
+                  <%= f.submit "Stop Climbing? :(", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
+                <% end %>        
+            <% else %>
+              <%= form_for(@steppy) do |f| %> 
+                <div class="actions">
+                  <%= f.hidden_field :followid, value: current_user.username %>
+                  <%= f.submit "Climb!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
+                </div>
+              <% end %>
+            <% end %>
+
+          <% else %>
+            <span class="btn btn-primary fm" style="width: 100%;">Climb!</span>
+          <% end %>
+        </div>
+
+
         <div class="otherregions">
           <h4>Other Regions</h4>
           <p style="font-size:12px;">Check out how to become a <b><%= @steppy.goal %></b> in other regions:</p>

@@ -5,17 +5,23 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(params[:user])
-		if @user.save
-			redirect_to @user
-		else
-			redirect 'new'
-		end
+		
+
+		respond_to do |format|
+	      if @user.save
+	        format.html { redirect_to @user, notice: 'user was successfully created.' }
+	        format.json { render json: @user, status: :created, location: @user }
+	      else
+	        format.html { render action: "new" }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	      end
+    	end
 	end
 
 	def show
 		@user = User.find(params[:id])
-		@steppy = Steppy.where(:userid => current_user.username)
-		@following = Steppy.where(:followid => current_user.username)
+		@steppy = Steppy.where(:userid => @user.username)
+		@following = Steppy.where(:followid => @user.username)
 	end
 
 end

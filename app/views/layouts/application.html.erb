@@ -31,8 +31,8 @@
 								<b><%= link_to "Sign Up", new_user_path %></b>
 								<div class=" login">
 									<%= form_tag sessions_path do %>
-										<%= text_field_tag :username, nil, placeholder:"username", :class => "form-control fw"  %>
-										<%= password_field_tag :password, nil, placeholder:"password",  :class => "form-control fw"  %>
+										<%= text_field_tag :username, nil, placeholder:"Username", :class => "form-control fw"  %>
+										<%= password_field_tag :password, nil, placeholder:"Password",  :class => "form-control fw"  %>
 										<%= submit_tag "Log in", :class => "btn btn-warning" %>
 									<% end %>
 								</div>

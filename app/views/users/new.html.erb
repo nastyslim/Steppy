@@ -1,9 +1,29 @@
-
-
-<div class="maincont formpgs">
-	<h1>New users</h1>
-	<h1>New to steppy?</h1>
+<div class="maincont formpgs2">
+	<h1 style="font-size:24px; font-weight:bold; padding-bottom:30px;">New to steppy?</h1>
 	<div>
-		<%= render 'form' %>
+		<%= form_for @user do |f| %>
+			<% if @user.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this steppy from being saved:</h2>
+
+			      <ul>
+			      <% @user.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+
+			<div class="field">
+			<p class="myh3">Username</p>
+			<%= f.text_field :username, placeholder: "Username", :class => "form-control" %>
+			</div>
+			<p class="myh3">Password</p>
+			<%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
+			<p class="myh3">Confirm Password</p>
+			<%= f.password_field :password_confirmation, placeholder: "Password", :class => "form-control" %>
+			</br>
+			<%= f.submit "Create Account", :class => "btn btn-primary" %>
+<% end %>
 	</div>
 </div>
