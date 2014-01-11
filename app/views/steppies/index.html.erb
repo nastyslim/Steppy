@@ -22,7 +22,7 @@
 <div class="row maincont">
     <div class="col-md-6 bg">
         <h1 style="text-align:center;">Newest Staircases</h1>
-        <% @steppy = Steppy.order('updated_at DESC')%>
+        <% @steppy = Steppy.order('created_at DESC')%>
 
         <% @steppy.each do |steppy| %>
             <% if steppy.goal.present? %>

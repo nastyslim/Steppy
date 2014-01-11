@@ -239,14 +239,14 @@
                   <%= f.hidden_field :followid, value: "" %>
                   <%= f.submit "Stop Climbing? :(", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
                 <% end %>        
-            <% else %>
-              <%= form_for(@steppy) do |f| %> 
-                <div class="actions">
-                  <%= f.hidden_field :followid, value: current_user.username %>
-                  <%= f.submit "Climb!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
-                </div>
+              <% else %>
+                <%= form_for(@steppy) do |f| %> 
+                  <div class="actions">
+                    <%= f.hidden_field :followid, value: current_user.username %>
+                    <%= f.submit "Climb!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
 
           <% else %>
             <span class="btn btn-primary fm" style="width: 100%;">Climb!</span>
