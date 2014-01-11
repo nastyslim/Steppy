@@ -214,6 +214,8 @@ footer{
 	background-color: #2a3744;
 	-webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.25);
 	box-shadow: 0 2px 3px rgba(0,0,0,0.25);
+	z-index: 100;
+	position: relative;
 }
 
 .mynav a {
@@ -255,9 +257,9 @@ footer{
 }
 
 .appcont {
-	background-image: url('bg.png'); 
-	background-repeat:repeat-x; 
-	background-color: #eaeaea; 
+	/* background-image: url('bg.png'); 
+	background-repeat:repeat-x; */
+	background-color: white; 
 	padding-bottom: 75px;
 }
 

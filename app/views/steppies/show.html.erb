@@ -189,7 +189,7 @@
 
 
 
-          <h1 style="font-size:14px; color:crimson; font-weight:bold;">Flag</h1>
+          <%= link_to 'Flag', steppy_path(:flagon => "flag"), :style => "font-size:11px; color:crimson; font-weight:bold;" %>
 
           <% if @steppy.goal.present? %>
           <h1 style=" font-size:24px; margin-top:45px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:10px;">Comments</h1>

@@ -17,6 +17,13 @@ class SteppiesController < ApplicationController
   def show
     @steppy = Steppy.find(params[:id])
     @relationship = Relationship.new
+    @flagon = (params[:flagon])
+
+    if @flagon == "flag"
+      FlagMailer.flag_email(@steppy).deliver
+      flash[:notice] = "Definition Flagged"
+    else
+    end
 
     respond_to do |format|
       format.html # show.html.erb

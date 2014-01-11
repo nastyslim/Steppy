@@ -14,7 +14,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="alignleft">
-							<a href="/steppies" style="padding-left:0; color:red;  font-size:15px;">Steppy - fork</a>	
+							<a href="/steppies" style="padding-left:0; color:white;  font-size:15px;">Steppy</a>	
 						</div>
 					</div>
 					<!-- right nav-->
@@ -62,7 +62,7 @@
       $(document).ready(function() {
 
       $("#login").click(function(){
-         $(".login").slideDown( 'slow', function(){ 
+         $(".login").slideToggle( [300], function(){ 
              $(".log").text('Slide Down Transition Complete');
           });
       });
