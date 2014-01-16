@@ -21,7 +21,7 @@ class SteppiesController < ApplicationController
 
     if @flagon == "flag"
       FlagMailer.flag_email(@steppy).deliver
-      flash[:notice] = "Definition Flagged"
+      flash[:notice] = "Steppy Flagged"
     else
     end
 
@@ -65,12 +65,12 @@ class SteppiesController < ApplicationController
     if current_user 
       @steppy.userid = current_user.username
     else
-      @steppy.userid = "Ananomous"
+      @steppy.userid = "Anonymous"
     end
 
     respond_to do |format|
       if @steppy.save
-        format.html { redirect_to @steppy, notice: 'Steppy was successfully created.' }
+        format.html { redirect_to @steppy, notice: 'Steppy Was Successfully Created.' }
         format.json { render json: @steppy, status: :created, location: @steppy }
       else
         format.html { render action: "new" }
@@ -86,7 +86,7 @@ class SteppiesController < ApplicationController
 
     respond_to do |format|
       if @steppy.update_attributes(params[:steppy])
-        format.html { redirect_to @steppy, notice: 'Steppy was successfully updated.' }
+        format.html { redirect_to @steppy, notice: 'Steppy Was Successfully Updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

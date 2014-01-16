@@ -22,7 +22,7 @@
               <% end %>
             </li>
             <li>
-              <span>- By <span style="color:#4386C9;"><b><%= @steppy.userid %></b></span></span>
+              <span>- By <span style="color:#4386C9;"><b><%= link_to @steppy.userid, current_user %></b></span></span>
             </li>
             <li>
               <span style="font-size:11px;"><%= time_ago_in_words(@steppy.created_at) %> ago.</span>
@@ -192,42 +192,57 @@
           <%= link_to 'Flag', steppy_path(:flagon => "flag"), :style => "font-size:11px; color:crimson; font-weight:bold;" %>
 
           <% if @steppy.goal.present? %>
-          <h1 style=" font-size:24px; margin-top:45px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:10px;">Comments</h1>
+            <% if @steppy.reps.present? %>
+              <h1 style=" font-size:24px; margin-top:45px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:10px;">Comments</h1>
 
-          <div id="comments">
-                   <%= render :partial => @steppy.reps %>
-          </div>
+              <div id="comments">
+                       <%= render :partial => @steppy.reps %>
+              </div>
+          <% else %>  
+          <% end %>
 
 
           <h1 style="margin-top:20px; padding-bottom:6px;border-bottom:solid 1px lightblue; padding-top:20px; font-size:24px;">Post a comment:</h1>
-          <%= form_for [@steppy, Rep.new] do |f| %>
-                  <p>
-                    <% if current_user %>
-                      <b style="color:#4386C9;"><%= current_user.username %></b> 
-                      <%= f.hidden_field :title, value: current_user.username %>
-                    <% else %>
-                      <%= f.label :title, "Name" %><br/>
-                      <%= f.text_field :title, :class => "form-control" %>
-                    <% end %>
-                    
-                  </p>
-                  <p>
-                    <%= f.label :body, "Comment" %><br/>
-                    <%= f.text_area :body, :class => "form-control", :style => "height:70px;" %>
-                  </p>
-                  <p>
-                    <%= f.submit "Add comment", :class => "btn btn-danger bw" %>
-                  </p>
-          <% end %>
+          <div class="comment">
+            <%= form_for [@steppy, Rep.new] do |f| %>
+                    <p>
+                      <% if current_user %>
+                        <b style="color:#4386C9;"><%= current_user.username %></b> 
+                        <%= f.hidden_field :title, value: current_user.username %>
+                      <% else %>
+                        <%= f.label :title, "Name" %><br/>
+                        <%= f.text_field :title, :class => "form-control" %>
+                      <% end %>
+                      
+                    </p>
+                    <p>
+                      <%= f.label :body, "Comment" %><br/>
+                      <%= f.text_area :body, :class => "form-control", :style => "height:70px;" %>
+                    </p>
+                    <p>
+                      <%= f.submit "Add comment", :class => "btn btn-danger bw" %>
+                    </p>
+            <% end %>
+          </div>
 
 
       <% else %>
       <% end %>
+      
+      <% if current_user.username == @steppy.userid %>
+        <div class="edit" style="margin-top:20px;">
+          <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
+          <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% elsif current_user.username == "admin" %>
+        <div class="edit" style="margin-top:20px;">
+          <span>admin</span>
+          <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
+          <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% else %>
+      <% end %>
 
-
-    <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
-    <%= link_to 'Back', steppies_path %> |
-    <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
 
     <div class="col-md-3" style="z-index:0;">

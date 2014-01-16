@@ -2,6 +2,27 @@ html, body {
 	height: 100%;
 }
 
+.comment {
+	background-color: rgb(233, 230, 230);
+	padding: 30px;
+}
+
+.edit {
+	margin-top: 20px;
+	padding: 30px;
+	background-color: antiquewhite;
+	text-align: center;
+}
+
+.edit a {
+	color: grey;
+}
+
+.profilebody {
+	background-color: azure;
+	padding: 30px;
+}
+
 .container {
 	width: 930px;
 }
