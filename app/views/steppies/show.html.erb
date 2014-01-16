@@ -34,7 +34,7 @@
                 
 
               <% if @steppy.description.present? %>
-                <p style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b>Description: </b><%= @steppy.description %></p>
+                <div style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b>Description: </b><%= raw @steppy.description %></div>
               <% else %>                
               <% end %>
         
