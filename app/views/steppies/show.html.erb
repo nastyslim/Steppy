@@ -229,18 +229,20 @@
       <% else %>
       <% end %>
       
-      <% if current_user.username == @steppy.userid %>
-        <div class="edit" style="margin-top:20px;">
-          <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
-          <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% elsif current_user.username == "admin" %>
-        <div class="edit" style="margin-top:20px;">
-          <span>admin</span>
-          <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
-          <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% else %>
+      <% if current_user %>
+        <% if current_user.username == @steppy.userid %>
+          <div class="edit" style="margin-top:20px;">
+            <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
+            <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% elsif current_user.username == "admin" %>
+          <div class="edit" style="margin-top:20px;">
+            <span>admin</span>
+            <%= link_to 'Edit', edit_steppy_path(@steppy) %> |
+            <%= link_to 'Destroy', steppy_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% else %>
+        <% end %>
       <% end %>
 
     </div>

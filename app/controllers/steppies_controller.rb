@@ -18,6 +18,7 @@ class SteppiesController < ApplicationController
     @steppy = Steppy.find(params[:id])
     @relationship = Relationship.new
     @flagon = (params[:flagon])
+    @current_user = current_user
 
     if @flagon == "flag"
       FlagMailer.flag_email(@steppy).deliver
