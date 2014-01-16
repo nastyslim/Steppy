@@ -22,7 +22,7 @@
               <% end %>
             </li>
             <li>
-              <span>- By <span style="color:#4386C9;"><b><%= link_to @steppy.userid, current_user %></b></span></span>
+              <span>- By <span style="color:#4386C9;"><b><%= link_to @steppy.userid %></b></span></span>
             </li>
             <li>
               <span style="font-size:11px;"><%= time_ago_in_words(@steppy.created_at) %> ago.</span>

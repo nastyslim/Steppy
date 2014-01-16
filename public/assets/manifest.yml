@@ -9,7 +9,7 @@ steppy.png: steppy-ee4c0acf1f8c9d217fc241160311fa37.png
 steppy/index.png: steppy-ee4c0acf1f8c9d217fc241160311fa37.png
 application.js: application-70afea73e3defc8060207521727815ef.js
 application/index.js: application-70afea73e3defc8060207521727815ef.js
-application.css: application-9ac47ab2dbbc7995ea83a5808015c245.css
-application/index.css: application-9ac47ab2dbbc7995ea83a5808015c245.css
+application.css: application-cfbe7820dc55833352c06841914c2e2d.css
+application/index.css: application-cfbe7820dc55833352c06841914c2e2d.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
