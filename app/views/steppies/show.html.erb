@@ -5,19 +5,14 @@
 
 
 <div class="maincont formpgs" >
-  <div class="row">
-    <div class="col-md-9">
-
-      <% if @steppy.goal.present? %>
-        <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
-        <!-- follow button -->
-          
-        <!-- artcl. info -->
+  <% if @steppy.goal.present? %>
+  <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
+  <!-- artcl. info -->
         <div class="inline">
           <ul>
             <li>
               <% if @steppy.region.present? %>
-                <span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region %></b></span>
+                <span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.capitalize %></b></span>
               <% else %>              
               <% end %>
             </li>
@@ -39,12 +34,20 @@
             </li>
           </ul>
         </div>
+  <div class="row">
+    <div class="col-md-9">
+
+      
+        
+        
+          
+        
                 
 
                 
 
               <% if @steppy.description.present? %>
-                <div style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b>Description: </b><%= raw @steppy.description %></div>
+                <div style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b style="float:left;">Description: </b><b style="color:#eef1f3;float:left;">.</b><%= raw @steppy.description %></div>
               <% else %>                
               <% end %>
         
@@ -286,7 +289,7 @@
           <p style="font-size:12px;">Check out how to become a <b><%= @steppy.goal %></b> in other regions:</p>
           <div class="orinner">
             <% regionlist().each do |region| %>
-              <div><%= link_to region.region, steppy_path(region) %></div>
+              <div><%= link_to region.region.capitalize, steppy_path(region) %></div>
             <% end %>
           </div>
         </div>
