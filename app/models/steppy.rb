@@ -5,7 +5,7 @@ class Steppy < ActiveRecord::Base
 
   has_many :reps
 
-  validates_presence_of :goal, :step1, :step2, :step3, :region, :unless => :is_there_ask
+  validates_presence_of :goal, :step1, :step2, :step3, :region, :description, :unless => :is_there_ask
 
   def is_there_ask
   	ask.present?
