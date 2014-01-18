@@ -18,6 +18,22 @@ html, body {
 	color: grey;
 }
 
+
+.navw {
+	width: 50%;
+	float: left;
+}
+
+.navw3 {
+	width: 10%;
+	float: left;
+}
+
+.navw7 {
+	width: 90%;
+	float: left;
+}
+
 .profilebody {
 	background-color: azure;
 	padding: 30px;

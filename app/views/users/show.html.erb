@@ -15,7 +15,7 @@
 					<span></span>
 					<% @following.each do |result| %>
 					  <div style="" class="searchresults">
-					  	<div><%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>
+					  	<div><%= link_to result.goal, steppy_path(result) %></div>
 					  	<% if result.description.present? %>
 					  		<div style="font-size:14px;"><%= raw result.description %></div>
 					  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
@@ -30,9 +30,9 @@
 					<h4>Staircases Created:</h4>
 					<% @steppy.each do |result| %>
 					  <div style="" class="searchresults">
-					  	<div><%= link_to result.goal, steppy_path(result) %> in <%= result.region %></div>
+					  	<div><%= link_to result.goal, steppy_path(result) %></div>
 					  	<% if result.description.present? %>
-					  		<div style="font-size:14px;"><%= result.description %></div>
+					  		<div style="font-size:14px;"><%= raw result.description %></div>
 					  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
 					  	<% else %>
 					  		<p style="font-size:14px; color:grey; margin:0;">No description.</p>
