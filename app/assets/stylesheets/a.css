@@ -293,10 +293,18 @@ footer{
     position:relative;
 }
 
+.header {
+	background-color: white;
+	padding: 11px;
+	margin-bottom: 10px;
+	border: solid 1px lightgrey;
+	box-shadow: 8px 5px 30px;
+}
+
 .appcont {
-	/* background-image: url('bg.png'); 
-	background-repeat:repeat-x; */
-	background-color: white; 
+	background-image: url('bg2.png'); 
+	background-repeat:no-repeat; 
+	background-color: rgb(224, 223, 223); 
 	padding-bottom: 75px;
 }
 
@@ -335,6 +343,7 @@ footer{
 .insearch {
 	width: 70%;
 	margin: 0 auto;
+	box-shadow: 8px 5px 30px;
 }
 
 .sbtn {
