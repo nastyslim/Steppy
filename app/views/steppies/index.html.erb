@@ -13,10 +13,10 @@
         <div class="insearch">
             <div class="row">
                 <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
-                    <div class="form-group navw7">
+                    <div class="form-group navw7" style="box-shadow: 8px 5px 30px;">
                         <%= text_field_tag :search, params[:search], :class => "form-control" %>
                     </div>
-                    <div class="form-group navw3">
+                    <div class="form-group navw3" style="box-shadow: 8px 5px 30px;">
                         <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
                     </div>
                 <% end %>
