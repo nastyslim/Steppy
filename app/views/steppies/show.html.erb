@@ -263,24 +263,7 @@
     <div class="col-md-3" style="z-index:0;">
       <% if @steppy.goal.present? %>
         <div style="margin-top:30px;">
-          <% if current_user %>
-              <% if @steppy.followid.present? %>
-                <%= form_for(@steppy) do |f| %> 
-                  <%= f.hidden_field :followid, value: "" %>
-                  <%= f.submit "Stop Climbing? :(", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
-                <% end %>        
-              <% else %>
-                <%= form_for(@steppy) do |f| %> 
-                  <div class="actions">
-                    <%= f.hidden_field :followid, value: current_user.username %>
-                    <%= f.submit "Climb!", :class => "btn btn-primary bw fm", :style => "width: 100%;"  %>
-                  </div>
-                <% end %>
-              <% end %>
-
-          <% else %>
-            <span class="btn btn-primary fm" style="width: 100%;">Climb!</span>
-          <% end %>
+          
         </div>
 
 

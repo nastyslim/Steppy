@@ -301,7 +301,7 @@ footer{
 	padding: 11px;
 	margin-bottom: 10px;
 	border: solid 1px lightgrey;
-	box-shadow: 8px 5px 30px;
+	/*box-shadow: 8px 5px 30px;*/
 }
 
 .appcont {
