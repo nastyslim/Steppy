@@ -21,10 +21,7 @@ class SteppiesController < ApplicationController
     
 
 
-    if @steppy.userid.present?
-      params[:userid] = User.where(:username => @steppy.userid)
-      @user = User.find(params[:userid])
-    end
+    
 
 
     
