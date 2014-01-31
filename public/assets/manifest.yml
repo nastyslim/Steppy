@@ -13,12 +13,14 @@ blank-avatar2.jpg: blank-avatar2-e11f59e1a608a496bb8ec3cdd969c925.jpg
 blank-avatar2/index.jpg: blank-avatar2-e11f59e1a608a496bb8ec3cdd969c925.jpg
 steppy.png: steppy-a64fce0054cd3d3758b2cc71c0a98b0d.png
 steppy/index.png: steppy-a64fce0054cd3d3758b2cc71c0a98b0d.png
+steppy_thumb.png: steppy_thumb-caa13107064e2c8015dc9f11694846f9.png
+steppy_thumb/index.png: steppy_thumb-caa13107064e2c8015dc9f11694846f9.png
 application.js: application-caaea6dc93f55f5924faa616bd5f6b39.js
 application/index.js: application-caaea6dc93f55f5924faa616bd5f6b39.js
 ckeditor/config.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
 ckeditor/config/index.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
-application.css: application-2ed75651ee1b7c23681254ed23dc74f2.css
-application/index.css: application-2ed75651ee1b7c23681254ed23dc74f2.css
+application.css: application-9bc59934ebaf413666d679fa4529a0f4.css
+application/index.css: application-9bc59934ebaf413666d679fa4529a0f4.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 ckeditor/basepath.js: ckeditor/basepath-b4c4979700828acb2a7608363036fdf9.js
