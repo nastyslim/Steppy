@@ -3,9 +3,12 @@ html, body {
 }
 
 .comment {
-	background-color: rgb(233, 230, 230);
+	background-color: #eef1f3;
 	padding: 30px;
 }
+
+
+
 
 .edit {
 	margin-top: 20px;
@@ -35,7 +38,7 @@ html, body {
 }
 
 .profilebody {
-	background-color: azure;
+	background-color: white;
 	padding: 30px;
 }
 

@@ -38,7 +38,7 @@
                 <div class="goal_panel_new">
                     <%= link_to steppy do%>
                     <div>
-                        <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal %></b></div>
+                        <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal.capitalize %></b></div>
                     </div>
                     <% end %>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="goal_panel_new">
                     <%= link_to steppy do%>
                         <div>
-                            <div class="goal"><%= steppy.ask %></div>
+                            <div class="goal"><%= steppy.ask.capitalize %></div>
                         </div>
                     <% end %>
                 </div>

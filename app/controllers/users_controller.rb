@@ -22,6 +22,14 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@steppy = Steppy.where(:userid => @user.username)
 		@following = Steppy.where(:followid => @user.username)
+
+
+
+
+		@steppystring = "#{@steppy} hello"
+		@followingstring = "@following"
+		@both = @steppy + @following
+		@bothstring = @steppystring + @followingstring
 	end
 
 end

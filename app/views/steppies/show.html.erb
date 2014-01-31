@@ -12,7 +12,7 @@
           <ul>
             <li>
               <% if @steppy.region.present? %>
-                <span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.capitalize %></b></span>
+                <span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
               <% else %>              
               <% end %>
             </li>
@@ -21,7 +21,7 @@
                 <b>
                   <% if @steppy.userid.present? %>
                     
-                    <%= link_to @user.username, @user %>
+                    <%= link_to @user.username.capitalize, @user %>
                   <% end %>
                 </b></span>
               </span>
@@ -220,11 +220,11 @@
             <%= form_for [@steppy, Rep.new] do |f| %>
                     <p>
                       <% if current_user %>
-                        <b style="color:#4386C9;"><%= current_user.username %></b> 
-                        <%= f.hidden_field :title, value: current_user.username %>
+                        <b style="color:#4386C9;"><%= current_user.username.capitalize %></b> 
+                        <%= f.hidden_field :title, value: current_user.username.capitalize %>
                       <% else %>
-                        <%= f.label :title, "Name" %><br/>
-                        <%= f.text_field :title, :class => "form-control" %>
+                        <b style="color:#4386C9;">Anonymous</b> 
+                        <%= f.hidden_field :title, value: "Anonymous" %>
                       <% end %>
                       
                     </p>
@@ -289,11 +289,11 @@
           <p style="font-size:12px;">Check out how to become a <b><%= @steppy.goal %></b> in other regions:</p>
           <div class="orinner">
             <% regionlist().each do |region| %>
-              <div><%= link_to region.region.capitalize, steppy_path(region) %></div>
+              <div><%= link_to region.region.split.map(&:capitalize).join(' '), steppy_path(region) %></div>
             <% end %>
           </div>
         </div>
-        <% end %>
+      <% end %>
     </div>
 
   </div>
