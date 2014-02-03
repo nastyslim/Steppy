@@ -6,6 +6,16 @@
 	<h1 style="margin-bottom:25px;"><b><%= @user.username.capitalize %>'s</b> Steppy Profile</h1>
 	<div class="profilesoon">
 		<h1 style="text-align:center;">Coming Soon</h1>
+		<h1>  <% allfollows = current_user.all_follows %>
+			  <% allfollows.each do |item| %>
+			    <p><%= item.followable_id %></p>
+			  <%end%>
+
+			  <% allfollows.each do |item| %>
+			    <% currsteppy =Steppy.find(item.followable_id) %>
+			    <p><%= currsteppy.goal%></p>
+			  <%end%>
+		</h1>
 	</div>
 	
 </div>

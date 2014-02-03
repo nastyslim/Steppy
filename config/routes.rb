@@ -10,6 +10,9 @@ SteppyApp::Application.routes.draw do
 
   
 
+ 
+  get "/follow/:id" => "users#followSteppy", as: 'follow'
+  get "/unfollow/:id" => "users#unfollowSteppy", as: 'unfollow'
 
   root to:"steppies#index"
   get "steppies/ask", to: "steppies#ask"

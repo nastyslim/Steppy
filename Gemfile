@@ -7,14 +7,14 @@ gem 'rails', '3.2.13'
 
 
 
+gem "acts_as_follower", '~> 0.1.1'
+
+
+  #gem "pg"
 
 
 
-  gem "pg"
-
-
-
-  #gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
 
 
 gem 'ckeditor_rails'

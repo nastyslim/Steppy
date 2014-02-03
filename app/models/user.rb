@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :password, :password_confirmation, :username, :email
   has_secure_password
-  
+  acts_as_follower
   has_many :steppies
 
  

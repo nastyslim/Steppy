@@ -21,15 +21,19 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@steppy = Steppy.where(:userid => @user.username)
-		@following = Steppy.where(:followid => @user.username)
 
+	end
 
+	def followSteppy
+		currsteppy = Steppy.find(params[:id])
+		current_user.follow(currsteppy)
+		redirect_to currsteppy
+	end
 
-
-		@steppystring = "#{@steppy} hello"
-		@followingstring = "@following"
-		@both = @steppy + @following
-		@bothstring = @steppystring + @followingstring
+	def unfollowSteppy
+		currsteppy = Steppy.find(params[:id])
+		current_user.stop_following(currsteppy)
+		redirect_to currsteppy
 	end
 
 end
