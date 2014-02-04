@@ -1,0 +1,41 @@
+<h1>Listing checklists</h1>
+
+<table>
+  <tr>
+    <th>Chk1</th>
+    <th>Chk2</th>
+    <th>Chk3</th>
+    <th>Chk4</th>
+    <th>Chk5</th>
+    <th>Chk6</th>
+    <th>Chk7</th>
+    <th>Chk8</th>
+    <th>Chk9</th>
+    <th>Chk10</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @checklists.each do |checklist| %>
+  <tr>
+    <td><%= checklist.chk1 %></td>
+    <td><%= checklist.chk2 %></td>
+    <td><%= checklist.chk3 %></td>
+    <td><%= checklist.chk4 %></td>
+    <td><%= checklist.chk5 %></td>
+    <td><%= checklist.chk6 %></td>
+    <td><%= checklist.chk7 %></td>
+    <td><%= checklist.chk8 %></td>
+    <td><%= checklist.chk9 %></td>
+    <td><%= checklist.chk10 %></td>
+    <td><%= link_to 'Show', checklist %></td>
+    <td><%= link_to 'Edit', edit_checklist_path(checklist) %></td>
+    <td><%= link_to 'Destroy', checklist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Checklist', new_checklist_path %>

@@ -1,0 +1,57 @@
+<%= form_for(@checklist) do |f| %>
+  <% if @checklist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checklist.errors.count, "error") %> prohibited this checklist from being saved:</h2>
+
+      <ul>
+      <% @checklist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :chk1 %><br />
+    <%= f.text_field :chk1 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk2 %><br />
+    <%= f.text_field :chk2 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk3 %><br />
+    <%= f.text_field :chk3 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk4 %><br />
+    <%= f.text_field :chk4 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk5 %><br />
+    <%= f.text_field :chk5 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk6 %><br />
+    <%= f.text_field :chk6 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk7 %><br />
+    <%= f.text_field :chk7 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk8 %><br />
+    <%= f.text_field :chk8 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk9 %><br />
+    <%= f.text_field :chk9 %>
+  </div>
+  <div class="field">
+    <%= f.label :chk10 %><br />
+    <%= f.text_field :chk10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -21,18 +21,29 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@steppy = Steppy.where(:userid => @user.username)
+		@checklist = Checklist.all
 
+		
+		
 	end
 
 	def followSteppy
 		currsteppy = Steppy.find(params[:id])
 		current_user.follow(currsteppy)
+
+		@chklist = Checklist.create(:chk_steppy_id => currsteppy.goal, :chk_user_id => currsteppy.userid, :chk1 => "In Progress")
+
+
 		redirect_to currsteppy
 	end
 
 	def unfollowSteppy
 		currsteppy = Steppy.find(params[:id])
 		current_user.stop_following(currsteppy)
+		@chklist = Checklist.where(:chk_steppy_id => currsteppy.goal, :chk_user_id => currsteppy.userid).first
+		@chklist.destroy 
+		
+
 		redirect_to currsteppy
 	end
 

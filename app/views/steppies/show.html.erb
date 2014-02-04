@@ -6,18 +6,20 @@
 
 <div class="maincont formpgs" >
   <% if @steppy.goal.present? %>
-  <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
-  <% if current_user.following?(@steppy)%>
-  <p>following</p>
-  <%= link_to 'UnFollow', unfollow_path(@steppy) %>
-  
-  <%else%>
-  <%= link_to 'Follow', follow_path(@steppy) %>
+    <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
+
+
+  <% if current_user %>
+    <% if current_user.following?(@steppy)%>
+      <%= link_to 'UnFollow', unfollow_path(@steppy) %>
+    <%else%>
+      <%= link_to 'Follow', follow_path(@steppy) %>
+    <%end%>
   <%end%>
 
   
 
-  <!-- artcl. info -->
+    <!-- artcl. info -->
         <div class="inline">
           <ul>
             <li>
@@ -46,15 +48,6 @@
         </div>
   <div class="row">
     <div class="col-md-9">
-
-      
-        
-        
-          
-        
-                
-
-                
 
               <% if @steppy.description.present? %>
                 <div style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b style="float:left;">Description: </b><b style="color:#eef1f3;float:left;">.</b><%= raw @steppy.description %></div>

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203012223) do
+ActiveRecord::Schema.define(:version => 20140204140403) do
+
+  create_table "checklists", :force => true do |t|
+    t.string   "chk1"
+    t.string   "chk2"
+    t.string   "chk3"
+    t.string   "chk4"
+    t.string   "chk5"
+    t.string   "chk6"
+    t.string   "chk7"
+    t.string   "chk8"
+    t.string   "chk9"
+    t.string   "chk10"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "chk_steppy_id"
+    t.string   "chk_user_id"
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "post_id"

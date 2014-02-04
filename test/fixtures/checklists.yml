@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  chk1: MyString
+  chk2: MyString
+  chk3: MyString
+  chk4: MyString
+  chk5: MyString
+  chk6: MyString
+  chk7: MyString
+  chk8: MyString
+  chk9: MyString
+  chk10: MyString
+
+two:
+  chk1: MyString
+  chk2: MyString
+  chk3: MyString
+  chk4: MyString
+  chk5: MyString
+  chk6: MyString
+  chk7: MyString
+  chk8: MyString
+  chk9: MyString
+  chk10: MyString

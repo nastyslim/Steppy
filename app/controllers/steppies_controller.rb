@@ -19,6 +19,7 @@ class SteppiesController < ApplicationController
     @relationship = Relationship.new
     @flagon = (params[:flagon])
     
+    
 
 
     

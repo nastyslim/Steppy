@@ -1,5 +1,8 @@
 SteppyApp::Application.routes.draw do
 
+  resources :checklists
+
+
   resources :relationships
 
 
