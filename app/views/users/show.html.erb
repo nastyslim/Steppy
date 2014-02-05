@@ -100,7 +100,20 @@
 				                </div>
 				              </div>             
 
-				              <% if @steppy.step4.present? %>
+				            <% if @chklist.chk4 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk4 == "In Progress" %>
+											<%= link_to @chklist.chk4, checklist_path(@chklist, "checklist[chk4]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk4, checklist_path(@chklist, "checklist[chk4]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				                <div class="row">
 				                  <div class="col-md-1">
 				                    <p style="font-size:24px;" class="numbs">4</p>
@@ -114,7 +127,20 @@
 				              <% else %>          
 				              <% end %>
 				    
-				            <% if @steppy.step5.present? %>
+				            <% if @chklist.chk5 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk5 == "In Progress" %>
+											<%= link_to @chklist.chk5, checklist_path(@chklist, "checklist[chk5]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk5, checklist_path(@chklist, "checklist[chk5]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				            	<div class="row">
 				            		<div class="col-md-1">
 						            	<p style="font-size:24px;" class="numbs">5</p>
@@ -128,7 +154,20 @@
 				            <% else %>            
 				            <% end %>
 
-				            <% if @steppy.step6.present? %>
+				            <% if @chklist.chk6 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk6 == "In Progress" %>
+											<%= link_to @chklist.chk6, checklist_path(@chklist, "checklist[chk6]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk6, checklist_path(@chklist, "checklist[chk6]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				              <div class="row">
 				                <div class="col-md-1">
 				                  <p style="font-size:24px;" class="numbs">6</p>
@@ -142,7 +181,20 @@
 				            <% else %>                     
 				            <% end %>
 
-				            <% if @steppy.step7.present? %>
+				            <% if @chklist.chk7 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk7 == "In Progress" %>
+											<%= link_to @chklist.chk7, checklist_path(@chklist, "checklist[chk7]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk7, checklist_path(@chklist, "checklist[chk7]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				              <div class="row">
 				                <div class="col-md-1">
 				                  <p style="font-size:24px;" class="numbs">7</p>
@@ -156,7 +208,20 @@
 				 			<% else %>                                
 				            <% end %>
 
-				            <% if @steppy.step8.present? %>
+				             <% if @chklist.chk8 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk8 == "In Progress" %>
+											<%= link_to @chklist.chk8, checklist_path(@chklist, "checklist[chk8]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk8, checklist_path(@chklist, "checklist[chk8]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				              <div class="row">
 				                <div class="col-md-1">
 				                  <p style="font-size:24px;" class="numbs">8</p>
@@ -170,7 +235,20 @@
 				            <% else %>                  
 				            <% end %>
 
-				            <% if @steppy.step9.present? %>
+				            <% if @chklist.chk3 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk9 == "In Progress" %>
+											<%= link_to @chklist.chk9, checklist_path(@chklist, "checklist[chk9]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk9, checklist_path(@chklist, "checklist[chk9]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				              <div class="row">
 				                <div class="col-md-1">
 				                  <p style="font-size:24px;" class="numbs">9</p>
@@ -184,7 +262,20 @@
 				            <% else %>                       
 				            <% end %>
 
-				            <% if @steppy.step10.present? %>
+				            <% if @chklist.chk10 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk10 == "In Progress" %>
+											<%= link_to @chklist.chk10, checklist_path(@chklist, "checklist[chk10]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk10, checklist_path(@chklist, "checklist[chk10]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
 				              <div class="row">
 				                <div class="col-md-1">
 				                  <p style="font-size:24px;" class="numbs">10</p>
