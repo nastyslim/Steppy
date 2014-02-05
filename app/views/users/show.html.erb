@@ -98,8 +98,9 @@
 				                    <%= @steppy.step3 %>
 				                  </p>
 				                </div>
-				              </div>             
+				              </div> 
 
+				            <% if @steppy.step4.present? %>
 				            <% if @chklist.chk4 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
@@ -126,7 +127,8 @@
 				                </div>             
 				              <% else %>          
 				              <% end %>
-				    
+
+				    		<% if @steppy.step5.present? %>
 				            <% if @chklist.chk5 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
@@ -154,6 +156,7 @@
 				            <% else %>            
 				            <% end %>
 
+				            <% if @steppy.step6.present? %>
 				            <% if @chklist.chk6 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
@@ -181,6 +184,7 @@
 				            <% else %>                     
 				            <% end %>
 
+				            <% if @steppy.step7.present? %>
 				            <% if @chklist.chk7 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
@@ -208,7 +212,9 @@
 				 			<% else %>                                
 				            <% end %>
 
-				             <% if @chklist.chk8 == "In Progress" %>
+
+				            <% if @steppy.step8.present? %>
+				            <% if @chklist.chk8 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
 							<div class="row donestep">
@@ -235,7 +241,8 @@
 				            <% else %>                  
 				            <% end %>
 
-				            <% if @chklist.chk3 == "In Progress" %>
+				            <% if @steppy.step9.present? %>
+				            <% if @chklist.chk9 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
 							<div class="row donestep">
@@ -262,6 +269,7 @@
 				            <% else %>                       
 				            <% end %>
 
+				            <% if @steppy.step10.present? %>
 				            <% if @chklist.chk10 == "In Progress" %>
 							<div class="row stepinprogress">
 							<% else %>
