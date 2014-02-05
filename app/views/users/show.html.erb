@@ -3,169 +3,198 @@
 <% end %>
 
 <div class="maincont formpgs">
-	<h1 style="margin-bottom:25px;"><b><%= @user.username.capitalize %>'s</b> Steppy Profile</h1>
-	<div class="profilesoon">
-		<%= @checklist %>
+	
 
+	<div class="profilesoon row">
+		<div class="col-md-4">
+			<img src="/assets/blank-avatar.jpg" alt="User Avatar" class="avatar">
+			<h1 style="margin-bottom:25px;"><b><%= @user.username.capitalize %></b></h1>
+		</div>
+		<div class="col-md-8">
+			<h1 style="margin-top: 0px;font-size: 18px;">Goal's <%= @user.username.capitalize %> is climbing towards:</h1>
 
+			<% if current_user %>
 
-		
-		<h1>  <% allfollows = current_user.all_follows %>
-			  <% allfollows.each do |item| %>
-			    <p><%= item.followable_id %></p>
-			  <%end%>
-		</h1>
-			  <% allfollows.each do |item| %>
-			    <% @steppy = Steppy.find(item.followable_id) %>
-			    <% @chklist = Checklist.where(:chk_steppy_id => @steppy.goal, :chk_user_id => @steppy.userid) %>
-			   
-			    
-			    <h1  style="font-size:24px; font-weight:bold; padding-bottom:0px;margin-bottom: 0px;">How do I become a <%= @steppy.goal %>?</h1>
-				<span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
-				<span>See Steppy</span>
-				<div class="row" style="margin-top: 5px;">
-					<div class="col-md-9">
+				<% allfollows = current_user.all_follows %>
+				<% allfollows.each do |item| %>
+				    <% @steppy = Steppy.find(item.followable_id) %>
+				    <% @chklist = Checklist.where(:chk_steppy_id => @steppy.goal, :chk_user_id => @steppy.userid).first %>
+				   
+				    <div class="list">
+				    <h1  style="font-size:24px; font-weight:bold; padding-bottom:0px;margin-bottom: 0px;">How do I become a <%= @steppy.goal %>?</h1>
+					<span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
+					<span>See Steppy</span><span> <%= @chklist.chk_steppy_id %></span><span> Unfollow</span>
+					<div class="row" style="margin-top: 5px;">
+						<div class="col-md-10">
 
-						<div class="row">
-							<div class="col-md-2">
-								<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs "><%= @chklist.chk1 %></p>
-							</div>
-							<div class="col-md-1">
-								<p style="font-size:24px;" class="numbs ">1</p>
-							</div>
-							<div class="col-md-9">
-								<p style="font-size:14px;" class="goal_panel2">
-							    	<%= @steppy.step1 %>
-								</p>
-							</div>
-						</div>             
-
-			              <div class="row">
-			              	<div class="col-md-2">
-								<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs "><%=@chklist%></p>
-							</div>
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">2</p>
-			                </div>
-			                <div class="col-md-9">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step2 %>
-			                  </p>
-			                </div>
-			              </div>              
-
-			              <div class="row">
-			              	<div class="col-md-2">
-								<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs "><%=@chklist%></p>
-							</div>
-			                <div class="col-md-1">
-			              		<p style="font-size:24px;" class="numbs">3</p>
-			                </div>
-			                <div class="col-md-9">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step3 %>
-			                  </p>
-			                </div>
-			              </div>             
-
-			              <% if @steppy.step4.present? %>
-			                <div class="row">
-			                  <div class="col-md-1">
-			                    <p style="font-size:24px;" class="numbs">4</p>
-			                  </div>
-			                  <div class="col-md-11">
-			                    <p style="font-size:14px;" class="goal_panel2">
-			                      <%= @steppy.step4 %>
-			                    </p>
-			                  </div>
-			                </div>             
-			              <% else %>          
-			              <% end %>
-			    
-			            <% if @steppy.step5.present? %>
-			            	<div class="row">
-			            		<div class="col-md-1">
-					            	<p style="font-size:24px;" class="numbs">5</p>
-					            </div>
-				                <div class="col-md-11">
-				                	<p style="font-size:14px;" class="goal_panel2">
-				                  		<%= @steppy.step5 %>
-				                	</p>
-				                </div>
+							<div class="row donestep">
+								<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk1 == "In Progress" %>
+											<%= link_to @chklist.chk1, checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk1, checklist_path(@chklist, "checklist[chk1]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
+								<div class="col-md-1">
+									<p style="font-size:24px;" class="numbs ">1</p>
+								</div>
+								<div class="col-md-8">
+									<p style="font-size:14px;" class="goal_panel2">
+								    	<%= @steppy.step1 %>
+									</p>
+								</div>
 							</div>             
-			            <% else %>            
-			            <% end %>
 
-			            <% if @steppy.step6.present? %>
-			              <div class="row">
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">6</p>
-			                </div>
-			                <div class="col-md-11">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step6 %>
-			                  </p>
-			                </div>
-			              </div>             
-			            <% else %>                     
-			            <% end %>
+				              <div class="row">
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk2 == "In Progress" %>
+											<%= link_to @chklist.chk2, checklist_path(@chklist, "checklist[chk2]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk2, checklist_path(@chklist, "checklist[chk2]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">2</p>
+				                </div>
+				                <div class="col-md-8">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step2 %>
+				                  </p>
+				                </div>
+				              </div>              
 
-			            <% if @steppy.step7.present? %>
-			              <div class="row">
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">7</p>
-			                </div>
-			                <div class="col-md-11">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step7 %>
-			                  </p>
-			                </div>
-			              </div>             
-			 			<% else %>                                
-			            <% end %>
+				              <div class="row">
+				              	<div class="col-md-3">
+									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
+										<% if @chklist.chk3 == "In Progress" %>
+											<%= link_to @chklist.chk3, checklist_path(@chklist, "checklist[chk3]" => "Done!"), method: :put %>
+										<% else %>
+											<%= link_to @chklist.chk3, checklist_path(@chklist, "checklist[chk3]" => "In Progress"), method: :put %>
+										<% end %>
+									</p>
+								</div>
+				                <div class="col-md-1">
+				              		<p style="font-size:24px;" class="numbs">3</p>
+				                </div>
+				                <div class="col-md-8">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step3 %>
+				                  </p>
+				                </div>
+				              </div>             
 
-			            <% if @steppy.step8.present? %>
-			              <div class="row">
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">8</p>
-			                </div>
-			                <div class="col-md-11">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step8 %>
-			                  </p>
-			                </div>
-			              </div>             
-			            <% else %>                  
-			            <% end %>
+				              <% if @steppy.step4.present? %>
+				                <div class="row">
+				                  <div class="col-md-1">
+				                    <p style="font-size:24px;" class="numbs">4</p>
+				                  </div>
+				                  <div class="col-md-11">
+				                    <p style="font-size:14px;" class="goal_panel2">
+				                      <%= @steppy.step4 %>
+				                    </p>
+				                  </div>
+				                </div>             
+				              <% else %>          
+				              <% end %>
+				    
+				            <% if @steppy.step5.present? %>
+				            	<div class="row">
+				            		<div class="col-md-1">
+						            	<p style="font-size:24px;" class="numbs">5</p>
+						            </div>
+					                <div class="col-md-11">
+					                	<p style="font-size:14px;" class="goal_panel2">
+					                  		<%= @steppy.step5 %>
+					                	</p>
+					                </div>
+								</div>             
+				            <% else %>            
+				            <% end %>
 
-			            <% if @steppy.step9.present? %>
-			              <div class="row">
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">9</p>
-			                </div>
-			                <div class="col-md-11">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step9 %>
-			                  </p>
-			                </div>
-			              </div>             
-			            <% else %>                       
-			            <% end %>
+				            <% if @steppy.step6.present? %>
+				              <div class="row">
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">6</p>
+				                </div>
+				                <div class="col-md-11">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step6 %>
+				                  </p>
+				                </div>
+				              </div>             
+				            <% else %>                     
+				            <% end %>
 
-			            <% if @steppy.step10.present? %>
-			              <div class="row">
-			                <div class="col-md-1">
-			                  <p style="font-size:24px;" class="numbs">10</p>
-			                </div>
-			                <div class="col-md-11">
-			                  <p style="font-size:14px;" class="goal_panel2">
-			                    <%= @steppy.step10 %>
-			                  </p>
-			                </div>
-						  </div> 
-						<% else %>               
-			            <% end %>
-			        </div>
-				</div>				
+				            <% if @steppy.step7.present? %>
+				              <div class="row">
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">7</p>
+				                </div>
+				                <div class="col-md-11">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step7 %>
+				                  </p>
+				                </div>
+				              </div>             
+				 			<% else %>                                
+				            <% end %>
+
+				            <% if @steppy.step8.present? %>
+				              <div class="row">
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">8</p>
+				                </div>
+				                <div class="col-md-11">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step8 %>
+				                  </p>
+				                </div>
+				              </div>             
+				            <% else %>                  
+				            <% end %>
+
+				            <% if @steppy.step9.present? %>
+				              <div class="row">
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">9</p>
+				                </div>
+				                <div class="col-md-11">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step9 %>
+				                  </p>
+				                </div>
+				              </div>             
+				            <% else %>                       
+				            <% end %>
+
+				            <% if @steppy.step10.present? %>
+				              <div class="row">
+				                <div class="col-md-1">
+				                  <p style="font-size:24px;" class="numbs">10</p>
+				                </div>
+				                <div class="col-md-11">
+				                  <p style="font-size:14px;" class="goal_panel2">
+				                    <%= @steppy.step10 %>
+				                  </p>
+				                </div>
+							  </div> 
+							<% else %>               
+				            <% end %>
+				    	</div>
+				    </div>
+					</div>				
+				<% end %>
+				<br><br><br><br><br><br><br><br><br><br><br><br>
+				<%= @checklist %>
+				<% allfollows.each do |item| %>
+				    <p><%= item.followable_id %></p>
 				<%end%>
-				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+			

@@ -7,6 +7,29 @@ html, body {
 	padding: 30px;
 }
 
+.avatar {
+	width: 200px;
+	height: 200px;
+}
+
+.list {
+	padding: 5px;
+	padding-left: 25px;
+	background-color: cornsilk;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+}
+
+.donestep {
+	border: 1px solid rgb(72, 206, 72);
+	background-color: rgb(177, 235, 177);
+}
+
+.stepinprogress {
+	border: 1px solid rgb(209, 209, 209);
+	background-color: rgb(224, 224, 224);
+}
 
 .pm {
 	margin-top: 9px;
