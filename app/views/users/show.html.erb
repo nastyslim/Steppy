@@ -25,9 +25,13 @@
 					<span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
 					<span>See Steppy</span><span> <%= @chklist.chk_steppy_id %></span><span> Unfollow</span>
 					<div class="row" style="margin-top: 5px;">
-						<div class="col-md-10">
-
+						<div class="col-md-11" style="margin-left: 15px;">
+							
+							<% if @chklist.chk1 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
 							<div class="row donestep">
+							<% end %>
 								<div class="col-md-3">
 									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
 										<% if @chklist.chk1 == "In Progress" %>
@@ -47,7 +51,11 @@
 								</div>
 							</div>             
 
-				              <div class="row">
+				            <% if @chklist.chk2 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
 				              	<div class="col-md-3">
 									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
 										<% if @chklist.chk2 == "In Progress" %>
@@ -67,7 +75,11 @@
 				                </div>
 				              </div>              
 
-				              <div class="row">
+				            <% if @chklist.chk3 == "In Progress" %>
+							<div class="row stepinprogress">
+							<% else %>
+							<div class="row donestep">
+							<% end %>
 				              	<div class="col-md-3">
 									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;" class="numbs ">
 										<% if @chklist.chk3 == "In Progress" %>
@@ -188,11 +200,13 @@
 				    </div>
 					</div>				
 				<% end %>
+				<!--
 				<br><br><br><br><br><br><br><br><br><br><br><br>
 				<%= @checklist %>
 				<% allfollows.each do |item| %>
 				    <p><%= item.followable_id %></p>
 				<%end%>
+				-->
 			<% end %>
 		</div>
 	</div>
