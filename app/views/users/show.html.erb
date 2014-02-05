@@ -12,6 +12,7 @@
 		</div>
 		<div class="col-md-8">
 			<h1 style="margin-top: 0px;font-size: 18px;">Goal's <%= @user.username.capitalize %> is climbing towards:</h1>
+			<% if current_user %>
 			<% @chklist = Checklist.where(:chk_user_id => current_user.username).first %>
 			<% if current_user && @chklist.present? %>
 
@@ -200,7 +201,7 @@
 				    </div>
 					</div>				
 				<% end %>
-				
+				<!--
 				<br><br><br><br><br><br><br><br><br><br><br><br>
 
 				<%= @checklist %>
@@ -208,7 +209,8 @@
 				<% allfollows.each do |item| %>
 				    <p><%= item.followable_id %></p>
 				<%end%>
-				<!---->
+				-->
+			<% end %>
 			<% end %>
 		</div>
 	</div>
