@@ -13,18 +13,18 @@
 		<div class="col-md-8">
 			<h1 style="margin-top: 0px;font-size: 18px;">Goal's <%= @user.username.capitalize %> is climbing towards:</h1>
 			<% if current_user %>
-			<% @chklist = Checklist.where(:chk_user_id => current_user.username).first %>
+			<% @chklist = Checklist.where(:chk_user_id => @user.username).first %>
 			<% if current_user && @chklist.present? %>
 
-				<% allfollows = current_user.all_follows %>
+				<% allfollows = @user.all_follows %>
 				<% allfollows.each do |item| %>
 				    <% @steppy = Steppy.find(item.followable_id) %>
-				    <% @chklist = Checklist.where(:chk_user_id => current_user.username, :chk_steppy_id => @steppy.goal).first %>
+				    <% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
 				   
 				    <div class="list">
 				    <h1  style="font-size:24px; font-weight:bold; padding-bottom:0px;margin-bottom: 0px;">How do I become a <%= @steppy.goal %>?</h1>
 					<span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
-					<span>See Steppy</span><span> <%= @chklist.chk_steppy_id %></span><span> Unfollow</span>
+					<span>See Steppy</span><!--<span> <%= @chklist.chk_steppy_id %> <%= @chklist.chk_user_id %></span><span> Unfollow</span><%= @user.username%> <%=current_user.username%> -->
 					<div class="row" style="margin-top: 5px;">
 						<div class="col-md-11" style="margin-left: 15px;">
 							
@@ -46,7 +46,7 @@
 									<p style="font-size:24px;" class="numbs ">1</p>
 								</div>
 								<div class="col-md-8">
-									<p style="font-size:14px;" class="goal_panel2">
+									<p style="font-size:14px;" class="goal_panel22">
 								    	<%= @steppy.step1 %>
 									</p>
 								</div>
@@ -70,7 +70,7 @@
 				                  <p style="font-size:24px;" class="numbs">2</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step2 %>
 				                  </p>
 				                </div>
@@ -94,7 +94,7 @@
 				              		<p style="font-size:24px;" class="numbs">3</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step3 %>
 				                  </p>
 				                </div>
@@ -120,7 +120,7 @@
 				                    <p style="font-size:24px;" class="numbs">4</p>
 				                  </div>
 				                  <div class="col-md-8">
-				                    <p style="font-size:14px;" class="goal_panel2">
+				                    <p style="font-size:14px;" class="goal_panel22">
 				                      <%= @steppy.step4 %>
 				                    </p>
 				                  </div>
@@ -148,7 +148,7 @@
 						            	<p style="font-size:24px;" class="numbs">5</p>
 						            </div>
 					                <div class="col-md-8">
-					                	<p style="font-size:14px;" class="goal_panel2">
+					                	<p style="font-size:14px;" class="goal_panel22">
 					                  		<%= @steppy.step5 %>
 					                	</p>
 					                </div>
@@ -176,7 +176,7 @@
 				                  <p style="font-size:24px;" class="numbs">6</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step6 %>
 				                  </p>
 				                </div>
@@ -204,7 +204,7 @@
 				                  <p style="font-size:24px;" class="numbs">7</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step7 %>
 				                  </p>
 				                </div>
@@ -233,7 +233,7 @@
 				                  <p style="font-size:24px;" class="numbs">8</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step8 %>
 				                  </p>
 				                </div>
@@ -261,7 +261,7 @@
 				                  <p style="font-size:24px;" class="numbs">9</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step9 %>
 				                  </p>
 				                </div>
@@ -289,7 +289,7 @@
 				                  <p style="font-size:24px;" class="numbs">10</p>
 				                </div>
 				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel2">
+				                  <p style="font-size:14px;" class="goal_panel22">
 				                    <%= @steppy.step10 %>
 				                  </p>
 				                </div>

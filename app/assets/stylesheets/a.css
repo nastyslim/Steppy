@@ -15,10 +15,10 @@ html, body {
 .list {
 	padding: 5px;
 	padding-left: 25px;
-	background-color: cornsilk;
-	border-radius: 10px;
+	background-color: rgb(220, 226, 255);
 	margin-bottom: 15px;
 	padding-bottom: 20px;
+	border-radius: 0px;
 }
 
 .donestep {
@@ -243,6 +243,14 @@ margin-left: 4px;
 	width: 100% ;
 	display: inline-block;
 	margin-bottom: 5px;
+}
+
+.goal_panel22 {
+	padding: 10px;
+	width: 100% ;
+	display: inline-block;
+	margin-bottom: 5px;
+	padding-top: 15px;
 }
 
 .goal_panel3 {
