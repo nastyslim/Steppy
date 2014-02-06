@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 	def unfollowSteppy
 		currsteppy = Steppy.find(params[:id])
 		current_user.stop_following(currsteppy)
-		@chklist = Checklist.where(:chk_steppy_id => currsteppy.goal, :chk_user_id => currsteppy.userid).first
+		@chklist = Checklist.where(:chk_steppy_id => currsteppy.goal, :chk_user_id => current_user.username).first
 		@chklist.destroy 
 		
 
