@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 		currsteppy = Steppy.find(params[:id])
 		current_user.follow(currsteppy)
 
-		@chklist = Checklist.create(:chk_steppy_id => currsteppy.goal, :chk_user_id => current_user.username, :chk1 => "In Progress", :chk1 => "In Progress", :chk2 => "In Progress", :chk3 => "In Progress", :chk4 => "In Progress", :chk5 => "In Progress", :chk6 => "In Progress", :chk7 => "In Progress", :chk8 => "In Progress", :chk9 => "In Progress", :chk10 => "In Progress")
+		@chklist = Checklist.create(:chk_steppy_id => currsteppy.goal, :chk_user_id => current_user.username, :chk1 => "Done?", :chk1 => "Done?", :chk2 => "Done?", :chk3 => "Done?", :chk4 => "Done?", :chk5 => "Done?", :chk6 => "Done?", :chk7 => "Done?", :chk8 => "Done?", :chk9 => "Done?", :chk10 => "Done?")
 
 
 		redirect_to currsteppy
