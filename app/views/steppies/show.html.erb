@@ -26,8 +26,8 @@
               <span><span style="color:#4386C9;">
                 <b>
                   <% if @steppy.userid.present? %>
-                    <% @user = User.where(:username => @steppy.userid).first %>
-                    By <%= link_to @steppy.userid.capitalize, user_path(@user.id) %>
+                    <% @u= User.where(:username => @steppy.userid).first %>
+                    By <%= link_to @steppy.userid.capitalize, user_path(@u.id) %>
                     
 
                   <% end %>
