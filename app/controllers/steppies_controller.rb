@@ -73,7 +73,7 @@ class SteppiesController < ApplicationController
     if current_user 
       @steppy.userid = current_user.username
     else
-      @steppy.userid = "Anonymous"
+      @steppy.userid = "anonymous"
     end
 
     respond_to do |format|
