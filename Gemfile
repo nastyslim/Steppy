@@ -6,20 +6,21 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-
-gem "acts_as_follower", '~> 0.1.1'
-
-
+group :production, :staging do
   gem "pg"
+end
 
-
-
- #gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+group :development, :test do
+  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+  gem "better_errors"
+  gem "binding_of_caller"
+end
 
 
 gem 'ckeditor_rails'
 
 
+gem "acts_as_follower", '~> 0.1.1'
 
 
 gem 'rake', '10.1.1'
