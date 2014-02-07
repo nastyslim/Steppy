@@ -86,6 +86,17 @@ html, body {
 
 .inline ul {
 	padding: 0;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.inline {
+	width: 585px;
+	background-color: #eef1f3;
+	padding: 15px;
+	border-radius: 0px 0px 10px 10px;
 }
 
 .fm {
@@ -347,10 +358,12 @@ footer{
 }
 
 .appcont {
-	/*background-image: url('bg2.png'); */
+	background-image: url('bg3.png'); 
+	background-size: 100%;
 	background-repeat:no-repeat; 
 	background-color: rgb(248, 248, 248);
 	padding-bottom: 75px;
+	height: 100%;
 }
 
 .navbtns:visited {
@@ -410,7 +423,7 @@ footer{
 
 .orinner div a{
 	font-size: 12px;
-	color: #0d7963;
+	color: #3382B6;
 	font-weight: bold;
 }
 

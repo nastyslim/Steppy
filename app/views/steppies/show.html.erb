@@ -9,13 +9,7 @@
     <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
 
 
-  <% if current_user %>
-    <% if current_user.following?(@steppy)%>
-      <%= link_to 'UnFollow', unfollow_path(@steppy) %>
-    <%else%>
-      <%= link_to 'Follow', follow_path(@steppy) %>
-    <%end%>
-  <%end%>
+  
 
   
 
@@ -32,7 +26,8 @@
               <span><span style="color:#4386C9;">
                 <b>
                   <% if @steppy.userid.present? %>
-                    By <%= @steppy.userid %>
+                    <% @user = User.where(:username => @steppy.userid).first %>
+                    By <%= link_to @steppy.userid.capitalize, user_path(@user.id) %>
                     
 
                   <% end %>
@@ -45,13 +40,24 @@
             <li>
               <%= link_to 'Flag', steppy_path(:flagon => "flag"), :style => "font-size:11px; color:white; font-weight:bold; background-color: crimson; padding: 2px 10px;" %>
             </li>
+            <li>
+              <span style="float:right;">
+                <% if current_user %>
+                  <% if current_user.following?(@steppy)%>
+                    <%= link_to 'Stop Climbing', unfollow_path(@steppy), :class=> "btn btn-danger", :style => "margin-top: -7px;" %>
+                  <%else%>
+                    <%= link_to 'Climb!', follow_path(@steppy), :class=> "btn btn-success", :style => "margin-top: -7px;"  %>
+                  <%end%>
+                <%end%>
+              </span>
+            </li>
           </ul>
         </div>
   <div class="row">
     <div class="col-md-9">
 
               <% if @steppy.description.present? %>
-                <div style="margin-top: 20px; padding: 10px; border-radius: 5px; background-color: #eef1f3;"><b style="float:left;">Description: </b><b style="color:#eef1f3;float:left;">.</b><%= raw @steppy.description %></div>
+                <div style="margin-top: 20px; padding: 10px; border-radius: 5px 5px 0px 0px;; background-color: #eef1f3;"><b style="float:left;">Description: </b><b style="color:#eef1f3;float:left;">.</b><%= raw @steppy.description %></div>
               <% else %>                
               <% end %>
         
@@ -269,6 +275,8 @@
         <div style="margin-top:30px;">
           
         </div>
+
+
 
 
         <div class="otherregions">
