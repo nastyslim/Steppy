@@ -7,12 +7,6 @@
 <div class="maincont formpgs" >
   <% if @steppy.goal.present? %>
     <h1  style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.goal %>?</h1>
-
-
-  
-
-  
-
     <!-- artcl. info -->
         <div class="inline">
           <ul>
@@ -39,6 +33,9 @@
             </li>
             <li>
               <%= link_to 'Flag', steppy_path(:flagon => "flag"), :style => "font-size:11px; color:white; font-weight:bold; background-color: crimson; padding: 2px 10px;" %>
+            </li>
+            <li>
+              <%= @steppy.categories %>
             </li>
             <li>
               <span style="float:right;">
