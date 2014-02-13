@@ -10,20 +10,7 @@
         <p class="subhead">Find out what steps you need to take to achieve your goals!</p>
         <h1 class="bannertxt hb2" style="font-size:28px; color:black;">What is your goal?</h1>
     </div>
-    <div class="search">
-        <div class="insearch">
-            <div class="row">
-                <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
-                    <div class="form-group navw7">
-                        <%= text_field_tag :search, params[:search], :class => "form-control" %>
-                    </div>
-                    <div class="form-group navw3">
-                        <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
-                    </div>
-                <% end %>
-            </div>
-       </div>
-    </div>
+    
 </div>
 
 
