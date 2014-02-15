@@ -2,412 +2,457 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class="formpgs" style="margin:auto">
-	
-
-	<div class="profilesoon row">
 
 
-		<div class="col-md-4" style="background-color: white;padding: 20px;margin-right: -13px;width: 243px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
-			<h1 style="margin-bottom:6px;margin-top:0px;"><b><%= @user.username.capitalize %></b></h1>
-			<img src="/assets/profile.png" alt="User Avatar" class="avatar">
-				<div style="color: #66757f;font-size: 20px;font-weight: 200;line-height: 22px;margin-top:10px;">All Goals:</div>
+<div style="margin-top: 20px;">
+    <div class="row">
+		<div class="col-md-4">
+			<div class="profile" style="background-color: white;padding: 20px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
+				<h1 style="margin-bottom:6px;margin-top:0px;"><b><%= @user.username.capitalize %></b></h1>
+				<img src="/assets/profile.png" alt="User Avatar" class="avatar">
+					<div style="color: #66757f;font-size: 20px;font-weight: 200;line-height: 22px;margin-top:10px;">All Goals:</div>
 
-				<% allfollows = @user.all_follows %>
-				<% allfollows.each do |item| %>
-				    <% @steppy = Steppy.find(item.followable_id) %>
-				    <div><a href="#" style="color:#333333;"><%= @steppy.goal.capitalize %></a></div>
-				<%end%>	
+					<% allfollows = @user.all_follows %>
+					<% allfollows.each do |item| %>
+						<% @steppy = Steppy.find(item.followable_id) %>
+						<div><a href="#" style="color:#333333;"><%= @steppy.goal.capitalize %></a></div>
+					<%end%>	
+			</div>
 		</div>
+	    <div class="col-md-8 goalsmargin">
+	    	<div class="" style="background-color: white;padding: 20px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
+	    		<h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Goals <%= @user.username.capitalize %> is climbing towards</h1>
+	    		<% if current_user %>
+					<% @chklist = Checklist.where(:chk_user_id => @user.username).first %>
+					<% if current_user && @chklist.present? %>
+						<% allfollows = @user.all_follows %>
+						<% allfollows.each do |item| %>
+						    <% @steppy = Steppy.find(item.followable_id) %>
+						    <% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
+						    
+						    <div class="list">
+							    <h1  style="font-size:24px; font-weight:bold; padding-bottom:0px;margin-bottom: 0px;"><%= link_to @steppy.goal.capitalize, steppy_path(@steppy), :style => "color:#333333;" %></h1>
+							    <div class="row" style="margin-top: 5px;margin-bottom: 10px;">
+									<div class="col-md-11 chklinks" style="margin-left: 15px;">	
 
+									<% if @chklist.chk1 == "Done?" %>
+										<div class="row stepinprogress topw">
+									<% else %>
+										<div class="row finishedstep topw">
+									<% end %>
+											<div class="col-md-3">											
+												<% if current_user.username == @user.username %>								
+													<% if @chklist.chk1 == "Done?" %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+														<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+														</p>
+													<% else %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+														<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+														</p>
+													<% end %>
+												<% else %>													
+													<% if @chklist.chk1 == "Done?" %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+															<span style="color:white;">...</span>
+														</p>
+													<% else %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+															<span style="color:white;">✔</span>
+														</p>
+													<% end %>	
+													
+												<% end %>
+											</div>
+											<div class="col-md-1">
+												<p style="font-size:24px;margin-top:7px;">1</p>
+											</div>
+											<div class="col-md-8">
+												<p style="font-size:14px;" class="goal_panel22">
+											    	<%= @steppy.step1 %>
+												</p>
+											</div>
+										</div>
 
-		<div class="col-md-8" style="margin-top: 0px;background-color: rgb(247, 247, 247);padding: 20px;margin-left: 24px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
-			<h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Goals <%= @user.username.capitalize %> is climbing towards</h1>
-			<% if current_user %>
-			<% @chklist = Checklist.where(:chk_user_id => @user.username).first %>
-			<% if current_user && @chklist.present? %>
+									<% if @chklist.chk2 == "Done?" %>
+										<div class="row stepinprogress topw">
+									<% else %>
+										<div class="row finishedstep topw">
+									<% end %>
+											<div class="col-md-3">											
+												<% if current_user.username == @user.username %>								
+													<% if @chklist.chk2 == "Done?" %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+														<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+														</p>
+													<% else %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+														<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+														</p>
+													<% end %>
+												<% else %>														
+													<% if @chklist.chk2 == "Done?" %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+															<span>...</span>
+														</p>
+													<% else %>
+														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+															<span style="color:white;">✔</span>
+														</p>
+													<% end %>	
+												<% end %>
+											</div>
+											<div class="col-md-1">
+												<p style="font-size:24px;margin-top:7px;">2</p>
+											</div>
+											<div class="col-md-8">
+												<p style="font-size:14px;" class="goal_panel22">
+											    	<%= @steppy.step2 %>
+												</p>
+											</div>
+										</div>
 
-				<% allfollows = @user.all_follows %>
-				<% allfollows.each do |item| %>
-				    <% @steppy = Steppy.find(item.followable_id) %>
-				    <% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
-				    <div class="list">
-				    <h1  style="font-size:24px; font-weight:bold; padding-bottom:0px;margin-bottom: 0px;"><%= link_to @steppy.goal.capitalize, steppy_path(@steppy), :style => "color:#333333;" %></h1>
-				    
-					<!--<span style="margin-top:-5px;">in <b style="color:#E77738;"><%= @steppy.region.split.map(&:capitalize).join(' ') %></b></span>
-					<span> <%= @chklist.chk_steppy_id %> <%= @chklist.chk_user_id %></span><span> Unfollow</span><%= @user.username%> <%=current_user.username%> -->
-					<div class="row" style="margin-top: 5px;margin-bottom: 10px;">
-						<div class="col-md-11 chklinks" style="margin-left: 15px;">
-							
-							<% if @chklist.chk1 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-								<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
-											<% if @chklist.chk1 == "Done?" %>
-												<%= link_to @chklist.chk1, checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %>
-											<% else %>
-												<%= link_to @chklist.chk1, checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
-											<% end %>
+										<% if @chklist.chk3 == "Done?" %>
+											<div class="row stepinprogress topw">
 										<% else %>
-											<% if @chklist.chk1 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+											<div class="row finishedstep topw">
 										<% end %>
-									</p>
-								</div>
-								<div class="col-md-1">
-									<p style="font-size:24px;" class="numbs ">1</p>
-								</div>
-								<div class="col-md-8">
-									<p style="font-size:14px;" class="goal_panel22">
-								    	<%= @steppy.step1 %>
-									</p>
-								</div>
-							</div>             
+												<div class="col-md-3">											
+													<% if current_user.username == @user.username %>								
+														<% if @chklist.chk3 == "Done?" %>
+															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+															<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+															</p>
+														<% else %>
+															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+															<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+															</p>
+														<% end %>
+													<% else %>														
+														<% if @chklist.chk3 == "Done?" %>
+															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<span>...</span>
+															</p>
+														<% else %>
+															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<span style="color:white;">✔</span>
+															</p>
+														<% end %>	
+													<% end %>
+												</div>
+												<div class="col-md-1">
+													<p style="font-size:24px;margin-top:7px;">3</p>
+												</div>
+												<div class="col-md-8">
+													<p style="font-size:14px;" class="goal_panel22">
+												    	<%= @steppy.step3 %>
+													</p>
+												</div>
+											</div>
 
-				            <% if @chklist.chk2 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
-											<% if @chklist.chk2 == "Done?" %>
-												<%= link_to @chklist.chk2, checklist_path(@chklist, "checklist[chk2]" => "Done!"), method: :put %>
-											<% else %>
-												<%= link_to @chklist.chk2, checklist_path(@chklist, "checklist[chk2]" => "Done?"), method: :put %>
-											<% end %>
-										<% else %>
-											<% if @chklist.chk2 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
-										<% end %>
-									</p>
-								</div>
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">2</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step2 %>
-				                  </p>
-				                </div>
-				              </div>              
 
-				            <% if @chklist.chk3 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
-											<% if @chklist.chk3 == "Done?" %>
-												<%= link_to @chklist.chk3, checklist_path(@chklist, "checklist[chk3]" => "Done!"), method: :put %>
-											<% else %>
-												<%= link_to @chklist.chk3, checklist_path(@chklist, "checklist[chk3]" => "Done?"), method: :put %>
-											<% end %>
-										<% else %>
-											<% if @chklist.chk3 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
-										<% end %>
-									</p>
-								</div>
-				                <div class="col-md-1">
-				              		<p style="font-size:24px;" class="numbs">3</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step3 %>
-				                  </p>
-				                </div>
-				              </div> 
-
-				            <% if @steppy.step4.present? %>
-				            <% if @chklist.chk4 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step4.present? %>
 											<% if @chklist.chk4 == "Done?" %>
-												<%= link_to @chklist.chk4, checklist_path(@chklist, "checklist[chk4]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk4, checklist_path(@chklist, "checklist[chk4]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk4 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk4 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk4 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">4</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step4 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				                
-				                  <div class="col-md-1">
-				                    <p style="font-size:24px;" class="numbs">4</p>
-				                  </div>
-				                  <div class="col-md-8">
-				                    <p style="font-size:14px;" class="goal_panel22">
-				                      <%= @steppy.step4 %>
-				                    </p>
-				                  </div>
-				                </div>             
-				              <% else %>          
-				              <% end %>
 
-				    		<% if @steppy.step5.present? %>
-				            <% if @chklist.chk5 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step5.present? %>
 											<% if @chklist.chk5 == "Done?" %>
-												<%= link_to @chklist.chk5, checklist_path(@chklist, "checklist[chk5]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk5, checklist_path(@chklist, "checklist[chk5]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk5 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk5 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk5 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">5</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step5 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				            	
-				            		<div class="col-md-1">
-						            	<p style="font-size:24px;" class="numbs">5</p>
-						            </div>
-					                <div class="col-md-8">
-					                	<p style="font-size:14px;" class="goal_panel22">
-					                  		<%= @steppy.step5 %>
-					                	</p>
-					                </div>
-								</div>             
-				            <% else %>            
-				            <% end %>
 
-				            <% if @steppy.step6.present? %>
-				            <% if @chklist.chk6 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step6.present? %>
 											<% if @chklist.chk6 == "Done?" %>
-												<%= link_to @chklist.chk6, checklist_path(@chklist, "checklist[chk6]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk6, checklist_path(@chklist, "checklist[chk6]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk6 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk6 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk6 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">6</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step6 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				              
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">6</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step6 %>
-				                  </p>
-				                </div>
-				              </div>             
-				            <% else %>                     
-				            <% end %>
 
-				            <% if @steppy.step7.present? %>
-				            <% if @chklist.chk7 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step7.present? %>
 											<% if @chklist.chk7 == "Done?" %>
-												<%= link_to @chklist.chk7, checklist_path(@chklist, "checklist[chk7]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk7, checklist_path(@chklist, "checklist[chk7]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk7 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk7 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk7 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">7</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step7 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				              
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">7</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step7 %>
-				                  </p>
-				                </div>
-				              </div>             
-				 			<% else %>                                
-				            <% end %>
 
-
-				            <% if @steppy.step8.present? %>
-				            <% if @chklist.chk8 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step8.present? %>
 											<% if @chklist.chk8 == "Done?" %>
-												<%= link_to @chklist.chk8, checklist_path(@chklist, "checklist[chk8]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk8, checklist_path(@chklist, "checklist[chk8]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk8 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk8 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk8 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">8</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step8 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				              
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">8</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step8 %>
-				                  </p>
-				                </div>
-				              </div>             
-				            <% else %>                  
-				            <% end %>
 
-				            <% if @steppy.step9.present? %>
-				            <% if @chklist.chk9 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step9.present? %>
 											<% if @chklist.chk9 == "Done?" %>
-												<%= link_to @chklist.chk9, checklist_path(@chklist, "checklist[chk9]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk9, checklist_path(@chklist, "checklist[chk9]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk9 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk9 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk9 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">9</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step9 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				              
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">9</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step9 %>
-				                  </p>
-				                </div>
-				              </div>             
-				            <% else %>                       
-				            <% end %>
 
-				            <% if @steppy.step10.present? %>
-				            <% if @chklist.chk10 == "Done?" %>
-							<div class="row stepinprogress">
-							<% else %>
-							<div class="row donestep">
-							<% end %>
-				              	<div class="col-md-3">
-									<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px;margin-top: 7px;" class="numbs ">
-										<% if current_user.username == @user.username %>
+										<% if @steppy.step10.present? %>
 											<% if @chklist.chk10 == "Done?" %>
-												<%= link_to @chklist.chk10, checklist_path(@chklist, "checklist[chk10]" => "Done!"), method: :put %>
+												<div class="row stepinprogress topw">
 											<% else %>
-												<%= link_to @chklist.chk10, checklist_path(@chklist, "checklist[chk10]" => "Done?"), method: :put %>
+												<div class="row finishedstep topw">
 											<% end %>
-										<% else %>
-											<% if @chklist.chk10 == "Done?" %>
-												In Progress
-											<% else %>
-												Done!
-											<% end %>	
+													<div class="col-md-3">											
+														<% if current_user.username == @user.username %>								
+															<% if @chklist.chk10 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																</p>
+															<% end %>
+														<% else %>														
+															<% if @chklist.chk10 == "Done?" %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
+																	<span>...</span>
+																</p>
+															<% else %>
+																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
+																	<span style="color:white;">✔</span>
+																</p>
+															<% end %>	
+														<% end %>
+													</div>
+													<div class="col-md-1">
+														<p style="font-size:24px;margin-top:7px;">10</p>
+													</div>
+													<div class="col-md-8">
+														<p style="font-size:14px;" class="goal_panel22">
+													    	<%= @steppy.step10 %>
+														</p>
+													</div>
+												</div>
 										<% end %>
-									</p>
-								</div>
-				              
-				                <div class="col-md-1">
-				                  <p style="font-size:24px;" class="numbs">10</p>
-				                </div>
-				                <div class="col-md-8">
-				                  <p style="font-size:14px;" class="goal_panel22">
-				                    <%= @steppy.step10 %>
-				                  </p>
-				                </div>
-							  </div> 
-							<% else %>               
-				            <% end %>
-				    	</div>
-				    </div>
-				    <div style="float:right;"><%= link_to 'Give Up?', unfollow_path(@steppy), :style => "color: #C0C0C0;font-size: 12px;font-weight:bold;margin-right: 13px;" %></div>
-					</div>				
+									
+
+
+									
+
+
+
+									</div>
+								</div>   
+								<div style="float:right;"><%= link_to 'Give Up?', unfollow_path(@steppy), :style => "color: #C0C0C0;font-size: 12px;font-weight:bold;margin-right: 15px;" %></div> 
+							</div>
+						<% end %> 
+					<% end %>
 				<% end %>
 				<br>
 				<div class="div" style="text-align:center;">
 					<p class="btn btn-primary">Add More Goals!</p>
 				</div>
-				<!--
-				<br><br><br><br><br><br><br><br><br><br><br><br>
-
-				<%= @checklist %>
-				<%= @chklist.chk_user_id %>
-				<% allfollows.each do |item| %>
-				    <p><%= item.followable_id %></p>
-				<%end%>
-				-->
-			<% end %>
-			<% end %>
+	    	</div>
 		</div>
 	</div>
 </div>
+
+
+
 			

@@ -12,8 +12,6 @@ end
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
-  gem "better_errors"
-  gem "binding_of_caller"
 end
 
 
