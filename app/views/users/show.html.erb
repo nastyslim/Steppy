@@ -83,11 +83,11 @@
 												<% if current_user.username == @user.username %>								
 													<% if @chklist.chk2 == "Done?" %>
 														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-														<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+														<b><%= link_to "?", checklist_path(@chklist, "checklist[chk2]" => "Done!"), method: :put %></b>
 														</p>
 													<% else %>
 														<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-														<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+														<%= link_to "✔", checklist_path(@chklist, "checklist[chk2]" => "Done?"), method: :put %>
 														</p>
 													<% end %>
 												<% else %>														
