@@ -5,18 +5,20 @@
 
 
 <div style="margin-top: 20px;">
-    <div class="row">
+    <div class="row" style="width: 100%;margin: auto;">
 		<div class="col-md-4">
-			<div class="profile" style="background-color: white;padding: 20px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
-				<h1 style="margin-bottom:6px;margin-top:0px;"><b><%= @user.username.capitalize %></b></h1>
-				<img src="/assets/profile.png" alt="User Avatar" class="avatar">
-					<div style="color: #66757f;font-size: 20px;font-weight: 200;line-height: 22px;margin-top:10px;">All Goals:</div>
+			<div class="profilepic">
+				<div class="profile" style="background-color: white;padding: 20px;border: solid 1px rgb(226, 226, 226);border-radius: 5px;">
+					<h1 style="margin-bottom:6px;margin-top:0px;"><b><%= @user.username.capitalize %></b></h1>
+					<img src="/assets/profile.png" alt="User Avatar" class="avatar">
+						<div style="color: #66757f;font-size: 20px;font-weight: 200;line-height: 22px;margin-top:10px;">All Goals:</div>
 
-					<% allfollows = @user.all_follows %>
-					<% allfollows.each do |item| %>
-						<% @steppy = Steppy.find(item.followable_id) %>
-						<div><a href="#" style="color:#333333;"><%= @steppy.goal.capitalize %></a></div>
-					<%end%>	
+						<% allfollows = @user.all_follows %>
+						<% allfollows.each do |item| %>
+							<% @steppy = Steppy.find(item.followable_id) %>
+							<div><a href="#" style="color:#333333;"><%= @steppy.goal.capitalize %></a></div>
+						<%end%>	
+				</div>
 			</div>
 		</div>
 	    <div class="col-md-8 goalsmargin">

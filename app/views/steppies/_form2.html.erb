@@ -11,7 +11,8 @@
     </div>
   <% end %>
 
-<div class="maincont formpgs2">
+<div style="background-color: white;margin-top: 20px;padding: 20px;">
+  <div class="formbody">
   <p>
     <h1 style="font-size:24px; font-weight:bold; padding-bottom:30px;">What is your request?</h1>
   </p>
@@ -24,11 +25,13 @@
     <p class="myh3">For what region?</p>
     <%= f.text_field :region, :class => "form-control" %>
   </div>
-</br>
+  </br>
   <div class="actions">
     <%= f.submit "Ask!", :class => "btn btn-danger bw" %>
   </div>
   </div>
+  </div>
 </div>
+
 
 <% end %>
