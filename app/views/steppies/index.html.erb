@@ -2,10 +2,10 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<div style="background-color: white;margin-top: 20px;padding: 20px;">
+<div style="margin-top: 20px;padding:0px;">
     <div styke="padding:20px;">
         <div class="row" style="margin:auto;">
-            <div class="col-md-7">
+            <div class="col-md-7" style="background-color: white;padding: 20px;border: 1px solid lightgrey;margin-bottom:20px;">
                 <div class="frontpage">
                     <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Newest Staircases</h1>
                     <% @steppy = Steppy.order('created_at DESC')%>
@@ -45,10 +45,10 @@
             </div>
            
             <div class="col-md-5">
-                <div class="catps"style="margin-left:10px;">
+                <div class="catps"style="background-color: white;padding: 20px;border: 1px solid lightgrey;">
                     <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Categories</h1>
-                    <p>♫ Arts and Entertainment</p>
-                    <p>ϟ Computers and Electronics</p>
+                    <a href=""><p> <span style="width:20%;text-align:center;">♫</span><span style="width:80%;margin-left: 5px;"> Arts and Entertainment</span></p></a>
+                    <a href=""><p> <span style="width:20%;text-align:center;">ϟ</span><span style="width:80%;margin-left: 6px;"> Computers and Electronics</span></p></a>
                     <p>✎ Education</p>
                     <p>$ Finance and pusiness</p>
                     <p>% Food</p>

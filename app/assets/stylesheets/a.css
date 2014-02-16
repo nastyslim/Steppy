@@ -1,3 +1,5 @@
+
+
 @media (max-width: 991px) {
 	.steppytitle {
 		padding: 0px 20px 0px 20px;
@@ -36,6 +38,10 @@
 		padding-left: 0px;
 		padding-right: 0px;
 	}
+
+	.catps {
+		margin-left: 0px;
+	}
 }
 
 @media (min-width: 991px) {
@@ -66,6 +72,10 @@
 	.formbody {
 		width: 500px;
 		margin: auto;
+	}
+
+	.catps {
+		margin-left: 20px;
 	}
 
 }
@@ -114,3 +124,14 @@
 	padding: 3px;
 	padding-left: 20px;
 }
+
+.catps p:hover {
+	background-color: lightgrey;
+}
+
+
+
+.appcont {
+	background-image: none;
+}
+
