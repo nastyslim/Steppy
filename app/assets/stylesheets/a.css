@@ -107,3 +107,10 @@
 	border: 1px dotted lightgrey;
 	border-radius: 5px 5px 5px 5px;
 }
+
+.catps p {
+	border: 1px lightgrey solid;
+	border-radius: 5px;
+	padding: 3px;
+	padding-left: 20px;
+}

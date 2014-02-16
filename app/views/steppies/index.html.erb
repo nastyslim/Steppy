@@ -5,13 +5,58 @@
 <div style="background-color: white;margin-top: 20px;padding: 20px;">
     <div styke="padding:20px;">
         <div class="row" style="margin:auto;">
-            <div class="col-md-7" style="background-color:grey; ">
-                yo
+            <div class="col-md-7">
+                <div class="frontpage">
+                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Newest Staircases</h1>
+                    <% @steppy = Steppy.order('created_at DESC')%>
+
+                    <% @steppy.each do |steppy| %>
+                        <% if steppy.goal.present? %>
+                            <div class="goal_panel_new">
+                                <%= link_to steppy do%>
+                                <div>
+                                    <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal.capitalize %></b></div>
+                                </div>
+                                <% end %>
+                            </div>
+                        <% else %>        
+                        <% end %>
+                    <% end %>
+                </div> 
+                <div class="frontpage">
+                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Recently Requested Staircases</h1>
+                    <% @steppy = Steppy.order('created_at DESC')%>
+
+                    <% @steppy.each do |steppy| %>
+                        <% if steppy.ask.present? %>        
+                            <div class="goal_panel_new">
+                                <%= link_to steppy do%>
+                                    <div>
+                                        <div class="goal">How do I become a <%= steppy.ask.capitalize %>?</div>
+                                    </div>
+                                <% end %>
+                            </div>
+                        <% else %>
+                        <% end %>
+                    <% end %>
+
+                </div> 
+
             </div>
            
             <div class="col-md-5">
-                <div style="margin-left:10px;background-color:lightgrey;">
-                    <p style="font-size:21px;margin:0px;">Categories</p>
+                <div class="catps"style="margin-left:10px;">
+                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Categories</h1>
+                    <p>♫ Arts and Entertainment</p>
+                    <p>ϟ Computers and Electronics</p>
+                    <p>✎ Education</p>
+                    <p>$ Finance and pusiness</p>
+                    <p>% Food</p>
+                    <p>☼ Health</p>
+                    <p>✌ Hobbies</p>
+                    <p>♞ Sports</p>
+                    <p>ツ Lifestyle</p>
+                    <p>¿ Other</p>
                 </div>
             </div>
         </div>
@@ -29,67 +74,3 @@
 
 
 
-
-
-<div class="banner">
-    <div class="header" style="box-shadow:none;">
-        <h1 class="bannertxt" style="font-size:28px; color:black;">Its hard to know what your first step should be.</h1>
-        <h1 class="bannertxt hb2" style="font-size:28px; color:black;">How do I become a..?</h1>
-        <p class="subhead">Find out what steps you need to take to achieve your goals!</p>
-        <h1 class="bannertxt hb2" style="font-size:28px; color:black;">What is your goal?</h1>
-    </div>
-    
-</div>
-
-
-
-
-<div class="row maincont">
-    <div class="col-md-12" style="background-color: #3382B6;">
-        <div style="text-align: center;margin: auto;width: 352px;">
-            <a href="" class="h4blank" style="background-color: rgb(228, 61, 61);">Career</a>
-            <a href="" class="h4blank" style="background-color: #2FB32A;">Life Style</a>
-            <a href="" class="h4blank" style="background-color: #8D5096;">Do It Yourself</a>
-            <a href="" class="h4blank" style="background-color: #55CAC6;">Other</a>
-        </div>
-    </div>
-    <div class="col-md-6 bg">
-        <h1 style="text-align:center;">Newest Staircases</h1>
-        <% @steppy = Steppy.order('created_at DESC')%>
-
-        <% @steppy.each do |steppy| %>
-            <% if steppy.goal.present? %>
-                <div class="goal_panel_new">
-                    <%= link_to steppy do%>
-                    <div>
-                        <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal.capitalize %></b></div>
-                    </div>
-                    <% end %>
-                </div>
-            <% else %>        
-            <% end %>
-        <% end %>
-        <br/>
-    </div>
-
-
-
-
-    <div  style="" class="col-md-6">
-        <h1 style="text-align:center;">Recently Requested Staircases</h1>
-        <% @steppy = Steppy.order('created_at DESC')%>
-
-        <% @steppy.each do |steppy| %>
-            <% if steppy.ask.present? %>        
-                <div class="goal_panel_new">
-                    <%= link_to steppy do%>
-                        <div>
-                            <div class="goal"><%= steppy.ask.capitalize %></div>
-                        </div>
-                    <% end %>
-                </div>
-            <% else %>
-            <% end %>
-        <% end %>
-    </div>
-</div>
