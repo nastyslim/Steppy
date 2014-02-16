@@ -41,8 +41,8 @@ application.js: application-f0f0feb5e32f733a8ad3876933e4fdd0.js
 application/index.js: application-f0f0feb5e32f733a8ad3876933e4fdd0.js
 ckeditor/config.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
 ckeditor/config/index.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
-application.css: application-ef135d5d8e018265fe4e92ac03cf86ef.css
-application/index.css: application-ef135d5d8e018265fe4e92ac03cf86ef.css
+application.css: application-ce48774c8898f551d555086b8e33fd62.css
+application/index.css: application-ce48774c8898f551d555086b8e33fd62.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 ckeditor/basepath.js: ckeditor/basepath-b4c4979700828acb2a7608363036fdf9.js
