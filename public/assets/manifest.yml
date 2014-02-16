@@ -37,8 +37,8 @@ steppy_thumb.png: steppy_thumb-84f89406b6cd760cb5359135c039d9f1.png
 steppy_thumb/index.png: steppy_thumb-84f89406b6cd760cb5359135c039d9f1.png
 steppy_thumb2.png: steppy_thumb2-caa13107064e2c8015dc9f11694846f9.png
 steppy_thumb2/index.png: steppy_thumb2-caa13107064e2c8015dc9f11694846f9.png
-application.js: application-f0f0feb5e32f733a8ad3876933e4fdd0.js
-application/index.js: application-f0f0feb5e32f733a8ad3876933e4fdd0.js
+application.js: application-54c487b59e43e2a5d9fd7f8bf58b412c.js
+application/index.js: application-54c487b59e43e2a5d9fd7f8bf58b412c.js
 ckeditor/config.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
 ckeditor/config/index.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
 application.css: application-ce48774c8898f551d555086b8e33fd62.css
