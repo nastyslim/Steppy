@@ -15,6 +15,7 @@
 //= require ckeditor-jquery
 //= require_tree .
 //= require bootstrap.min
+//= require jquery
 
 
 $('.ckeditor').ckeditor({

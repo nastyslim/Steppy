@@ -1,6 +1,54 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
+<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
+    <div class="col-md-3" style="padding-top:20px;border-right: lightgray 1px solid;">
+        <h1 style="margin-top: 0px;color: #66757f;font-size: 16px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Staircases and Categories</h1>
+        <div style="margin-left:15px;">
+            <a href=""><p><span style="width:80%;">Arts and Entertainment</span></p></a>
+            <a href=""><p><span style="width:80%;">Computers and Electronics</span></p></a>
+            <p>Education</p>
+            <p>Finance and pusiness</p>
+            <p>Food</p>
+            <p>Health</p>
+            <p>Hobbies</p>
+            <p>Sports</p>
+            <p>Lifestyle</p>
+            <p>Other</p>
+        </div>
+    </div>
+    <div class="col-md-9" style="padding-top:20px;padding-left:20px;">
+        <h1 style="margin-top: 0px;color: #66757f;font-size: 16px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;"><b>Arts and Entertainment</b></h1>
+        <div class="catbox">
+
+            
+        </div>
+        <div style="padding: 10px;">
+            <div class="staircasesbx">
+                <p class="btn btn-primary">Create Staircase</p>
+                <p class="btn btn-primary">Request Staircase</p>
+                
+            </div>
+        </div>
+        <div class="row" style="padding-left:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.each do |steppy| %>
+                <% if steppy.goal.present? %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx">       
+                            <div>
+                                <div style="font-size: 18px;padding-top: 9px;color: grey;">How to become a <b><%= steppy.goal.capitalize %></b></div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+
+        </div>
+    </div>
+</div>
 
 <div style="margin-top: 20px;padding:0px;">
     <div styke="padding:20px;">

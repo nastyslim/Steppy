@@ -36,19 +36,18 @@
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      
-	      	 	<%= form_tag steppies_searchresult_path, :method => 'get', :class => "navbar-form navbar-left" do %>
-                    <div class="form-group">
-                        <%= text_field_tag :search, params[:search], :class => "form-control" %>
-                    </div>
-                    <div class="form-group">
-                        <%= submit_tag "Search", :name => nil, :class => "btn btn-default sbtn acolor"  %>
-                    </div>
-                <% end %>
-	      
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></li>
-	        <li><%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %></li>
+        <ul class="nav navbar-nav">
+          <!--
+          <li><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></li>
+          <li><%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %></li>
+        -->
+          <li><a href="#">Staircases</a></li>
+          <li><a href="#">Explore</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+    	 	     
+	      <ul class="nav navbar-nav navbar-right">  
 	        <% if current_user %>
 	        	<li><%= link_to current_user.username.capitalize, current_user %></li>
 	        	<li><%= link_to "Log Out", logout_path %></li>
@@ -65,7 +64,16 @@
 		          </ul>
 		        </li>
 	        	<li><%= link_to "Sign Up", new_user_path %></li>
-			<% end %>
+			    <% end %>
+
+          <%= form_tag steppies_searchresult_path, :method => 'get', :class => "navbar-form navbar-left" do %>
+            <div class="form-group" style="padding-top: 4px;">
+                <%= text_field_tag :search, params[:search], :class => "form-control", :style=>"height: 27px;" %>
+            </div>
+            <div class="form-group" style="padding-top: 4px;">
+                <%= submit_tag "Search", :name => nil, :class => "btn btn-default sbtn acolor", :style=>"height: 27px;padding-top: 2px;"  %>
+            </div>
+          <% end %>
 	        
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
@@ -245,12 +253,14 @@
 <script>
       $(document).ready(function() {
 
-      $("#login").click(function(){
-         $(".login").slideToggle( [300], function(){ 
+      $(".dropdown").click(function(){
+         $(".dropdown-menu").slideToggle( [300], function(){ 
              $(".log").text('Slide Down Transition Complete');
           });
       });
    });
+
+      $('.dropdown-toggle').dropdown() 
 </script>
 </body>
 

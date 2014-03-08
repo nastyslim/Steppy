@@ -135,3 +135,26 @@
 	background-image: none;
 }
 
+.catbox {
+	border: lightgrey 1px solid;
+	height: 120px;
+}
+
+.staircasesbx {
+	margin: auto;
+	text-align: center;
+}
+
+.steppybx {
+	border: lightgrey 1px solid;
+	border-radius: 3px;
+	padding: 5px;
+	display: inline-block;
+	width: 24%;
+	height: 140px;
+	margin-top: 5px;
+}
+
+.steppybx a:hover {
+	text-decoration: none;
+}

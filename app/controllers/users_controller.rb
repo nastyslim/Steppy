@@ -35,7 +35,11 @@ class UsersController < ApplicationController
 		@chklist = Checklist.create(:chk_steppy_id => currsteppy.goal, :chk_user_id => current_user.username, :chk1 => "Done?", :chk1 => "Done?", :chk2 => "Done?", :chk3 => "Done?", :chk4 => "Done?", :chk5 => "Done?", :chk6 => "Done?", :chk7 => "Done?", :chk8 => "Done?", :chk9 => "Done?", :chk10 => "Done?")
 
 
-		redirect_to currsteppy
+		
+		respond_to do |format|
+	      format.html { redirect_to currsteppy }
+	      format.js 
+	    end
 	end
 
 	def unfollowSteppy
@@ -45,7 +49,10 @@ class UsersController < ApplicationController
 		@chklist.destroy 
 		
 
-		redirect_to currsteppy
+		respond_to do |format|
+	      format.html { redirect_to currsteppy }
+	      format.js
+	    end
 	end
 
 end
