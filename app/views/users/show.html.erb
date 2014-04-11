@@ -123,11 +123,11 @@
 													<% if current_user.username == @user.username %>								
 														<% if @chklist.chk3 == "Done?" %>
 															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-															<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+															<b><%= link_to "?", checklist_path(@chklist, "checklist[chk3]" => "Done!"), method: :put %></b>
 															</p>
 														<% else %>
 															<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-															<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+															<%= link_to "✔", checklist_path(@chklist, "checklist[chk3]" => "Done?"), method: :put %>
 															</p>
 														<% end %>
 													<% else %>														
@@ -163,11 +163,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk4 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk4]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk4]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -203,11 +203,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk5 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk5]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk5]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -243,11 +243,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk6 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk6]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk6]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -283,11 +283,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk7 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk7]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk7]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -323,11 +323,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk8 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk8]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk8]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -363,11 +363,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk9 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk9]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk9]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														
@@ -403,11 +403,11 @@
 														<% if current_user.username == @user.username %>								
 															<% if @chklist.chk10 == "Done?" %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs">
-																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk1]" => "Done!"), method: :put %></b>
+																<b><%= link_to "?", checklist_path(@chklist, "checklist[chk10]" => "Done!"), method: :put %></b>
 																</p>
 															<% else %>
 																<p style="font-size:15px;padding-top: 7px;padding-bottom: 7px; margin-top: 7px;" class="numbs donecheck">
-																<%= link_to "✔", checklist_path(@chklist, "checklist[chk1]" => "Done?"), method: :put %>
+																<%= link_to "✔", checklist_path(@chklist, "checklist[chk10]" => "Done?"), method: :put %>
 																</p>
 															<% end %>
 														<% else %>														

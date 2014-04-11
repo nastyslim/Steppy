@@ -41,8 +41,8 @@
           <li><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></li>
           <li><%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %></li>
         -->
-          <li><a href="#">Staircases</a></li>
-          <li><a href="#">Explore</a></li>
+          <li><a href="/steppies">Staircases</a></li>
+          <li><a href="/steppies">Explore</a></li>
           <li><a href="#">Jobs</a></li>
           <li><a href="#">About</a></li>
         </ul>
@@ -95,7 +95,7 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img  alt="First slide" src="http://www.iammusic.tv/wp-content/uploads/2012/11/Black-background-set-wood-on-chanconsultants-jpg.jpg">
+          <img  alt="First slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>Its hard to know what your first step should be.</h1>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="item">
-          <img alt="Second slide" src="http://www.iammusic.tv/wp-content/uploads/2012/11/Black-background-set-wood-on-chanconsultants-jpg.jpg">
+          <img alt="Second slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="item">
-          <img alt="Third slide" src="http://www.iammusic.tv/wp-content/uploads/2012/11/Black-background-set-wood-on-chanconsultants-jpg.jpg">
+          <img alt="Third slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>One more for good measure.</h1>
@@ -199,6 +199,8 @@
 
       <hr class="featurette-divider">
 
+      
+
       <!-- /END THE FEATURETTES -->
 
       </div>
@@ -217,14 +219,16 @@
 	<div class="page">
 		
     <%if current_page? root_path %>
-    <div class="appcont" style="background-color:white;">
+      
     <%else%>
-		<div class="appcont">
+		  <div class="appcont">
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+      </div>
     <% end %>
-			<div class="container-fluid">
-			<%= yield %>
-			</div>
-		</div>
+			
+		
 
 		</br>
 		<div class="footer2">

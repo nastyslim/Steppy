@@ -1,44 +1,505 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
-    <div class="col-md-3" style="padding-top:20px;border-right: lightgray 1px solid;">
-        <h1 style="margin-top: 0px;color: #66757f;font-size: 16px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Staircases and Categories</h1>
-        <div style="margin-left:15px;">
-            <a href=""><p><span style="width:80%;">Arts and Entertainment</span></p></a>
-            <a href=""><p><span style="width:80%;">Computers and Electronics</span></p></a>
-            <p>Education</p>
-            <p>Finance and pusiness</p>
-            <p>Food</p>
-            <p>Health</p>
-            <p>Hobbies</p>
-            <p>Sports</p>
-            <p>Lifestyle</p>
-            <p>Other</p>
-        </div>
-    </div>
-    <div class="col-md-9" style="padding-top:20px;padding-left:20px;">
-        <h1 style="margin-top: 0px;color: #66757f;font-size: 16px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;"><b>Arts and Entertainment</b></h1>
-        <div class="catbox">
 
-            
+<style>
+#catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato {
+    display: none;
+}  
+</style>
+
+<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
+    <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
+        <div class="selectnav catt11">
+            <a href="#" id="cat11btn"><p style="color:#333;">Newest Staircases</p></a>
         </div>
-        <div style="padding: 10px;">
-            <div class="staircasesbx">
-                <p class="btn btn-primary">Create Staircase</p>
-                <p class="btn btn-primary">Request Staircase</p>
-                
+        <div class="catt12">
+            <a href="#" id="cat12btn"><p style="color:#333;">Requested Staircases</p></a>
+        </div>
+
+        <div class="bar">
+            <div class="catt1">
+            <a href="#" id="cat1btn"><p>Arts and Entertainment</p></a>
+            </div>
+
+            <div class="catt2">
+            <a href="#" id="cat2btn"><p>Computers and Electronics</p></a>
+            </div>
+
+            <div class="catt3">
+            <a href="#" id="cat3btn"><p>Education</p></a>
+            </div>
+
+            <div class="catt4">
+            <a href="#" id="cat4btn"><p>Finance and Business</p></a>
+            </div>
+
+            <div class="catt5">
+            <a href="#" id="cat5btn"><p>Food</p></a>
+            </div>
+
+            <div class="catt6">
+            <a href="#" id="cat6btn"><p>Health</p></a>
+            </div>
+
+            <div class="catt7">
+            <a href="#" id="cat7btn"><p>Hobbies</p></a>
+            </div>
+
+            <div class="catt8">
+            <a href="#" id="cat8btn"><p>Sports</p></a>
+            </div>
+
+            <div class="catt9">
+            <a href="#" id="cat9btn"><p>Lifestyle</p></a>
+            </div>
+
+            <div class="catt10">
+            <a href="#" id="cat10btn"><p>Other</p></a>
             </div>
         </div>
-        <div class="row" style="padding-left:15px;">
+    </div>
+    <div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+        <div>
+        <div class="col-md-6">
+            <div class="catnew">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Newest Staircases</h1>
+            </div>
+            <div class="catreq">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Requested </h1>
+            </div>
+            <div class="catae">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Arts and Entertainment</h1>
+            </div>
+            <div class="catce">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Computers and Electronics</h1>
+            </div>
+            <div class="cate">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Education</h1>
+            </div>
+            <div class="catfb">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Finance and Business</h1>
+            </div>
+            <div class="catf">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Food</h1>
+            </div>
+            <div class="cathl">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Health</h1>
+            </div>
+            <div class="cathb">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Hobbies</h1>
+            </div>
+            <div class="cats">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Sports</h1>
+            </div>
+            <div class="catl">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Lifestyle</h1>
+            </div>
+            <div class="cato">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Other</h1>
+            </div>
+        </div>
+        <div class="col-md-6" style="text-align: right;">
+            <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary' %>
+            <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary' %>  
+        </div>
+        </div>
+        <!---
+        <div class="catbox" style="display:none;">
+            <div class="wrapper">
+              <ol
+                ><li><a href="#">Aloe</a></li
+                ><li><a href="#">Bergamot</a></li
+                ><li><a href="#">Calendula</a></li
+                ><li><a href="#">Damiana</a></li
+                ><li><a href="#">Elderflower</a></li
+
+                ><li><a href="#">Feverfew</a></li
+                ><li><a href="#">Ginger</a></li
+                ><li><a href="#">Hops</a></li
+                ><li><a href="#">Iris</a></li
+                ><li><a href="#">Juniper</a></li
+
+                ><li><a href="#">Kava kava</a></li
+                ><li><a href="#">Lavender</a></li
+                ><li><a href="#">Marjoram</a></li
+                ><li><a href="#">Nutmeg</a></li
+                ><li><a href="#">Oregano</a></li
+                ><li><a href="#">Pennyroyal</a></li
+              ></ol>
+            </div>   
+        </div>
+
+        <div style="padding: 10px;">
+            <div class="staircasesbx">
+                <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary' %>
+                <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary' %>    
+            </div>
+        </div>
+        -->
+
+
+        <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.goal.present? %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+        
+        
+
+        <div id="catreq" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.ask.present? %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 15) %></b></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+      
+        <div id="catae" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Arts and Entertainment" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div id="catce" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Computers and Electronics" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+        <div id="cate" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Education" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div id="catnew"fb class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Finance and Business" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div id="catf" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Food" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+        
+
+        <div id="cathl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Health" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div id="cathb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Hobbies" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+        <div id="cats" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Sports" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+        <div id="catl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Lifestyle" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+ 
+        <div id="cato" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.limit(11).each do |steppy| %>
+                <% if steppy.categories == "Other" %>
+                    <%= link_to steppy do%>
+                        <div class="steppybx2">       
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+                                <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                            </div>
+                        </div>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li class="actionbtns">Like</li>
+                                <li class="actionbtns">Start Climbing</li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>
+                        
+                    <% end %>
+                <% else %>        
+                <% end %>
+            <% end %>
+        </div>
+
+
+
+
+
+        <div class="row" style="display:none;padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
                 <% if steppy.goal.present? %>
                     <%= link_to steppy do%>
                         <div class="steppybx">       
-                            <div>
-                                <div style="font-size: 18px;padding-top: 9px;color: grey;">How to become a <b><%= steppy.goal.capitalize %></b></div>
+                            <div style="padding-left: 14px;">
+                                <div style="font-size: 16px;padding-top: 9px;color: grey;">How to become a </div>
+                                <div><b><%= truncate(steppy.goal.capitalize, :length => 15) %></b></div>
+
                             </div>
                         </div>
                     <% end %>
@@ -50,75 +511,133 @@
     </div>
 </div>
 
-<div style="margin-top: 20px;padding:0px;">
-    <div styke="padding:20px;">
-        <div class="row" style="margin:auto;">
-            <div class="col-md-7" style="background-color: white;padding: 20px;border: 1px solid lightgrey;margin-bottom:20px;">
-                <div class="frontpage">
-                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Newest Staircases</h1>
-                    <% @steppy = Steppy.order('created_at DESC')%>
 
-                    <% @steppy.each do |steppy| %>
-                        <% if steppy.goal.present? %>
-                            <div class="goal_panel_new">
-                                <%= link_to steppy do%>
-                                <div>
-                                    <div class="">How to become a <b style="color:cornflowerblue;"><%= steppy.goal.capitalize %></b></div>
-                                </div>
-                                <% end %>
-                            </div>
-                        <% else %>        
-                        <% end %>
-                    <% end %>
-                </div> 
-                <div class="frontpage">
-                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Recently Requested Staircases</h1>
-                    <% @steppy = Steppy.order('created_at DESC')%>
+<script>
+$(document).ready(function() {
+    $(".catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+    $("#cat1btn").click(function(){
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catae").css({"display": "inherit"});
+        $(".catae").css({"display": "inherit"});
 
-                    <% @steppy.each do |steppy| %>
-                        <% if steppy.ask.present? %>        
-                            <div class="goal_panel_new">
-                                <%= link_to steppy do%>
-                                    <div>
-                                        <div class="goal">How do I become a <%= steppy.ask.capitalize %>?</div>
-                                    </div>
-                                <% end %>
-                            </div>
-                        <% else %>
-                        <% end %>
-                    <% end %>
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1").addClass("selectnav");
+    });
 
-                </div> 
+    $("#cat2btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catce").css({"display": "inherit"});
+        $(".catce").css({"display": "inherit"});
 
-            </div>
-           
-            <div class="col-md-5">
-                <div class="catps"style="background-color: white;padding: 20px;border: 1px solid lightgrey;">
-                    <h1 style="margin-top: 0px;color: #66757f;font-size: 22px;font-weight: 200;line-height: 22px;font-family: Arial,sans-serif;">Categories</h1>
-                    <a href=""><p> <span style="width:20%;text-align:center;">♫</span><span style="width:80%;margin-left: 5px;"> Arts and Entertainment</span></p></a>
-                    <a href=""><p> <span style="width:20%;text-align:center;">ϟ</span><span style="width:80%;margin-left: 6px;"> Computers and Electronics</span></p></a>
-                    <p>✎ Education</p>
-                    <p>$ Finance and pusiness</p>
-                    <p>% Food</p>
-                    <p>☼ Health</p>
-                    <p>✌ Hobbies</p>
-                    <p>♞ Sports</p>
-                    <p>ツ Lifestyle</p>
-                    <p>¿ Other</p>
-                </div>
-            </div>
-        </div>
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt2").addClass("selectnav");
+    });
+
+    $("#cat3btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#cate").css({"display": "inherit"});
+        $(".cate").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt3").addClass("selectnav");
+    });
+
+    $("#cat4btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catfb").css({"display": "inherit"});
+        $(".catfb").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt4").addClass("selectnav");
+    });
+
+    $("#cat5btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catf").css({"display": "inherit"});
+        $(".catf").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt5").addClass("selectnav");
+    });
+
+    $("#cat6btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#cathl").css({"display": "inherit"});
+        $(".cathl").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt6").addClass("selectnav");
+    });
+
+    $("#cat7btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#cathb").css({"display": "inherit"});
+        $(".cathb").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt7").addClass("selectnav");
+    });
+
+    $("#cat8btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#cats").css({"display": "inherit"});
+        $(".cats").css({"display": "inherit"});
 
 
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt8").addClass("selectnav");
+    });
 
+    $("#cat9btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catl").css({"display": "inherit"});
+        $(".catl").css({"display": "inherit"});
 
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt9").addClass("selectnav");
+    });
 
+    $("#cat10btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#cato").css({"display": "inherit"});
+        $(".cato").css({"display": "inherit"});
 
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt10").addClass("selectnav");
+    });
+    $("#cat11btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catnew").css({"display": "inherit"});
+        $(".catnew").css({"display": "inherit"});
 
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt11").addClass("selectnav");
+    });
 
+    $("#cat12btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $("#catreq").css({"display": "inherit"});
+        $(".catreq").css({"display": "inherit"});
 
-    </div>
-</div>
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt12").addClass("selectnav");
+    });
+
+});
+</script>
+
 
 
 

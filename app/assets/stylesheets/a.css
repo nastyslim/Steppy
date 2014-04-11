@@ -2,7 +2,7 @@
 
 @media (max-width: 991px) {
 	.steppytitle {
-		padding: 0px 20px 0px 20px;
+		padding: 0px 0px 0px 0px;
 	}
 
 	p {
@@ -46,7 +46,7 @@
 
 @media (min-width: 991px) {
 	.steppytitle {
-		padding: 0px 20px 0px 20px;
+		padding: 0px 0px 0px 0px;
 	}
 
 	.steppybody {
@@ -83,9 +83,9 @@
 .numbs {
 	border-radius: 19px;
 	border: 1px solid cornflowerblue;
-	width: 36px;
+	width: 30px;
 	margin: auto;
-	margin-top: 4.5px;
+	margin-top: 5.5px;
 }
 
 .donecheck {
@@ -97,7 +97,15 @@
 }
 
 .otherregions {
-	margin-top: 0px;
+	margin-top: 30px;
+	background-color: rgb(243, 243, 243);
+border: lightgrey 1px solid;
+padding:10px;
+
+}
+
+.otherregions a {
+	color: #666;
 }
 
 .avatar {
@@ -137,7 +145,14 @@
 
 .catbox {
 	border: lightgrey 1px solid;
-	height: 120px;
+	-webkit-column-count: 4;
+	-moz-column-count: 4;
+	column-count: 4;
+	-webkit-column-gap: 10px;
+	-moz-column-gap: 10px;
+	column-gap: 10px;
+	padding: 10px 0px 10px 0px;
+	margin-right: 10px;
 }
 
 .staircasesbx {
@@ -153,8 +168,39 @@
 	width: 24%;
 	height: 140px;
 	margin-top: 5px;
+	text-align: left;
+	background: -webkit-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* Standard syntax (must be last) */
+	color: #585858;
+	text-shadow: 0 1px 0 #fff;
+
 }
 
-.steppybx a:hover {
-	text-decoration: none;
+.steppybx:hover {
+	background-color: rgb(247, 247, 247);
+}
+
+.steppybx2 {
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	border: lightgrey 1px solid;
+	text-align: left;
+	background: -webkit-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* Standard syntax (must be last) */
+	color: #585858;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.steppybx2:hover {
+	box-shadow: 0px 4px 6px rgb(238, 238, 238);
+	border:rgb(187, 187, 187) 1px solid;
+}
+
+.steppybx:hover {
+	box-shadow: 0px 4px 6px rgb(238, 238, 238);
+	border:rgb(187, 187, 187) 1px solid;
 }
