@@ -1,35 +1,46 @@
-<h1>Search Results For How To Be A <%= params[:search] %> </h1>
+<div style="background-color:white;padding:20px;padding-top:0px;">
+	<div class="row" style="margin:auto;background-color: white;padding: 0px;padding-top:0px;margin-bottom:20px;">
+	    <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
+	        <div class="selectnav catt11">
+	            <a href="#" id="cat11btn"><p style="color:#333;">Search</p></a>
+	        </div>
+	    </div>
 
-<div class="maincont formpgs">
-	<% if search().present? %>
-		<% search().each do |result| %>
-		  <div style="" class="searchresults">
-		  	<div><%= link_to result.goal + " in " + result.region, steppy_path(result) %></div>
-		  	<% if result.description.present? %>
-		  		<div style="font-size:14px;"><%= raw result.description %></div>
-		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
-		  	<% else %>
-		  		<p style="font-size:14px; color:grey; margin:0;">No description.</p>
-		  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
-		  	<% end %>
-		  </div>
+		<% if search().present? %>
+	
+	    <div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+	    	<h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Search results for <%= params[:search] %>...</h1>
+	    	<% search().each do |result| %>
+			  <div style="margin-left: 0px;" class="searchresults steppybx2">
+			  	<div><%= link_to result.goal.capitalize + " in " + result.region.capitalize, steppy_path(result), :style => "color:#333;" %></div>
+			  	<% if result.description.present? %>
+			  		<div style="font-size:14px;"><%= raw result.description.capitalize %></div>
+			  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+			  	<% else %>
+			  		<p style="font-size:14px; color:grey; margin:0;">No description.</p>
+			  		<div style="font-size:14px; color:grey;">Created <%= time_ago_in_words(result.created_at) %> ago.</div>
+			  	<% end %>
+			  </div>
+			<% end %>
+	    </div>
+
+		<% else %>
+		<div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+			<p style="color:red;">Your search did not return anything! Try again or creat a steppy for this!</p>
+			<p><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></p>
+			<div class="">
+		        <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
+		            <div class="form-group">
+		                <%= text_field_tag :search, params[:search], :class => "form-control", :style => "width:460px;" %>
+		            </div>
+		            <div class="form-group">
+		                <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
+		            </div>
+		        <% end %>
+		   </div>
+		</div>
 		<% end %>
-
-	<% else %>
-
-		<p style="color:red;">Your search did not return anything! Try again or creat a steppy for this!</p>
-		<p><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></p>
-		<div class="">
-                <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
-                    <div class="form-group">
-                        <%= text_field_tag :search, params[:search], :class => "form-control", :style => "width:460px;" %>
-                    </div>
-                    <div class="form-group">
-                        <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
-                    </div>
-                <% end %>
-       </div>
-	<% end %>
+	</div>
 </div>
 
 

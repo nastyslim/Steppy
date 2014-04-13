@@ -84,6 +84,7 @@
 
 
 	<%if current_page? root_path %>
+  
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -93,6 +94,7 @@
         <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         <li data-target="#myCarousel" data-slide-to="2" class=""></li>
       </ol>
+      
       <div class="carousel-inner">
         <div class="item active">
           <img  alt="First slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
@@ -133,7 +135,7 @@
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container-fluid to center all the content. -->
-
+    <div class="container-fluid">
     <div class="container-fluid marketing">
 
       <!-- Three columns of text below the carousel -->
@@ -206,7 +208,7 @@
       </div>
     </div>
 
-
+    </div>
     <% end %>
 
 
@@ -216,11 +218,13 @@
 
 
 
-	<div class="page">
+	
 		
     <%if current_page? root_path %>
+    <div class="page" style="min-height: 0%;">
       
     <%else%>
+    <div class="page">
 		  <div class="appcont">
         <div class="container-fluid">
           <%= yield %>

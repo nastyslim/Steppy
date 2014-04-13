@@ -142,7 +142,7 @@
         <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.goal.present? %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -172,7 +172,7 @@
         <div id="catreq" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.ask.present? %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -201,7 +201,7 @@
         <div id="catae" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Arts and Entertainment" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -230,7 +230,7 @@
         <div id="catce" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Computers and Electronics" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -258,7 +258,7 @@
         <div id="cate" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Education" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -287,7 +287,7 @@
         <div id="catnew"fb class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Finance and Business" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -316,7 +316,7 @@
         <div id="catf" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Food" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -345,7 +345,7 @@
         <div id="cathl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Health" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -374,7 +374,7 @@
         <div id="cathb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Hobbies" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -403,7 +403,7 @@
         <div id="cats" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Sports" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -431,7 +431,7 @@
         <div id="catl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Lifestyle" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
@@ -460,7 +460,7 @@
         <div id="cato" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
-            <% @steppy.limit(11).each do |steppy| %>
+            <% @steppy.each do |steppy| %>
                 <% if steppy.categories == "Other" %>
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
