@@ -16,7 +16,7 @@
 			<% allfollows = @user.all_follows %>
 			<% allfollows.each do |item| %>
 				<% @steppy = Steppy.find(item.followable_id) %>
-				<div><a href="#" style="color:#999;" id="<%= @steppy.goal%>"><%= @steppy.goal.capitalize %></a></div>
+				<div><a href="#" style="color:#999;" id="<%= @steppy.goal.gsub(/\s+/, "")%>"><%= @steppy.goal.capitalize %></a></div>
 			<%end%>	
 
 		</div>
@@ -40,15 +40,15 @@
 								    <% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
 								    
 								    <div class="list">						
-									    <%= link_to @steppy.goal.capitalize, steppy_path(@steppy), :style => "margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;color: #333;", class: @steppy.goal%>
+									    <%= link_to @steppy.goal.capitalize, steppy_path(@steppy), :style => "margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;color: #333;", class: @steppy.goal.gsub(/\s+/, "") %>
 									    <script>
 									    $(document).ready(function() {
 		
 											/* scroll to #navigation */
 												
-												$("#<%=@steppy.goal%>").click(function (e) {
+												$("#<%=@steppy.goal.gsub(/\s+/, "")%>").click(function (e) {
 													e.preventDefault();
-													scrollToElement(".<%=@steppy.goal%>");
+													scrollToElement(".<%=@steppy.goal.gsub(/\s+/, "")%>");
 												});
 										});
 										</script>
