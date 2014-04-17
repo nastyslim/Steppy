@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140208174345) do
+ActiveRecord::Schema.define(:version => 20140417122216) do
 
   create_table "checklists", :force => true do |t|
     t.string   "chk1"
@@ -61,6 +61,28 @@ ActiveRecord::Schema.define(:version => 20140208174345) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "likes", :force => true do |t|
+    t.string   "liker_type"
+    t.integer  "liker_id"
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "likes", ["likeable_id", "likeable_type"], :name => "fk_likeables"
+  add_index "likes", ["liker_id", "liker_type"], :name => "fk_likes"
+
+  create_table "mentions", :force => true do |t|
+    t.string   "mentioner_type"
+    t.integer  "mentioner_id"
+    t.string   "mentionable_type"
+    t.integer  "mentionable_id"
+    t.datetime "created_at"
+  end
+
+  add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "fk_mentionables"
+  add_index "mentions", ["mentioner_id", "mentioner_type"], :name => "fk_mentions"
 
   create_table "ones", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -114,5 +136,22 @@ ActiveRecord::Schema.define(:version => 20140208174345) do
     t.datetime "updated_at",      :null => false
     t.string   "email"
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], :name => "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], :name => "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

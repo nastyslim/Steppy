@@ -10,4 +10,5 @@ class Steppy < ActiveRecord::Base
   def is_there_ask
   	ask.present?
   end
+  acts_as_likeable
 end

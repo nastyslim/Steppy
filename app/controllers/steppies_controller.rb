@@ -119,4 +119,15 @@ class SteppiesController < ApplicationController
     @steppy = Steppy.new
   end
 
+  def upvote
+    @steppy = Steppy.find(params[:id])
+    current_user.like!(@steppy)
+    render action: "index"
+  end
+
+  def downvote
+    @steppy = Steppy.find(params[:id])
+    current_user.unlike!(@steppy)
+    render action: "index"
+  end
 end

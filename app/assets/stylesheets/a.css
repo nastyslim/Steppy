@@ -209,3 +209,17 @@ padding:10px;
 	box-shadow: 0px 4px 6px rgb(238, 238, 238);
 	border:rgb(187, 187, 187) 1px solid;
 }
+
+
+.steppybx2_ask{
+margin-bottom: 15px;
+padding-bottom: 10px;
+border: rgb(104, 104, 104) 1px solid;
+text-align: left;
+background: -webkit-linear-gradient(#387299, #2F5F80);
+background: -o-linear-gradient(#387299, #2F5F80);
+background: -moz-linear-gradient(#387299, #2F5F80);
+background: linear-gradient(#387299, #2F5F80);
+color: #ECECEC;
+text-shadow: 0 1px 0 #132735;
+}

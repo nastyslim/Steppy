@@ -32,7 +32,12 @@ SteppyApp::Application.routes.draw do
     resources :reps, :only => [:create, :destroy]
   end
 
-  
+resources :steppies do
+  member do
+    put "like", to: "steppies#upvote"
+    put "dislike", to: "steppies#downvote"
+  end
+end
 
 
  

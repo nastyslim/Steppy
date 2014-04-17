@@ -152,16 +152,29 @@
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
+                    <% end %>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
+                                <li>
+                                    <% if steppy.liked_by?(current_user) %>
+                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                    <%else%>
+                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                    <%end%>
+                                </li>  
+                                <li class="">
+                                    <% if current_user.following?(steppy)%>
+                                        <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                    <%else%>
+                                        <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                    <%end%>
+                                </li>
                                 <li class="actionbtns">Share</li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
                         </div>
                         
-                    <% end %>
+                    
                 <% else %>        
                 <% end %>
             <% end %>
@@ -175,9 +188,9 @@
             <% @steppy.each do |steppy| %>
                 <% if steppy.ask.present? %>
                     <%= link_to steppy do%>
-                        <div class="steppybx2">       
+                        <div class="requestbox steppybx2_ask">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become a </div>
                                 <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 150) %></b></div>
                             </div>
                         </div>
