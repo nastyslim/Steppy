@@ -101,8 +101,15 @@
 	font-weight: 100;
 }
 
-.otherregions {
+.lsregions {
 	margin-top: 30px;
+	background-color: rgba(236, 236, 236, 0.13);
+	padding:10px;
+}
+
+
+.otherregions  {
+		margin-top: 30px;
 	background-color: rgb(243, 243, 243);
 border: lightgrey 1px solid;
 padding:10px;
@@ -223,3 +230,4 @@ background: linear-gradient(#387299, #2F5F80);
 color: #ECECEC;
 text-shadow: 0 1px 0 #132735;
 }
+

@@ -94,10 +94,11 @@
         <li data-target="#myCarousel" data-slide-to="1" class=""></li>
         <li data-target="#myCarousel" data-slide-to="2" class=""></li>
       </ol>
-      
+
       <div class="carousel-inner">
         <div class="item active">
-          <img  alt="First slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
+          <img  alt="First slide" src="">
+
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>Its hard to know what your first step should be.</h1>
@@ -140,29 +141,81 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" >
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+        <div class="col-lg-4" stlye="text-align: left;">
+          <div class="front_panel">
+            <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Newest Steppies</h2>
+            <div class="row" style="padding-left: 10px;padding-right: 10px;">
+              <% @steppy = Steppy.order('created_at DESC').take(7)%>
+
+              <% @steppy.each do |steppy| %>
+                  <% if steppy.goal.present? %>
+                      <%= link_to steppy do%>
+                          <div>       
+                              <div>
+                                  <li class="front_panel_new" style="list-style-type: square;">How to become a <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
+                              </div>
+                          </div>
+                      <% end %>  
+                  <% end %>
+                <% end %>
+            </div>
+            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+          </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" >
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+          <div class="front_panel" style="min-height: 238px;">
+            <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Recently Requested Steppies</h2>
+            <div class="row" style="padding-left: 10px;padding-right: 10px;">
+              <% @steppy = Steppy.order('created_at DESC').take(7)%>
+
+              <% @steppy.each do |steppy| %>
+                  <% if steppy.ask.present? %>
+                      <%= link_to steppy do%>
+                          <div>       
+                              <div>
+                                  <li class="front_panel_new" style="list-style-type: square;">How to become a <%= truncate(steppy.ask.capitalize, :length => 150) %></li>
+                              </div>
+                          </div>
+                      <% end %>  
+                  <% end %>
+                <% end %>
+            </div>
+            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+          </div>
         </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <div class="front_panel" style="height: 238px;">
+            <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">This week's Feature</h2>
+            <div class="row" style="padding-left: 10px;padding-right: 10px;">
+    
+            </div>
+            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+          </div>
+        </div>
+        <!--
         <div class="col-lg-4">
           <img class="img-circle" >
           <h2>Heading</h2>
           <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
           <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div><!-- /.col-lg-4 -->
+        </div>
+      -->
       </div><!-- /.row -->
 
     <!-- START THE FEATURETTES -->
     
       <div class="container-fluid" style="background-color:white;">
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <h2 class="featurette-heading" style="margin-top:0px;text-align:center;">Step by Step, accomplish your goals</h2>
+        <h2 class="featurette-heading" style="font-size: 37px;margin-top:0px;text-align:center;"><span class="text-muted"><b>Steppy</b> is the best way. It'll blow your mind.</span></h2>
+        <div class="col-md-7">
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive" >
+        </div>
+      </div>
       <hr class="featurette-divider">
 
       <div class="row featurette">
@@ -198,8 +251,10 @@
           <img class="featurette-image img-responsive" >
         </div>
       </div>
-
       <hr class="featurette-divider">
+      <p style="text-align:center;margin-top: 200px;margin-bottom: 200px;"><a class="btn btn-lg btn-primary" href="#" role="button" >Star Climbing!</a></p>
+      <hr class="featurette-divider">
+
 
       
 

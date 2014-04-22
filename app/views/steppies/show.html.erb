@@ -8,56 +8,10 @@
   <div class="row" style="margin:auto;background-color: white;padding: 0px;padding-top:0px;margin-bottom:20px;">
     <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
         <div class="selectnav catt11">
-            <a href="#" id="cat11btn"><p style="color:#333;">Back</p></a>
+            <p><%= link_to 'Back', :back, :id => "catt11btn", :style=>"color:#333;"%></p>
         </div>
-        <div class="catt11">
-            <a href="#" id="cat11btn"><p style="color:#333;">Newest Staircases</p></a>
-        </div>
-        <div class="catt12">
-            <a href="#" id="cat12btn"><p style="color:#333;">Requested Staircases</p></a>
-        </div>
+        
 
-        <div class="bar">
-            <div class="catt1">
-            <a href="#" id="cat1btn"><p>Arts and Entertainment</p></a>
-            </div>
-
-            <div class="catt2">
-            <a href="#" id="cat2btn"><p>Computers and Electronics</p></a>
-            </div>
-
-            <div class="catt3">
-            <a href="#" id="cat3btn"><p>Education</p></a>
-            </div>
-
-            <div class="catt4">
-            <a href="#" id="cat4btn"><p>Finance and Business</p></a>
-            </div>
-
-            <div class="catt5">
-            <a href="#" id="cat5btn"><p>Food</p></a>
-            </div>
-
-            <div class="catt6">
-            <a href="#" id="cat6btn"><p>Health</p></a>
-            </div>
-
-            <div class="catt7">
-            <a href="#" id="cat7btn"><p>Hobbies</p></a>
-            </div>
-
-            <div class="catt8">
-            <a href="#" id="cat8btn"><p>Sports</p></a>
-            </div>
-
-            <div class="catt9">
-            <a href="#" id="cat9btn"><p>Lifestyle</p></a>
-            </div>
-
-            <div class="catt10">
-            <a href="#" id="cat10btn"><p>Other</p></a>
-            </div>
-        </div>
     </div>
     <div class="col-md-9" style="padding-left:30px;">
       <div style="overflow: hidden; ">
@@ -323,6 +277,16 @@
                 <% regionlist().each do |region| %>
                   <div><%= link_to region.region.split.map(&:capitalize).join(' '), steppy_path(region) %></div>
                 <% end %>
+          </div>
+          <div class="lsregions">
+            <span>
+              <% if @steppy.liked_by?(current_user) %>
+                  <%= link_to "Unlike", dislike_steppy_path(@steppy), method: :put%>                                        
+              <%else%>
+                  <%= link_to "Like", like_steppy_path(@steppy), method: :put %>
+              <%end%>
+            </span>
+            <span>Share</span>
           </div>
 
 

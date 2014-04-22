@@ -520,6 +520,7 @@ padding-left: 12px;
 	color: black;
 }
 
+
 .bar {
 	border-top: rgb(241, 241, 241) solid 1px;
 padding-top: 12px;
@@ -590,4 +591,16 @@ color: #DFDFDF;
 }
 
 .requestbox {
+}
+
+.front_panel_new {
+	text-align: left;
+	color: #666;
+	padding: 0px 20px 0px 20px;
+}
+
+.front_panel {
+	border: 1px lightgrey solid;
+	padding: 15px;
+	margin: 10px;
 }

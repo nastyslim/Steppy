@@ -10,10 +10,10 @@
 
 <div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
     <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
-        <div class="">
-            <a href="#" id=""><p style="color:#333;">All</p></a>
+        <div class="selectnav catt13">
+            <a href="#" id="cat13btn"><p style="color:#333;">All</p></a>
         </div>
-        <div class="selectnav catt11">
+        <div class="catt11">
             <a href="#" id="cat11btn"><p style="color:#333;">Newest Staircases</p></a>
         </div>
         <div class="catt12">
@@ -65,6 +65,9 @@
     <div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
         <div>
         <div class="col-md-6">
+            <div class="catall">
+                <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">All</h1>
+            </div>
             <div class="catnew">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Newest Staircases</h1>
             </div>
@@ -142,6 +145,58 @@
         -->
 
 
+        <div id="catall" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+            <% @steppy = Steppy.order('created_at DESC')%>
+
+            <% @steppy.each do |steppy| %>
+                
+                    <%= link_to steppy do%>
+                        <% if steppy.goal.present? %>
+                            <div class="steppybx2">       
+                                <div style="padding-left: 14px;">
+                                    <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                    <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
+                                    <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
+                                </div>
+                            </div>
+                        <% elsif steppy.ask.present? %>
+                            <div class="requestbox steppybx2_ask" style="overflow: hidden;">       
+                                <div style="padding-left:14px;float: left;">
+                                    <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become a </div>
+                                    <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 40) %></b></div>
+                                </div>
+                                <div style="padding-top: 20px;float: right;padding-right: 20px;">
+                                    <p class="btn btn-primary" href="#" role="button">Answer!</p>
+                                </div>
+                            </div>
+                        <% end %>
+                    <% end %>
+                        <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
+                            <ul style="padding-left:0px;">
+                                <li>
+                                    <% if steppy.liked_by?(current_user) %>
+                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                    <%else%>
+                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                    <%end%>
+                                </li>  
+                                <li class="">
+                                    <% if current_user.following?(steppy)%>
+                                        <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                    <%else%>
+                                        <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                    <%end%>
+                                </li>
+                                <li class="actionbtns">Share</li>
+                                <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
+                            </ul>
+                        </div>                  
+            <% end %>
+        </div>
+
+
+
+
         <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
@@ -191,22 +246,29 @@
             <% @steppy.each do |steppy| %>
                 <% if steppy.ask.present? %>
                     <%= link_to steppy do%>
-                        <div class="requestbox steppybx2_ask">       
-                            <div style="padding-left: 14px;">
+                        <div class="requestbox steppybx2_ask" style="overflow: hidden;">       
+                            <div style="padding-left:14px;float: left;">
                                 <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 150) %></b></div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 40) %></b></div>
+                            </div>
+                            <div style="padding-top: 20px;float: right;padding-right: 20px;">
+                                <p class="btn btn-primary" href="#" role="button">Answer!</p>
                             </div>
                         </div>
+                    <% end %>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
+                                <li>
+                                    <% if steppy.liked_by?(current_user) %>
+                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                    <%else%>
+                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                    <%end%>
+                                </li>  
                                 <li class="actionbtns">Share</li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
                         </div>
-                        
-                    <% end %>
                 <% else %>        
                 <% end %>
             <% end %>
@@ -530,125 +592,136 @@
 
 <script>
 $(document).ready(function() {
-    $(".catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+    $(".catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catnew").css({"display": "none"}),
+
     $("#cat1btn").click(function(){
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
         $("#catae").css({"display": "inherit"});
         $(".catae").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt1").addClass("selectnav");
     });
 
     $("#cat2btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catce").css({"display": "inherit"});
         $(".catce").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt2").addClass("selectnav");
     });
 
     $("#cat3btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#cate").css({"display": "inherit"});
         $(".cate").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt3").addClass("selectnav");
     });
 
     $("#cat4btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catfb").css({"display": "inherit"});
         $(".catfb").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt4").addClass("selectnav");
     });
 
     $("#cat5btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catf").css({"display": "inherit"});
         $(".catf").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt5").addClass("selectnav");
     });
 
     $("#cat6btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#cathl").css({"display": "inherit"});
         $(".cathl").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt6").addClass("selectnav");
     });
 
     $("#cat7btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#cathb").css({"display": "inherit"});
         $(".cathb").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt7").addClass("selectnav");
     });
 
     $("#cat8btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#cats").css({"display": "inherit"});
         $(".cats").css({"display": "inherit"});
 
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt8").addClass("selectnav");
     });
 
     $("#cat9btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catl").css({"display": "inherit"});
         $(".catl").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt9").addClass("selectnav");
     });
 
     $("#cat10btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#cato").css({"display": "inherit"});
         $(".cato").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt10").addClass("selectnav");
     });
     $("#cat11btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catnew").css({"display": "inherit"});
         $(".catnew").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt11").addClass("selectnav");
     });
 
     $("#cat12btn").click(function(){
-        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato").css({"display": "none"}),
-        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato").css({"display": "none"}),
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
         $("#catreq").css({"display": "inherit"});
         $(".catreq").css({"display": "inherit"});
 
-        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12, .catt13").removeClass("selectnav"),
         $(".catt12").addClass("selectnav");
+    });
+
+    $("#cat13btn").click(function(){
+        $(".catnew, .catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catall").css({"display": "none"}),
+        $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),
+        $("#catall").css({"display": "inherit"});
+        $(".catall").css({"display": "inherit"});
+
+        $(".catt1,.catt2,.catt3,.catt4,.catt5,.catt6,.catt7,.catt8,.catt9,.catt10,.catt11,.catt12").removeClass("selectnav"),
+        $(".catt13").addClass("selectnav");
     });
 
 });

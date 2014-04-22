@@ -122,12 +122,12 @@ class SteppiesController < ApplicationController
   def upvote
     @steppy = Steppy.find(params[:id])
     current_user.like!(@steppy)
-    render action: "index"
+    redirect_to :back
   end
 
   def downvote
     @steppy = Steppy.find(params[:id])
     current_user.unlike!(@steppy)
-    render action: "index"
+   redirect_to :back
   end
 end
