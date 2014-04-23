@@ -520,6 +520,12 @@ padding-left: 12px;
 	color: black;
 }
 
+.progress_perc {
+	color: white;
+font-size: 30px;
+padding-left: 21px;
+padding-top: 27px;
+}
 
 .bar {
 	border-top: rgb(241, 241, 241) solid 1px;

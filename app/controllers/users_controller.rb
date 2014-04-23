@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@steppy = Steppy.where(:userid => @user.username)
 		@checklist = Checklist.all
+
 		
 
 

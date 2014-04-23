@@ -10,7 +10,7 @@
 
 	<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
 		<div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
-			<img src="/assets/profile.png" alt="User Avatar" class="avatar">
+			<img src="/assets/profile.jpg" alt="User Avatar" class="avatar">
 			<p style="margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;color: #333;"><%= @user.username.capitalize %></p>
 			<p style="padding: 0px;font-size: 13px;font-weight: 100;color: #999;">Goals:</p>
 			<% allfollows = @user.all_follows %>
@@ -29,15 +29,98 @@
 						<% allfollows = @user.all_follows %>
 						<% allfollows.each do |item| %>
 						<div class="row" style="padding-left:16px;">
+							<% @steppy = Steppy.find(item.followable_id) %>
+							<% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
 
 							<div class="col-md-2">
-								<div class="progressbox"></div>
+								<div class="progressbox">
+									
+									<%if @steppy.step10.present?%>
+										<% @prog = 100%>
+									<%elsif @steppy.step9.present?%>
+										<% @prog = 90%>
+									<%elsif @steppy.step8.present?%>
+										<% @prog = 80%>
+									<%elsif @steppy.step7.present?%>
+										<% @prog = 70.0%>
+									<%elsif @steppy.step6.present?%>
+										<% @prog = 60%>
+									<%elsif @steppy.step5.present?%>
+										<% @prog = 50%>	
+									<%elsif @steppy.step4.present?%>
+										<% @prog = 40%>							
+									<% else %>
+										<% @prog = 30  %>
+									<%end%>
+
+									<% if @chklist.chk10 == "Done!" %>
+										<% @progchk10 = 100 %>
+									<% else %>
+										<% @progchk10 = 0  %>
+									<% end %>
+									<% if @chklist.chk9 == "Done!" %>
+										<% @progchk9 = 100 %>
+									<% else %>
+										<% @progchk9 = 0  %>
+									<% end %>
+									<% if @chklist.chk8 == "Done!" %>
+										<% @progchk8 = 100 %>
+									<% else %>
+										<% @progchk8 = 0  %>
+									<% end %>
+									<% if @chklist.chk7 == "Done!" %>
+										<% @progchk7 = 100.0 %>
+									<% else %>
+										<% @progchk7 = 0  %>
+									<% end %>
+									<% if @chklist.chk6 == "Done!" %>
+										<% @progchk6 = 100 %>
+									<% else %>
+										<% @progchk6 = 0  %>
+									<% end %>
+									<% if @chklist.chk5 == "Done!" %>
+										<% @progchk5 = 100 %>
+									<% else %>
+										<% @progchk5 = 0  %>
+									<% end %>
+									<% if @chklist.chk4 == "Done!" %>
+										<% @progchk4 = 100 %>
+									<% else %>
+										<% @progchk4 = 0  %>
+									<% end %>
+									<% if @chklist.chk3 == "Done!" %>
+										<% @progchk3 = 100 %>
+									<% else %>
+										<% @progchk3 = 0  %>
+									<% end %>
+									<% if @chklist.chk2 == "Done!" %>
+										<% @progchk2 = 100 %>
+									<% else %>
+										<% @progchk2 = 0  %>
+									<% end %>
+									<% if @chklist.chk1 == "Done!" %>
+										<% @progchk1 = 100 %>
+									<% else %>
+										<% @progchk1 = 0  %>
+									<% end %>
+									
+
+
+									<!--
+									<p>prog(#of steps):<%= @prog %></p>
+									<p>progchk(# of steps done):<%= @progchk = @progchk1 + @progchk2 + @progchk3 + @progchk4 + @progchk5 + @progchk6 + @progchk7 + @progchk8 + @progchk9 + @progchk10 %></p>
+									-->								
+									<% ans = (@progchk / @prog ) *10 %>
+									<p class="progress_perc"><%= ans.round %>%</p>
+									
+									
+
+								</div>
 							</div>
 
 							<div class="col-md-8">
 								<div> 
-								    <% @steppy = Steppy.find(item.followable_id) %>
-								    <% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
+								    
 								    
 								    <div class="list">						
 									    <%= link_to @steppy.goal.capitalize, steppy_path(@steppy), :style => "margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;color: #333;", class: @steppy.goal.gsub(/\s+/, "") %>

@@ -27,8 +27,10 @@ blank-avatar2.jpg: blank-avatar2-e11f59e1a608a496bb8ec3cdd969c925.jpg
 blank-avatar2/index.jpg: blank-avatar2-e11f59e1a608a496bb8ec3cdd969c925.jpg
 fb_cover.png: fb_cover-5ff546b7d05f24230e617214e050ecc7.png
 fb_cover/index.png: fb_cover-5ff546b7d05f24230e617214e050ecc7.png
-profile.png: profile-6d2d550a04c33d21e95636ce6d26e60e.png
-profile/index.png: profile-6d2d550a04c33d21e95636ce6d26e60e.png
+profile.jpg: profile-9c5e5b0e77427e77c5719456ab0309d3.jpg
+profile/index.jpg: profile-9c5e5b0e77427e77c5719456ab0309d3.jpg
+profile2.png: profile2-6d2d550a04c33d21e95636ce6d26e60e.png
+profile2/index.png: profile2-6d2d550a04c33d21e95636ce6d26e60e.png
 rails.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 rails/index.png: rails-a3386665c05a2d82f711a4aaa72d247c.png
 steppy.png: steppy-a64fce0054cd3d3758b2cc71c0a98b0d.png
@@ -41,8 +43,8 @@ application.js: application-54c487b59e43e2a5d9fd7f8bf58b412c.js
 application/index.js: application-54c487b59e43e2a5d9fd7f8bf58b412c.js
 ckeditor/config.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
 ckeditor/config/index.js: ckeditor/config-4be86f562b933bcfc5706dbe6f63d23c.js
-application.css: application-ed9584945c3f3629be638a85b0b617a6.css
-application/index.css: application-ed9584945c3f3629be638a85b0b617a6.css
+application.css: application-6df44dc45e36d673d1deba8bb46a1b87.css
+application/index.css: application-6df44dc45e36d673d1deba8bb46a1b87.css
 jquery.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 jquery/index.min.map: jquery.min-6336c5bca4c709e809647cdfcb484d0a.map
 ckeditor/basepath.js: ckeditor/basepath-b4c4979700828acb2a7608363036fdf9.js
