@@ -13,7 +13,7 @@
 			<img src="/assets/profile.jpg" alt="User Avatar" class="avatar">
 			<p style="margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;color: #333;"><%= @user.username.capitalize %></p>
 			<p style="padding: 0px;font-size: 13px;font-weight: 100;color: #999;">Goals:</p>
-			<% allfollows = @user.all_follows %>
+			<% allfollows = @user.all_follows(order: "follows.id DESC") %>
 			<% allfollows.each do |item| %>
 
 				<% @steppy = Steppy.find(item.followable_id) %>
@@ -27,7 +27,8 @@
 	    		<% if current_user %>
 					<% @chklist = Checklist.where(:chk_user_id => @user.username).first %>
 					<% if current_user && @chklist.present? %>
-						<% allfollows = @user.all_follows %>
+						<% allfollows = @user.all_follows(order: "follows.id DESC") %>
+
 						<% allfollows.each do |item| %>
 						<div class="row" style="padding-left:16px;">
 							<% @steppy = Steppy.find(item.followable_id) %>
