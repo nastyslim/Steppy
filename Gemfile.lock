@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     acts_as_follower (0.1.1)
     arel (3.0.3)
+    bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
     ckeditor_rails (4.3.1)
@@ -45,6 +46,8 @@ GEM
     execjs (2.0.2)
     hike (1.2.3)
     i18n (0.6.1)
+    indefinite_article (0.2.0)
+      activesupport
     journey (1.0.4)
     jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
@@ -117,6 +120,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   ckeditor_rails
   coffee-rails (~> 3.2.1)
+  indefinite_article
   jquery-rails
   pg
   rails (= 3.2.13)

@@ -22,7 +22,7 @@
 <body>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	
-	  <div class="container-fluid">
+	  <div class="container-fluid top_page">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -152,7 +152,7 @@
                       <%= link_to steppy do%>
                           <div>       
                               <div>
-                                  <li class="front_panel_new" style="list-style-type: square;">How to become a <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
+                                  <li class="front_panel_new" style="list-style-type: square;">How to become <%= steppy.goal.indefinite_article %> <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
                               </div>
                           </div>
                       <% end %>  
@@ -173,7 +173,7 @@
                       <%= link_to steppy do%>
                           <div>       
                               <div>
-                                  <li class="front_panel_new" style="list-style-type: square;">How to become a <%= truncate(steppy.ask.capitalize, :length => 150) %></li>
+                                  <li class="front_panel_new" style="list-style-type: square;">How to become  <%= steppy.ask.indefinite_article %>  <%= truncate(steppy.ask.capitalize, :length => 150) %></li>
                               </div>
                           </div>
                       <% end %>  
@@ -293,7 +293,7 @@
 		<div class="footer2">
       <div class="container-fluid">
         <!--<p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;">© 2014 Steppy</p>-->
-        <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;" class="pull-right"><a href="">Back to top</a></p>
+        <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;" class="pull-right"><a href="" id="back_to_top">Back to top</a></p>
         <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;">© 2014 Steppy, Inc. · <a href="">Privacy</a> · <a href="">Terms</a></p>
       </div>
     </div>
@@ -312,18 +312,44 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-</script>
-<script>
-      $(document).ready(function() {
 
-      $(".dropdown").click(function(){
+  $(document).ready(function() {
+      $(".dropdown-toggle").click(function(){
          $(".dropdown-menu").slideToggle( [300], function(){ 
              $(".log").text('Slide Down Transition Complete');
           });
       });
-   });
+  });
 
-      $('.dropdown-toggle').dropdown() 
+      
+</script>
+<script>
+    /**  
+    scroll to element function
+  **/
+    function scrollToElement(selector, time, verticalOffset) {
+      time = typeof(time) != 'undefined' ? time : 500;
+      verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+      element = $(selector);
+      offset = element.offset();
+      offsetTop = offset.top + verticalOffset;
+      $('html, body').animate({
+        scrollTop: offsetTop
+      }, time);     
+    }
+    
+  /**  
+    document ready
+  **/ 
+  $(document).ready(function() {
+    /* scroll to #navigation */
+      
+      $("#back_to_top").click(function (e) {
+        e.preventDefault();
+        scrollToElement(".top_page");
+      });
+  });
+  
 </script>
 </body>
 

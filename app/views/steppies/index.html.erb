@@ -154,7 +154,7 @@
                         <% if steppy.goal.present? %>
                             <div class="steppybx2">       
                                 <div style="padding-left: 14px;">
-                                    <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
+                                    <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
                                     <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                     <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                                 </div>
@@ -162,7 +162,7 @@
                         <% elsif steppy.ask.present? %>
                             <div class="requestbox steppybx2_ask" style="overflow: hidden;">       
                                 <div style="padding-left:14px;float: left;">
-                                    <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become a </div>
+                                    <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become  <%= steppy.ask.indefinite_article %>  </div>
                                     <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 40) %></b></div>
                                 </div>
                                 <div style="padding-top: 20px;float: right;padding-right: 20px;">
@@ -174,18 +174,22 @@
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
                                 <li>
-                                    <% if steppy.liked_by?(current_user) %>
-                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
-                                    <%else%>
-                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
                                     <%end%>
                                 </li>  
                                 <li class="">
-                                    <% if current_user.following?(steppy)%>
-                                        <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
-                                    <%else%>
-                                        <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
-                                    <%end%>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% end %>
                                 </li>
                                 <li class="actionbtns">Share</li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
@@ -205,8 +209,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -214,18 +218,22 @@
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
                                 <li>
-                                    <% if steppy.liked_by?(current_user) %>
-                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
-                                    <%else%>
-                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
-                                    <%end%>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% end %>
                                 </li>  
                                 <li class="">
-                                    <% if current_user.following?(steppy)%>
-                                        <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
-                                    <%else%>
-                                        <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
-                                    <%end%>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% end %>
                                 </li>
                                 <li class="actionbtns">Share</li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
@@ -248,7 +256,7 @@
                     <%= link_to steppy do%>
                         <div class="requestbox steppybx2_ask" style="overflow: hidden;">       
                             <div style="padding-left:14px;float: left;">
-                                <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become a </div>
+                                <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become  <%= steppy.ask.indefinite_article %>  </div>
                                 <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 40) %></b></div>
                             </div>
                             <div style="padding-top: 20px;float: right;padding-right: 20px;">
@@ -259,11 +267,13 @@
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
                                 <li>
-                                    <% if steppy.liked_by?(current_user) %>
-                                        <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
-                                    <%else%>
-                                        <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
-                                    <%end%>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% end %>
                                 </li>  
                                 <li class="actionbtns">Share</li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
@@ -284,8 +294,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -313,8 +323,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -341,8 +351,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -370,8 +380,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -399,8 +409,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -428,8 +438,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -457,8 +467,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -486,8 +496,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -514,8 +524,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -543,8 +553,8 @@
                     <%= link_to steppy do%>
                         <div class="steppybx2">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become a </div>
-                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
+                                <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
+                                <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
                                 <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                             </div>
                         </div>
@@ -575,7 +585,7 @@
                     <%= link_to steppy do%>
                         <div class="steppybx">       
                             <div style="padding-left: 14px;">
-                                <div style="font-size: 16px;padding-top: 9px;color: grey;">How to become a </div>
+                                <div style="font-size: 16px;padding-top: 9px;color: grey;">How to become  <%= steppy.goal.indefinite_article %>  </div>
                                 <div><b><%= truncate(steppy.goal.capitalize, :length => 150) %></b></div>
 
                             </div>
@@ -592,7 +602,7 @@
 
 <script>
 $(document).ready(function() {
-    $(".catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catnew").css({"display": "none"}),
+    $(".catreq, .catae, .catce, .cate,  .catfb, .catf, .cathl, .cathb,  .cats, .catl, .cato, .catnew, #catnew").css({"display": "none"}),
 
     $("#cat1btn").click(function(){
         $("#catnew, #catreq, #catae, #catce, #cate,  #catfb, #catf, #cathl, #cathb,  #cats, #catl, #cato, #catall").css({"display": "none"}),

@@ -15,6 +15,7 @@
 			<p style="padding: 0px;font-size: 13px;font-weight: 100;color: #999;">Goals:</p>
 			<% allfollows = @user.all_follows %>
 			<% allfollows.each do |item| %>
+
 				<% @steppy = Steppy.find(item.followable_id) %>
 				<div><a href="#" style="color:#999;" id="<%= @steppy.goal.gsub(/\s+/, "")%>"><%= @steppy.goal.capitalize %></a></div>
 			<%end%>	
@@ -32,90 +33,91 @@
 							<% @steppy = Steppy.find(item.followable_id) %>
 							<% @chklist = Checklist.where(:chk_user_id => @user.username, :chk_steppy_id => @steppy.goal).first %>
 
+
+							<!--% logic-->
+							<%if @steppy.step10.present?%>
+								<% @prog = 100.0%>
+							<%elsif @steppy.step9.present?%>
+								<% @prog = 90.0%>
+							<%elsif @steppy.step8.present?%>
+								<% @prog = 80.0%>
+							<%elsif @steppy.step7.present?%>
+								<% @prog = 70.0%>
+							<%elsif @steppy.step6.present?%>
+								<% @prog = 60.0%>
+							<%elsif @steppy.step5.present?%>
+								<% @prog = 50.0%>	
+							<%elsif @steppy.step4.present?%>
+								<% @prog = 40.0%>							
+							<% else %>
+								<% @prog = 30.0  %>
+							<%end%>
+
+							<% if @chklist.chk10 == "Done!" %>
+								<% @progchk10 = 100.0 %>
+							<% else %>
+								<% @progchk10 = 0  %>
+							<% end %>
+							<% if @chklist.chk9 == "Done!" %>
+								<% @progchk9 = 100.0 %>
+							<% else %>
+								<% @progchk9 = 0  %>
+							<% end %>
+							<% if @chklist.chk8 == "Done!" %>
+								<% @progchk8 = 100.0 %>
+							<% else %>
+								<% @progchk8 = 0  %>
+							<% end %>
+							<% if @chklist.chk7 == "Done!" %>
+								<% @progchk7 = 100.0 %>
+							<% else %>
+								<% @progchk7 = 0  %>
+							<% end %>
+							<% if @chklist.chk6 == "Done!" %>
+								<% @progchk6 = 100.0 %>
+							<% else %>
+								<% @progchk6 = 0  %>
+							<% end %>
+							<% if @chklist.chk5 == "Done!" %>
+								<% @progchk5 = 100.0 %>
+							<% else %>
+								<% @progchk5 = 0  %>
+							<% end %>
+							<% if @chklist.chk4 == "Done!" %>
+								<% @progchk4 = 100.0 %>
+							<% else %>
+								<% @progchk4 = 0  %>
+							<% end %>
+							<% if @chklist.chk3 == "Done!" %>
+								<% @progchk3 = 100.0 %>
+							<% else %>
+								<% @progchk3 = 0  %>
+							<% end %>
+							<% if @chklist.chk2 == "Done!" %>
+								<% @progchk2 = 100.0 %>
+							<% else %>
+								<% @progchk2 = 0  %>
+							<% end %>
+							<% if @chklist.chk1 == "Done!" %>
+								<% @progchk1 = 100.0 %>
+							<% else %>
+								<% @progchk1 = 0  %>
+							<% end %>
+						
+							<!--
+							<p>prog(#of steps):<%= @prog %></p>
+							<p>progchk(# of steps done):<%= @progchk = @progchk1 + @progchk2 + @progchk3 + @progchk4 + @progchk5 + @progchk6 + @progchk7 + @progchk8 + @progchk9 + @progchk10 %></p>
+							-->								
+							<% ans = (@progchk / @prog ) *10 %>
+
 							<div class="col-md-2">
-								<div class="progressbox">
-									
-									<%if @steppy.step10.present?%>
-										<% @prog = 100%>
-									<%elsif @steppy.step9.present?%>
-										<% @prog = 90%>
-									<%elsif @steppy.step8.present?%>
-										<% @prog = 80%>
-									<%elsif @steppy.step7.present?%>
-										<% @prog = 70.0%>
-									<%elsif @steppy.step6.present?%>
-										<% @prog = 60%>
-									<%elsif @steppy.step5.present?%>
-										<% @prog = 50%>	
-									<%elsif @steppy.step4.present?%>
-										<% @prog = 40%>							
-									<% else %>
-										<% @prog = 30  %>
-									<%end%>
-
-									<% if @chklist.chk10 == "Done!" %>
-										<% @progchk10 = 100 %>
-									<% else %>
-										<% @progchk10 = 0  %>
-									<% end %>
-									<% if @chklist.chk9 == "Done!" %>
-										<% @progchk9 = 100 %>
-									<% else %>
-										<% @progchk9 = 0  %>
-									<% end %>
-									<% if @chklist.chk8 == "Done!" %>
-										<% @progchk8 = 100 %>
-									<% else %>
-										<% @progchk8 = 0  %>
-									<% end %>
-									<% if @chklist.chk7 == "Done!" %>
-										<% @progchk7 = 100.0 %>
-									<% else %>
-										<% @progchk7 = 0  %>
-									<% end %>
-									<% if @chklist.chk6 == "Done!" %>
-										<% @progchk6 = 100 %>
-									<% else %>
-										<% @progchk6 = 0  %>
-									<% end %>
-									<% if @chklist.chk5 == "Done!" %>
-										<% @progchk5 = 100 %>
-									<% else %>
-										<% @progchk5 = 0  %>
-									<% end %>
-									<% if @chklist.chk4 == "Done!" %>
-										<% @progchk4 = 100 %>
-									<% else %>
-										<% @progchk4 = 0  %>
-									<% end %>
-									<% if @chklist.chk3 == "Done!" %>
-										<% @progchk3 = 100 %>
-									<% else %>
-										<% @progchk3 = 0  %>
-									<% end %>
-									<% if @chklist.chk2 == "Done!" %>
-										<% @progchk2 = 100 %>
-									<% else %>
-										<% @progchk2 = 0  %>
-									<% end %>
-									<% if @chklist.chk1 == "Done!" %>
-										<% @progchk1 = 100 %>
-									<% else %>
-										<% @progchk1 = 0  %>
-									<% end %>
-									
-
-
-									<!--
-									<p>prog(#of steps):<%= @prog %></p>
-									<p>progchk(# of steps done):<%= @progchk = @progchk1 + @progchk2 + @progchk3 + @progchk4 + @progchk5 + @progchk6 + @progchk7 + @progchk8 + @progchk9 + @progchk10 %></p>
-									-->								
-									<% ans = (@progchk / @prog ) *10 %>
-									<p class="progress_perc"><%= ans.round %>%</p>
-									
-									
-
-								</div>
+								<% if ans == 100 %>
+									<div class="progressbox_done">
+								<% else %>
+									<div class="progressbox">
+								<% end %>
+										<p class="progress_perc"><%= ans.round %>%</p>
+									</div>
 							</div>
 
 							<div class="col-md-8">

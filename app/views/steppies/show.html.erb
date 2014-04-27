@@ -34,7 +34,7 @@
   
   <div class="row">
     <div class="col-md-9 steppybody" style="padding: 15px;padding-top:0px;">
-      <h1 class="steppytitle" style="font-size:49px; font-weight:bold; padding-bottom:0px;color:#2a3747;">How do I become a <%= @steppy.goal %>?</h1>
+      <h1 class="steppytitle" style="font-size:49px; font-weight:bold; padding-bottom:0px;color:#2a3747;">How do I become  <%= @steppy.goal.indefinite_article %>  <%= @steppy.goal %>?</h1>
     <!-- artcl. info -->
         <div class="inline" style="width:initial;background-color: #234963;color: white;">
           <ul>
@@ -280,11 +280,13 @@
           </div>
           <div class="lsregions">
             <span>
-              <% if @steppy.liked_by?(current_user) %>
-                  <%= link_to "Unlike", dislike_steppy_path(@steppy), method: :put%>                                        
-              <%else%>
-                  <%= link_to "Like", like_steppy_path(@steppy), method: :put %>
-              <%end%>
+              <% if current_user %>
+                <% if @steppy.liked_by?(current_user) %>
+                    <%= link_to "Unlike", dislike_steppy_path(@steppy), method: :put%>                                        
+                <%else%>
+                    <%= link_to "Like", like_steppy_path(@steppy), method: :put %>
+                <%end%>
+              <% end %>
             </span>
             <span>Share</span>
           </div>

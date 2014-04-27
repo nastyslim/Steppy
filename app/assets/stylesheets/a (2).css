@@ -523,8 +523,16 @@ padding-left: 12px;
 .progress_perc {
 	color: white;
 font-size: 30px;
-padding-left: 21px;
+text-align: center;
+padding-left: 0px;
 padding-top: 27px;
+}
+
+.progressbox_done{
+	width: 100px;
+	height: 100px;
+	background-color: rgb(30, 204, 37);
+
 }
 
 .bar {
