@@ -560,35 +560,50 @@ color: #585858;
 
 .actionbtns {
 	border: lightgrey 1px solid;
+	/*
 background: -webkit-gradient(linear, 0 0, 0 100%, from(rgb(252, 252, 252)), to(rgb(240, 240, 240)));
 background: -webkit-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240));
 background: -moz-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240));
 background: -o-linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240));
-background: linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Safari 5.1 to 6.0 */ /* For Opera 11.1 to 12.0 */ /* For Firefox 3.6 to 15 */ /* Standard syntax (must be last) */
-text-shadow: 0 1px 0 #fff;
-font-size: 11px;
-padding: 3px 10px 3px 10px ;	
+background: linear-gradient(rgb(252, 252, 252), rgb(240, 240, 240)); /* For Safari 5.1 to 6.0 */ /* For Opera 11.1 to 12.0 */ /* For Firefox 3.6 to 15 */ 
+/*text-shadow: 0 1px 0 #fff;
+font-size:11px; */ 
+background: white;
+padding: 4px 10px 3px 10px ;	
 border-radius: 3px;
-color: #585858;
+color: #000;
+
+vertical-align: middle;
+font-family: "Helvetica Neue",Arial,sans-serif;
+font-size: 13px;
+line-height: 20px;
+cursor: inherit;
 }
 
 .actionbtns_on {
 border: rgb(158, 158, 158) 1px solid;
+/*
 background: -webkit-linear-gradient(rgb(170, 169, 169), rgb(97, 95, 95));
 background: -o-linear-gradient(rgb(170, 169, 169), rgb(97, 95, 95));
 background: -moz-linear-gradient(rgb(170, 169, 169), rgb(97, 95, 95));
 background: linear-gradient(rgb(170, 169, 169), rgb(97, 95, 95));
-text-shadow: 0 1px 0 #8B8B8B;
-font-size: 11px;
-padding: 3px 10px 3px 10px;
+text-shadow: 0 1px 0 #8B8B8B; */
+text-shadow:none;
+font-size: 13px;
+padding: 2px 10px 4.4px 10px;
 border-radius: 3px;
-color: #DFDFDF;
+color: #000;
+background: lightgrey;
 }
 
 .actionbtns:hover {
-		box-shadow: 0px 4px 6px rgb(238, 238, 238);
+	box-shadow: 0px 4px 6px rgb(238, 238, 238);
 	border:rgb(187, 187, 187) 1px solid;
+	color: black;
+	background: lightgrey;
 }
+
+
 
 .thd p{
 	margin:0px;

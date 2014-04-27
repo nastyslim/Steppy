@@ -180,18 +180,31 @@
                                         <%else%>
                                             <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
                                         <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
                                     <%end%>
                                 </li>  
-                                <li class="">
+                                <li>
                                     <% if current_user %>
                                         <% if current_user.following?(steppy)%>
                                             <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
                                         <%else%>
                                             <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
                                         <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
                                     <% end %>
                                 </li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
                         </div>                  
@@ -224,23 +237,34 @@
                                         <%else%>
                                             <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
                                         <%end%>
-                                    <% end %>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
                                 </li>  
-                                <li class="">
+                                <li>
                                     <% if current_user %>
                                         <% if current_user.following?(steppy)%>
                                             <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
                                         <%else%>
                                             <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
                                         <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
                                     <% end %>
                                 </li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
-                    
+                        </div>     
                 <% else %>        
                 <% end %>
             <% end %>
@@ -273,12 +297,34 @@
                                         <%else%>
                                             <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
                                         <%end%>
-                                    <% end %>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
                                 </li>  
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
+                        </div>     
                 <% else %>        
                 <% end %>
             <% end %>
@@ -301,13 +347,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -330,13 +404,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -358,13 +460,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -387,13 +517,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -416,13 +574,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -445,13 +631,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -474,13 +688,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -503,13 +745,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -531,13 +801,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
@@ -560,13 +858,41 @@
                         </div>
                         <div class="inlist" style="margin-top: -5px;padding-bottom: 10px;">
                             <ul style="padding-left:0px;">
-                                <li class="actionbtns">Like</li>
-                                <li class="actionbtns">Start Climbing</li>
-                                <li class="actionbtns">Share</li>
+                                <li>
+                                    <% if current_user %>
+                                        <% if steppy.liked_by?(current_user) %>
+                                            <%= link_to "Unlike", dislike_steppy_path(steppy), method: :put, :class => "actionbtns_on" %>                                        
+                                        <%else%>
+                                            <%= link_to "Like", like_steppy_path(steppy), method: :put, :class => "actionbtns"  %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Like", new_user_path, :class => "actionbtns" %>
+                                    <%end%>
+                                </li>  
+                                <li>
+                                    <% if current_user %>
+                                        <% if current_user.following?(steppy)%>
+                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                        <%else%>
+                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                        <%end%>
+                                    <% else %>
+                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                    <% end %>
+                                </li>
+                                <li>
+                                    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                                    <script src="social-likes.min.js"></script>
+
+                                    <div class="social-likes social-likes_single" data-url="http://steppy.herokuapp.com/steppies/<%= steppy.id %>" data-title="Steppy - How to become a/an <%= steppy.goal %>" data-single-title="Share">
+                                        <div class="facebook" title="Share link on Facebook">Facebook</div>
+                                        <div class="twitter" title="Share link on Twitter">Twitter</div>
+                                        <div class="plusone" title="Share link on Google+">Google+</div>
+                                    </div>
+                                </li>
                                 <li style="font-size: 11px;color:#666;"> <%= steppy.categories %> | Tags:</li>
                             </ul>
-                        </div>
-                        
+                        </div>     
                     <% end %>
                 <% else %>        
                 <% end %>
