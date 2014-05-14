@@ -1,7 +1,12 @@
-<%= form_for @user do |f| %>
+<div style="background-color: white;padding: 20px;">
+	<div class="formbody">
+
+	<h1 style="font-size:24px; font-weight:bold; padding-bottom:30px;">Update your profile</h1>
+	<div>
+		<%= form_for @user, :html => { :multipart => true } do |f| %>
 			<% if @user.errors.any? %>
 			    <div id="error_explanation">
-			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this steppy from being saved:</h2>
+			      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being updated:</h2>
 
 			      <ul>
 			      <% @user.errors.full_messages.each do |msg| %>
@@ -11,10 +16,25 @@
 			    </div>
 			  <% end %>
 
-
-
-			<%= f.text_field :username, placeholder: "Username" %>
-			<%= f.password_field :password, placeholder: "password" %>
-			<%= f.password_field :password_confirmation, placeholder: "password" %>
-			<%= f.submit "Create Account" %>
-<% end %>
+			<div class="field">
+				<p class="myh3">Username</p>
+				<%= f.text_field :username, placeholder: "Username", :class => "form-control" %>
+			</div>
+			<div class="field">
+				<p class="myh3">Email</p>
+				<%= f.text_field :email, placeholder: "Email", :class => "form-control" %>
+			</div>
+			<div class="field" style="margin:20px 0px 20px 0px;">
+				<p class="myh3">Profile Picture (200 x 200) <span style="color: grey;font-weight: 100;">(Don't worry! You can do this later!)</span></p>
+				<%= f.file_field :avatar %>	
+			</div>
+			<p class="myh3">Password</p>
+			<%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
+			<p class="myh3">Confirm Password</p>
+			<%= f.password_field :password_confirmation, placeholder: "Password", :class => "form-control" %>
+			</br>
+			<%= f.submit "Update", :class => "btn btn-primary" %>
+		<% end %>
+	</div>
+	</div>
+</div>

@@ -22,7 +22,7 @@
 
         <div class="bar">
             <div class="catt1">
-            <a href="#" id="cat1btn"><p>Arts and Entertainment</p></a>
+                <a href="#" id="cat1btn"><p>Arts and Entertainment</p></a>
             </div>
 
             <div class="catt2">
@@ -68,40 +68,40 @@
             <div class="catall">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">All</h1>
             </div>
-            <div class="catnew">
+            <div class="catnew" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Newest Staircases</h1>
             </div>
-            <div class="catreq">
+            <div class="catreq" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Requested </h1>
             </div>
-            <div class="catae">
+            <div class="catae" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Arts and Entertainment</h1>
             </div>
-            <div class="catce">
+            <div class="catce" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Computers and Electronics</h1>
             </div>
-            <div class="cate">
+            <div class="cate" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Education</h1>
             </div>
-            <div class="catfb">
+            <div class="catfb" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Finance and Business</h1>
             </div>
-            <div class="catf">
+            <div class="catf" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Food</h1>
             </div>
-            <div class="cathl">
+            <div class="cathl" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Health</h1>
             </div>
-            <div class="cathb">
+            <div class="cathb" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Hobbies</h1>
             </div>
-            <div class="cats">
+            <div class="cats" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Sports</h1>
             </div>
-            <div class="catl">
+            <div class="catl" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Lifestyle</h1>
             </div>
-            <div class="cato">
+            <div class="cato" style="display:none;">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Other</h1>
             </div>
         </div>
@@ -184,15 +184,16 @@
                                         <%= link_to "Like", new_user_path, :class => "actionbtns" %>
                                     <%end%>
                                 </li>  
-                                <li>
-                                    <% if current_user %>
-                                        <% if current_user.following?(steppy)%>
-                                            <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
-                                        <%else%>
-                                            <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
-                                        <%end%>
-                                    <% else %>
-                                        <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                <li><% if steppy.goal.present? %>
+                                        <% if current_user %>
+                                            <% if current_user.following?(steppy)%>
+                                                <%= link_to 'Stop Climbing', unfollow_path(steppy), :class => "actionbtns_on"%>
+                                            <%else%>
+                                                <%= link_to 'Start Climbing', follow_path(steppy), :class => "actionbtns" %>
+                                            <%end%>
+                                        <% else %>
+                                            <%= link_to "Start Climbing!", new_user_path, :class => "actionbtns" %>
+                                        <% end %>
                                     <% end %>
                                 </li>
                                 <li>
@@ -214,7 +215,7 @@
 
 
 
-        <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -272,7 +273,7 @@
         
         
 
-        <div id="catreq" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catreq" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -332,7 +333,7 @@
 
 
       
-        <div id="catae" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catae" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -389,7 +390,7 @@
         </div>
 
 
-        <div id="catce" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catce" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -445,7 +446,7 @@
             <% end %>
         </div>
 
-        <div id="cate" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="cate" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -502,7 +503,7 @@
         </div>
 
 
-        <div id="catfb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catfb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -559,7 +560,7 @@
         </div>
 
 
-        <div id="catf" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catf" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -616,7 +617,7 @@
         </div>
         
 
-        <div id="cathl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="cathl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -673,7 +674,7 @@
         </div>
 
 
-        <div id="cathb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="cathb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -730,7 +731,7 @@
         </div>
 
 
-        <div id="cats" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="cats" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -786,7 +787,7 @@
             <% end %>
         </div>
 
-        <div id="catl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -843,7 +844,7 @@
         </div>
 
  
-        <div id="cato" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="cato" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>

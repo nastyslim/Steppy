@@ -98,7 +98,7 @@
 
       <div class="carousel-inner">
         <div class="item active">
-          <img  alt="First slide" src="">
+          <img  alt="First slide" src="http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg">
 
           <div class="container-fluid">
             <div class="carousel-caption">
@@ -143,10 +143,10 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4" stlye="text-align: left;">
-          <div class="front_panel">
+          <div class="front_panel" style="min-height:238px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Newest Steppies</h2>
-            <div class="row" style="padding-left: 10px;padding-right: 10px;">
-              <% @steppy = Steppy.order('created_at DESC').take(7)%>
+            <div class="row" style="padding: 10px;background-color: #D4EAF8;">
+              <% @steppy = Steppy.order('created_at DESC').take(10)%>
 
               <% @steppy.each do |steppy| %>
                   <% if steppy.goal.present? %>
@@ -160,14 +160,14 @@
                   <% end %>
                 <% end %>
             </div>
-            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
           </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <div class="front_panel" style="min-height: 238px;">
+          <div class="front_panel" style="min-height: 238px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Recently Requested Steppies</h2>
-            <div class="row" style="padding-left: 10px;padding-right: 10px;">
-              <% @steppy = Steppy.order('created_at DESC').take(7)%>
+            <div class="row" style="padding: 10px;background-color: #D4EAF8;">
+              
 
               <% @steppy.each do |steppy| %>
                   <% if steppy.ask.present? %>
@@ -181,16 +181,17 @@
                   <% end %>
                 <% end %>
             </div>
-            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
           </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <div class="front_panel" style="height: 238px;">
+          <div class="front_panel" style="height: 238px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">This week's Feature</h2>
-            <div class="row" style="padding-left: 10px;padding-right: 10px;">
+            <div class="row" style="text-align: center;">
+              <img src="http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg" alt="" style="width:358;height:120px;">
     
             </div>
-            <p  style="text-align:right;"><a class="btn btn-default" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
           </div>
         </div>
         <!--

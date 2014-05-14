@@ -9,9 +9,19 @@
 
 
 	<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
-		<div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
-			<img src="/assets/profile.jpg" alt="User Avatar" class="avatar">
+		<div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">			
+			<% if @user.avatar.present? %>
+				<div class="avatar" style="background:url(<%= @user.avatar%>) center center no-repeat;background-size: 100%;">
+					
+				</div>
+			<% else %>
+				<div class="avatar">
+					<img src="/assets/profile.jpg" alt="User Avatar" style="height:auto; width:auto; max-width:200px; max-height:200px;">
+				</div>
+			<% end %>
+			
 			<p style="margin-top:20px;margin-top: 20px;padding: 0px;font-size: 20px;line-height: 1.3;font-weight: 400;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;color: #333;"><%= @user.username.capitalize %></p>
+					
 			<p style="padding: 0px;font-size: 13px;font-weight: 100;color: #999;">Goals:</p>
 			<% allfollows = @user.all_follows(order: "follows.id DESC") %>
 			<% allfollows.each do |item| %>
@@ -19,6 +29,7 @@
 				<% @steppy = Steppy.find(item.followable_id) %>
 				<div><a href="#" style="color:#999;" id="<%= @steppy.goal.gsub(/\s+/, "")%>"><%= @steppy.goal.capitalize %></a></div>
 			<%end%>	
+			<%= link_to 'Edit Profile', edit_user_path(@user) %>
 
 		</div>
 

@@ -28,6 +28,7 @@ gem 'rake', '10.1.1'
 gem "socialization"
 gem "social-buttons", '~> 0.3'
 gem "indefinite_article"
+gem "paperclip", "~> 3.5.3"
 
 
 # Gems used only for assets and not required
