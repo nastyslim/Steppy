@@ -171,13 +171,15 @@
 
               <% @steppy.each do |steppy| %>
                   <% if steppy.ask.present? %>
-                      <%= link_to steppy do%>
+                      
                           <div>       
                               <div>
+                                <%= link_to steppy do%>
                                   <li class="front_panel_new" style="list-style-type: square;">How to become  <%= steppy.ask.indefinite_article %>  <%= truncate(steppy.ask.capitalize, :length => 150) %></li>
+                                <% end %> 
                               </div>
                           </div>
-                      <% end %>  
+                       
                   <% end %>
                 <% end %>
             </div>
