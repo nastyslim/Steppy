@@ -146,7 +146,7 @@
           <div class="front_panel" style="min-height:238px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Newest Steppies</h2>
             <div class="row" style="padding: 10px;background-color: #D4EAF8;">
-              <% @steppy = Steppy.order('created_at DESC').take(10)%>
+              <% @steppy = Steppy.order('created_at DESC').take(6)%>
 
               <% @steppy.each do |steppy| %>
                   <% if steppy.goal.present? %>
