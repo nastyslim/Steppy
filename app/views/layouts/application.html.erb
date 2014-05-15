@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="box-shadow:0px 0px 0px;">
 	
 	  <div class="container-fluid top_page">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -42,10 +42,10 @@
           <li><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></li>
           <li><%= link_to 'Create a Staircase!', new_steppy_path, :class => '' %></li>
         -->
-          <li><a href="/steppies">Staircases</a></li>
           <li><a href="/steppies">Explore</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="/steppies">Create</a></li>
+          <li><a href="#">Request</a></li>
+          <li><a href="/steppies/about.html">About</a></li>
         </ul>
     	 	     
 	      <ul class="nav navbar-nav navbar-right">  
@@ -88,7 +88,7 @@
   
     <!-- Carousel
     ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide " data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -98,7 +98,7 @@
 
       <div class="carousel-inner">
         <div class="item active">
-          <img  alt="First slide" src="http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg">
+          <div alt="First slide" style="width: 100%;height: 100%;background-image: url('http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg');background-size: cover;"></div>
 
           <div class="container-fluid">
             <div class="carousel-caption">
@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="item">
-          <img alt="Second slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
+          <div alt="Second slide" style="width: 100%;height: 100%;background-image: url('https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png');background-size: cover;"></div>
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>Another example headline.</h1>
@@ -120,7 +120,7 @@
           </div>
         </div>
         <div class="item">
-          <img alt="Third slide" src="https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png">
+          <div alt="Third slide" style="width: 100%;height: 100%;background-image: url('https://scontent-a-iad.xx.fbcdn.net/hphotos-ash3/t1/1656301_275649689252063_1231391741_n.png');background-size: cover;"></div>
           <div class="container-fluid">
             <div class="carousel-caption">
               <h1>One more for good measure.</h1>
@@ -146,19 +146,28 @@
           <div class="front_panel" style="min-height:238px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Newest Steppies</h2>
             <div class="row" style="padding: 10px;background-color: #D4EAF8;">
-              <% @steppy = Steppy.order('created_at DESC').take(6)%>
 
-              <% @steppy.each do |steppy| %>
-                  <% if steppy.goal.present? %>
-                      <%= link_to steppy do%>
-                          <div>       
-                              <div>
-                                  <li class="front_panel_new" style="list-style-type: square;">How to become <%= steppy.goal.indefinite_article %> <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
-                              </div>
-                          </div>
-                      <% end %>  
-                  <% end %>
+                
+                
+                <% @steppies_having_ask = Steppy.where("ask IS NOT NULL AND ask != ''").order('created_at DESC').limit(6) %>
+                <% @steppies_having_goal = Steppy.where('goal IS NOT NULL').order('created_at DESC').limit(6) %>
+                
+                
+
+
+                <% @steppies_having_goal.each do |steppy| %>
+
+ 
+                        <%= link_to steppy do%>
+                            <div>       
+                                <div>
+                                    <li class="front_panel_new" style="list-style-type: square;">How to become <%= steppy.goal.indefinite_article %> <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
+                                </div>
+                            </div>
+                        <% end %>  
+                
                 <% end %>
+             
             </div>
             <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
           </div>
@@ -168,9 +177,9 @@
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Recently Requested Steppies</h2>
             <div class="row" style="padding: 10px;background-color: #D4EAF8;">
               
-
-              <% @steppy.each do |steppy| %>
-                  <% if steppy.ask.present? %>
+          
+              <% @steppies_having_ask.each do |steppy| %>
+                  
                       
                           <div>       
                               <div>
@@ -180,14 +189,14 @@
                               </div>
                           </div>
                        
-                  <% end %>
-                <% end %>
+                  
+              <% end %>
             </div>
             <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
           </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <div class="front_panel" style="height: 238px;box-shadow:1px 1px 6px lightgrey;">
+          <div class="front_panel" style="height: 258px;box-shadow:1px 1px 6px lightgrey;">
             <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">This week's Feature</h2>
             <div class="row" style="text-align: center;">
               <img src="http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg" alt="" style="width:358;height:120px;">
@@ -256,8 +265,8 @@
         </div>
       </div>
       <hr class="featurette-divider">
-      <p style="text-align:center;margin-top: 200px;margin-bottom: 200px;"><a class="btn btn-lg btn-primary" href="#" role="button" >Star Climbing!</a></p>
-      <hr class="featurette-divider">
+      <p style="text-align:center;margin-top: 200px;margin-bottom: 200px;"><a class="btn btn-lg btn-primary" href="/steppies" role="button" >Start Climbing!</a></p>
+      <hr class="featurette-divider" style="border-top: 1px solid white;">
 
 
       
@@ -298,7 +307,7 @@
       <div class="container-fluid">
         <!--<p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;">© 2014 Steppy</p>-->
         <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;" class="pull-right"><a href="" id="back_to_top">Back to top</a></p>
-        <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;">© 2014 Steppy, Inc. · <a href="">Privacy</a> · <a href="">Terms</a></p>
+        <p style="text-align:center; color:#bbb; font-size:12px; text-shadow: 0 1px 1px rgba(0,0,0,.2); padding-top: 30px;">© 2014 Steppy, Inc. · <a href="/steppies/privacy.html">Privacy</a> · <a href="/steppies/terms.html">Terms</a> · <a href="/steppies/contact.html">Contact</a></p>
       </div>
     </div>
 	</div>

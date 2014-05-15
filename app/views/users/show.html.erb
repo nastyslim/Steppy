@@ -11,7 +11,7 @@
 	<div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
 		<div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">			
 			<% if @user.avatar.present? %>
-				<div class="avatar" style="background:url(<%= @user.avatar%>) center center no-repeat;background-size: 100%;">
+				<div class="avatar" style="background:url(<%= @user.avatar%>) center center no-repeat;background-size: 100%;box-shadow:0px 0px 0px grey;border-right:solid 1px lightgrey;">
 					
 				</div>
 			<% else %>
@@ -29,7 +29,9 @@
 				<% @steppy = Steppy.find(item.followable_id) %>
 				<div><a href="#" style="color:#999;" id="<%= @steppy.goal.gsub(/\s+/, "")%>"><%= @steppy.goal.capitalize %></a></div>
 			<%end%>	
-			<%= link_to 'Edit Profile', edit_user_path(@user) %>
+			<div style="margin-top:20px;">
+				<%= link_to 'Edit Profile', edit_user_path(@user), :style =>"padding: 5px;background-color: rgb(250, 250, 250);color: rgb(197, 197, 197);" %>
+			</div>
 
 		</div>
 

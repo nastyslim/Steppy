@@ -224,9 +224,9 @@
 
           <% else %>
             <div>
-              <h1 style="font-size:49px; font-weight:bold; padding-bottom:0px;">How do I become a <%= @steppy.ask %>?</h1>
+              <h1 style="font-size:49px; font-weight:bold; padding-bottom:0px;color:#2a3747;">How do I become a <%= @steppy.ask.capitalize %>?</h1>
                 <% if @steppy.region.present? %>
-                  <p>in <b style="color:#E77738;"><%= @steppy.region %></b></p>
+                  <p>in <b style="color:#E77738;"><%= @steppy.region.capitalize %></b></p>
                 <% else %>                 
                 <% end %>
               <%= link_to 'Answer this question!', edit_steppy_path(@steppy), :class => 'btn btn-danger bw' %>

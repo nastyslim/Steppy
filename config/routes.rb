@@ -24,6 +24,11 @@ SteppyApp::Application.routes.draw do
   get "steppies/create"
   get "users/:id" => "users#show"
 
+  get 'steppies/terms'
+  get 'steppies/privacy'
+  get 'steppies/contact'
+  get 'steppies/about'
+
 
 
   

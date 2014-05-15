@@ -2,12 +2,22 @@ class SteppiesController < ApplicationController
   # GET /steppies
   # GET /steppies.json
   def index
+
     @steppies = Steppy.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @steppies }
     end
+  end
+
+  def terms
+  end
+  def privacy
+  end
+  def contact
+  end
+  def about
   end
 
   
