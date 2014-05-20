@@ -6,22 +6,23 @@
 
 <div style="background-color:white;padding:20px;padding-top:0px;">
   <div class="row" style="margin:auto;background-color: white;padding: 0px;padding-top:0px;margin-bottom:20px;">
-    <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
+    <div class="col-md-3 leftexplr menu-small" style="padding-top:35px;width: 21%;padding-left: 12px;">
         <div class="selectnav catt11">
             <p><%= link_to 'Back', :back, :id => "catt11btn", :style=>"color:#333;"%></p>
         </div>
         
 
     </div>
-    <div class="col-md-9" style="padding-left:30px;">
+    <div class="col-md-9 noleftpadding" style="padding-left:30px;">
       <div style="overflow: hidden; ">
-            <div class="col-md-6" style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;padding-top:33px;">
+            <div class="col-md-6 center" style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;padding-top:33px;">
               <%= @steppy.categories %>
             </div>
+            
 
-            <div class="col-md-6" style="text-align:right;padding-top:33px;">
-                <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary' %>
-                <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary' %>  
+            <div class="col-md-6 up-nav tr" style="text-align:right;padding-top:33px;">
+                <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary padding-round' %>
+                <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary padding-round' %>  
             </div>
       </div>
 

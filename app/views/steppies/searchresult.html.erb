@@ -1,6 +1,6 @@
 <div style="background-color:white;padding:20px;padding-top:0px;">
 	<div class="row" style="margin:auto;background-color: white;padding: 0px;padding-top:0px;margin-bottom:20px;">
-	    <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
+	    <div class="col-md-3 leftexplr menu-small" style="padding-top:35px;width: 21%;padding-left: 12px;">
 	        <div class="selectnav catt11">
 	            <a href="#" id="cat11btn"><p style="color:#333;">Search</p></a>
 	        </div>
@@ -8,7 +8,7 @@
 
 		<% if search().present? %>
 	
-	    <div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+	    <div class="col-md-9 noleftpadding" style="padding-top:33px;padding-left: 30px;">
 	    	<h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Search results for <%= params[:search] %>...</h1>
 	    	<% search().each do |result| %>
 			  <div style="margin-left: 0px;" class="searchresults steppybx2">
@@ -25,15 +25,15 @@
 	    </div>
 
 		<% else %>
-		<div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+		<div class="col-md-9 noleftpadding" style="padding-top:33px;padding-left: 30px;">
 			<p style="color:red;">Your search did not return anything! Try again or creat a steppy for this!</p>
 			<p><%= link_to 'Request a Staircase!', steppies_ask_path, :class => '' %></p>
 			<div class="">
 		        <%= form_tag steppies_searchresult_path, :method => 'get', :class => "form-inline" do %>
 		            <div class="form-group">
-		                <%= text_field_tag :search, params[:search], :class => "form-control", :style => "width:460px;" %>
+		                <%= text_field_tag :search, params[:search], :class => "form-control formwidth" %>
 		            </div>
-		            <div class="form-group">
+		            <div class="form-group center nomargin">
 		                <%= submit_tag "Search", :name => nil, :class => "btn btn-success sbtn acolor"  %>
 		            </div>
 		        <% end %>

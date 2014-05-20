@@ -9,7 +9,7 @@
 </style>
 
 <div class="row" style="margin:auto;background-color: white;padding: 20px;padding-top:0px;margin-bottom:20px;">
-    <div class="col-md-3 leftexplr" style="padding-top:35px;width: 21%;padding-left: 12px;">
+    <div class="col-md-3 leftexplr menu-small" style="padding-top:35px;width: 21%;padding-left: 12px;">
         <div class="selectnav catt13">
             <a href="#" id="cat13btn"><p style="color:#333;">All</p></a>
         </div>
@@ -21,50 +21,54 @@
         </div>
 
         <div class="bar">
-            <div class="catt1">
+            <div class="catt1 addstep2">
                 <a href="#" id="cat1btn"><p>Arts and Entertainment</p></a>
             </div>
 
-            <div class="catt2">
+            <div class="catt2 addstep2">
             <a href="#" id="cat2btn"><p>Computers and Electronics</p></a>
             </div>
 
-            <div class="catt3">
+            <div class="catt3 addstep2">
             <a href="#" id="cat3btn"><p>Education</p></a>
             </div>
 
-            <div class="catt4">
+            <div class="catt4 addstep2">
             <a href="#" id="cat4btn"><p>Finance and Business</p></a>
             </div>
 
-            <div class="catt5">
+            <div class="catt5 addstep2">
             <a href="#" id="cat5btn"><p>Food</p></a>
             </div>
 
-            <div class="catt6">
+            <div class="catt6 addstep2">
             <a href="#" id="cat6btn"><p>Health</p></a>
             </div>
 
-            <div class="catt7">
+            <div class="catt7 addstep2">
             <a href="#" id="cat7btn"><p>Hobbies</p></a>
             </div>
 
-            <div class="catt8">
+            <div class="catt8 addstep2">
             <a href="#" id="cat8btn"><p>Sports</p></a>
             </div>
 
-            <div class="catt9">
+            <div class="catt9 addstep2">
             <a href="#" id="cat9btn"><p>Lifestyle</p></a>
             </div>
 
-            <div class="catt10">
+            <div class="catt10 addstep2">
             <a href="#" id="cat10btn"><p>Other</p></a>
+            </div>
+
+            <div id="unhidemore"  style="text-align:center;">
+                <a id="more" href="#" style="color: #333;">More</a>
             </div>
         </div>
     </div>
-    <div class="col-md-9" style="padding-top:33px;padding-left: 30px;">
+    <div class="col-md-9 indexlist-small" style="padding-top:33px;">
         <div>
-        <div class="col-md-6">
+        <div class="col-md-6 center">
             <div class="catall">
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">All</h1>
             </div>
@@ -105,9 +109,9 @@
                 <h1 style="font-weight: 100;color: #999;margin-top: 5px;font-size: 16px;line-height: 22px;font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;">Other</h1>
             </div>
         </div>
-        <div class="col-md-6" style="text-align: right;">
-            <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary' %>
-            <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary' %>  
+        <div class="col-md-6 up-nav">
+            <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary padding-round' %>
+            <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary padding-round' %>  
         </div>
         </div>
         <!---
@@ -145,7 +149,7 @@
         -->
 
 
-        <div id="catall" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div id="catall" class="row padding-null" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -215,7 +219,7 @@
 
 
 
-        <div id="catnew" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catnew" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -273,7 +277,7 @@
         
         
 
-        <div id="catreq" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catreq" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -333,7 +337,7 @@
 
 
       
-        <div id="catae" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catae" class="row" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -390,7 +394,7 @@
         </div>
 
 
-        <div id="catce" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catce" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -446,7 +450,7 @@
             <% end %>
         </div>
 
-        <div id="cate" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="cate" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -503,7 +507,7 @@
         </div>
 
 
-        <div id="catfb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catfb" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -560,7 +564,7 @@
         </div>
 
 
-        <div id="catf" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catf" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -617,7 +621,7 @@
         </div>
         
 
-        <div id="cathl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="cathl" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -674,7 +678,7 @@
         </div>
 
 
-        <div id="cathb" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="cathb" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -731,7 +735,7 @@
         </div>
 
 
-        <div id="cats" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="cats" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -787,7 +791,7 @@
             <% end %>
         </div>
 
-        <div id="catl" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="catl" class="row padding-null" style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -844,7 +848,7 @@
         </div>
 
  
-        <div id="cato" class="row" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;display:none;">
+        <div id="cato" class="row padding-null  " style="text-align: center;overflow: hidden;padding-top:15px;display:none;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -904,7 +908,7 @@
 
 
 
-        <div class="row" style="display:none;padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
+        <div class="row padding-null" style="display:none;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
 
             <% @steppy.each do |steppy| %>
@@ -1062,6 +1066,17 @@ $(document).ready(function() {
     });
 
 });
+</script>
+
+<script>
+      $(document).ready(function() {
+
+      $("#more").click(function(){
+         $(".addstep2").slideDown( 'slow', function(){ 
+             $(".log").text('Slide Down Transition Complete');
+          });
+      });
+   });
 </script>
 
 
