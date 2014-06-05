@@ -90,28 +90,6 @@
     <%= f.select :categories, {"Arts and Entertainment"=>"Arts and Entertainment","Computers and Electronics"=>"Computers and Electronics","Education"=>"Education","Finance and Business"=>"Finance and Business","Food"=>"Food","Health"=>"Health","Hobbies"=>"Hobbies","Jobs"=>"Jobs", "Sports"=>"Sports","Lifestyle"=>"Lifestyle","Other"=>"Other"}, {}, { :class => 'form-control categories' }%>
   </div>
 
-  <!--
-  <div class="field subcat">
-    <p class="myh3">Sub Category:</p>
-    <%= f.select :categories, {"Career"=>"Career","Life Style"=>"Life Style","Do It Yourself"=>"Do It Yourself","Other"=>"Other"}, {}, { :class => 'form-control' }%>
-  </div>
-
-  <div class="field subcat2">
-    <p class="myh3">Sub Category2:</p>
-    <%= f.select :categories, {"Career"=>"Career","Life Style"=>"Life Style","Do It Yourself"=>"Do It Yourself","Other"=>"Other"}, {}, { :class => 'form-control' }%>
-  </div>
-
-  <div class="field subcat3">
-    <p class="myh3">Sub Category3:</p>
-    <%= f.select :categories, {"Career"=>"Career","Life Style"=>"Life Style","Do It Yourself"=>"Do It Yourself","Other"=>"Other"}, {}, { :class => 'form-control' }%>
-  </div>
-
-  <div class="field subcat4">
-    <p class="myh3">Sub Category4:</p>
-    <%= f.select :categories, {"Career"=>"Career","Life Style"=>"Life Style","Do It Yourself"=>"Do It Yourself","Other"=>"Other"}, {}, { :class => 'form-control' }%>
-  </div>
--->
-
   <%= f.text_field :ask, :class => "form-control hide" %>
 
 
@@ -124,48 +102,6 @@
 </div>
 </form>
 
-<script>
-      $(document).ready(function() {
+<script src="js/create_steppy_addstep+categories.js"></script>
 
-      $("#more").click(function(){
-         $(".addstep").slideDown( 'slow', function(){ 
-             $(".log").text('Slide Down Transition Complete');
-          });
-      });
-   });
-</script>
-<!--
-<script>
-  $(".categories").change(function(){
-
-     $(".subcat").css( "display","inherit" );
-
-  });
-</script>
--->
-<script>
-  
-
-  $(".categories").change(function(){
-   var target = $(this).val();
-
-
-      if(target == "Career")
-          $(".subcat").css( "display","inherit" ),
-          $(".subcat2, .subcat3, .subcat4").css( "display","none" );
-      else if(target == "Life Style")
-          $(".subcat2").css( "display","inherit" ),
-          $(".subcat, .subcat3, .subcat4").css( "display","none" );
-      else if(target == "Do It Yourself")
-          $(".subcat3").css( "display","inherit" ),
-          $(".subcat2, .subcat, .subcat4").css( "display","none" );
-      else if (target == "Other")
-          $(".subcat4").css( "display","inherit" ),
-         $(".subcat2, .subcat3, .subcat").css( "display","none" );
-
-
-});
-
-
-</script>
 <% end %>
