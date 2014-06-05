@@ -159,7 +159,7 @@
                             <div class="steppybx2">       
                                 <div style="padding-left: 14px;">
                                     <div style="font-size: 12px;padding-top: 9px;color: grey;margin-bottom:-3px;">How to become  <%= steppy.goal.indefinite_article %>  </div>
-                                    <div style="font-size:25px;"><b><%= truncate(steppy.goal.capitalize, :length => 40) %></b></div>
+                                    <div style="font-size:25px;"><b><%= truncate(steppy.goal.split.map(&:capitalize).join(' '), :length => 40) %></b></div>
                                     <div><%= truncate(steppy.description.capitalize, :length => 150).html_safe %></div>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
                             <div class="requestbox steppybx2_ask" style="overflow: hidden;">       
                                 <div style="padding-left:14px;float: left;">
                                     <div style="font-size: 12px;padding-top: 9px;color: white;margin-bottom:-3px;">How to become  <%= steppy.ask.indefinite_article %>  </div>
-                                    <div style="font-size:25px;"><b><%= truncate(steppy.ask.capitalize, :length => 40) %></b></div>
+                                    <div style="font-size:25px;"><b><%= truncate(steppy.ask.split.map(&:capitalize).join(' '), :length => 40) %></b></div>
                                 </div>
                                 <div style="padding-top: 20px;float: right;padding-right: 20px;">
                                     <p class="btn btn-primary" href="#" role="button">Answer!</p>

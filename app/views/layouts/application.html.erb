@@ -163,7 +163,7 @@
                         <%= link_to steppy do%>
                             <div>       
                                 <div>
-                                    <li class="front_panel_new" style="list-style-type: square;">How to become <%= steppy.goal.indefinite_article %> <%= truncate(steppy.goal.capitalize, :length => 150) %></li>
+                                    <li class="front_panel_new" style="list-style-type: square;">How to become <%= steppy.goal.indefinite_article %> <%= truncate(steppy.goal.split.map(&:capitalize).join(' '), :length => 150) %></li>
                                 </div>
                             </div>
                         <% end %>  
@@ -171,7 +171,7 @@
                 <% end %>
              
             </div>
-            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="/steppies" role="button">View more »</a></p>
           </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
@@ -186,7 +186,7 @@
                           <div>       
                               <div>
                                 <%= link_to steppy do%>
-                                  <li class="front_panel_new" style="list-style-type: square;">How to become  <%= steppy.ask.indefinite_article %>  <%= truncate(steppy.ask.capitalize, :length => 150) %></li>
+                                  <li class="front_panel_new" style="list-style-type: square;">How to become  <%= steppy.ask.indefinite_article %>  <%= truncate(steppy.ask.split.map(&:capitalize).join(' '), :length => 150) %></li>
                                 <% end %> 
                               </div>
                           </div>
@@ -194,17 +194,17 @@
                   
               <% end %>
             </div>
-            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="/steppies" role="button">View more »</a></p>
           </div>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <div class="front_panel" style="height: 258px;box-shadow:1px 1px 6px lightgrey;">
-            <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Featurd</h2>
+            <h2 style="text-align:left;padding-left: 10px;margin-top: 8px;font-size: 22px;">Featured</h2>
             <div class="row" style="text-align: center;">
               <img src="http://www.alsenz-apotheke.de/upload/Mann-auf-Berggipfel.jpg" alt="" style="width:358;height:140px;">
     
             </div>
-            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="#" role="button">View more »</a></p>
+            <p  style="text-align:right;padding-top: 10px;margin-bottom: 0px;"><a class="btn btn-primary" href="/steppies" role="button">View more »</a></p>
           </div>
         </div>
         <!--
