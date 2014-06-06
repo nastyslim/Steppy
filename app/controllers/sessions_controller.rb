@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   	user = User.find_by_username params[:username]
   	if user and user.authenticate(params[:password])
   		session[:user_id] = user.id 
-  		redirect_to root_url, notice: "Logged In"
+  		redirect_to steppies_path, notice: "Logged In"
   	else
-  		redirect_to root_url, notice: "Username/Password Incorrect. Did Not Log In."
+  		redirect_to new_user_path, notice: "Username/Password Incorrect. Did Not Log In."
   	end
   end
 
