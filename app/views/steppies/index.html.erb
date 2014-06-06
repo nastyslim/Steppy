@@ -121,40 +121,7 @@
             <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary padding-round' %>  
         </div>
         </div>
-        <!---
-        <div class="catbox" style="display:none;">
-            <div class="wrapper">
-              <ol
-                ><li><a href="#">Aloe</a></li
-                ><li><a href="#">Bergamot</a></li
-                ><li><a href="#">Calendula</a></li
-                ><li><a href="#">Damiana</a></li
-                ><li><a href="#">Elderflower</a></li
-
-                ><li><a href="#">Feverfew</a></li
-                ><li><a href="#">Ginger</a></li
-                ><li><a href="#">Hops</a></li
-                ><li><a href="#">Iris</a></li
-                ><li><a href="#">Juniper</a></li
-
-                ><li><a href="#">Kava kava</a></li
-                ><li><a href="#">Lavender</a></li
-                ><li><a href="#">Marjoram</a></li
-                ><li><a href="#">Nutmeg</a></li
-                ><li><a href="#">Oregano</a></li
-                ><li><a href="#">Pennyroyal</a></li
-              ></ol>
-            </div>   
-        </div>
-
-        <div style="padding: 10px;">
-            <div class="staircasesbx">
-                <%= link_to 'Create a Staircase!', new_steppy_path, :class => 'btn btn-primary' %>
-                <%= link_to 'Request a Staircase!', steppies_ask_path, :class => 'btn btn-primary' %>    
-            </div>
-        </div>
-        -->
-
+       
 
         <div id="catall" class="row padding-null" style="padding-left: 7px;padding-right: 15px;text-align: center;overflow: hidden;padding-top:15px;">
             <% @steppy = Steppy.order('created_at DESC')%>
